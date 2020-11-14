@@ -8,6 +8,7 @@
     <!-- STYLES -->
     <link rel="stylesheet" href="./assets/styles/layout.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
 </head>
 <body>
     <header>
@@ -85,7 +86,8 @@
                 <label for="player-count-slider">Max Number of Players <em>(2 - 10)</em></label>
                 <div class="slider-widget">
                     <span id="player-count-display" class="slider-display"></span>
-                    <input id="player-count-slider" type="range" min="2" max="10" value="5">
+                    <span id="player-count-slider"></span>
+                    <!-- <input id="player-count-slider" type="range" min="2" max="10" value="5"> -->
                 </div>
             </div>
             
@@ -101,22 +103,22 @@
                 <label for="difficulty-options">Select Difficulty</label>
                 <div id="difficulty-options">
                     <span>
-                        <input id="difficulty-any-radio-button" type="radio" name="difficulty-option" value="">
+                        <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="">
                         <label for="difficulty-any-radio-button">Any Difficulty</label>
                     </span>
                     
                     <span>
-                        <input id="difficulty-easy-radio-button" type="radio" name="difficulty-option" value="easy">
+                        <input id="difficulty-easy-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="easy">
                         <label for="difficulty-easy-radio-button">Easy</label>
                     </span>
                     
                     <span>
-                        <input id="difficulty-medium-radio-button" type="radio" name="difficulty-option" value="medium">
+                        <input id="difficulty-medium-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="medium">
                         <label for="difficulty-medium-radio-button">Medium</label>
                     </span>
                     
                     <span>
-                        <input id="difficulty-hard-radio-button" type="radio" name="difficulty-option" value="hard">
+                        <input id="difficulty-hard-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="hard">
                         <label for="difficulty-hard-radio-button">Hard</label>
                     </span>
                 </div>
@@ -201,5 +203,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>    
     <script src="./assets/scripts/script.js"></script>
     <script src="./assets/scripts/link.js"></script>
+    <script>init()</script>
 </body>
 </html>
