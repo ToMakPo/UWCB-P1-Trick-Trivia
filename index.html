@@ -7,15 +7,22 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="./assets/styles/layout.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-<body>
+<body class="w3-container w3-center w3-deep-purple w3-text-white">
     <header>
         <h1>Trick Trivia</h1>
         <nav>
-            <button id="back-button" data-page="">back</button>
+            <button id="back-button" data-page="">Back</button>
         </nav>
     </header>
+
+    <!-- Welcome page will be in the middle of the page  -->
+    <!-- in the Welcome page, player have option to pick. 1- be a HOST, 2-Join a room with a code provided from HOST -->
+    <!-- Host will switch to page where HOST can set up room with OPTIONS -->
+    <!-- Guest player will be switch to new page to enter the CODE from HOST  -->
     <main>
         <section id='landing-page' class='page'>
             <h2>Welcome to Trick Trivia!</h2>
@@ -31,37 +38,45 @@
 
             <hr>
             
-            <h3>Rules:</h3>
-            <p>
-                The goal of this game is to trick your friends and get the most points to 
-                win. There are two stages to this game; setup and guessing.
-            </p>
-            <p>
-                In the setup stage, you will be shown a question and you will be able 
-                to provide a believable answer that is <strong>NOT</strong> correct. 
-                You will only have 30 seconds to come up with the answer and submit it.
-            </p>
-            <p>
-                In the guessing stage, you will be given a list of answers. One of them
-                will be the correct answer, but the rest will be a mix of the ones
-                provided by your friends and ones provided by the game. You will have to
-                select the correct answer. If you get the correct answer, you will get 
-                3 points. If you are the first to select the correct answer, you will 
-                get an additional 2 points. If someone else picked the answer you gave
-                in the setup stage, then you will get one more point for each person
-                picking your answer.
-            </p>
-            <p>
-                When the game is over, the one with the most points wins.
-            </p>
+            <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
+            <!-- Player will be CLICK on the the RULE Button to view the rules -->
+            <!-- Once Player click button, it will display pop-up a BLOCK page with the RULE DISPLAY -->
+            <h3 id="show-rule" class="w3-display-middle">Rules</h3>
+            <div id="game-rule-text" class="w3-display-middle">
+                <p>
+                    The goal of this game is to trick your friends and get the most points to 
+                    win. There are two stages to this game; setup and guessing.
+                </p>
+                <p>
+                    In the setup stage, you will be shown a question and you will be able 
+                    to provide a believable answer that is <strong>NOT</strong> correct. 
+                    You will only have 30 seconds to come up with the answer and submit it.
+                </p>
+                <p>
+                    In the guessing stage, you will be given a list of answers. One of them
+                    will be the correct answer, but the rest will be a mix of the ones
+                    provided by your friends and ones provided by the game. You will have to
+                    select the correct answer. If you get the correct answer, you will get 
+                    3 points. If you are the first to select the correct answer, you will 
+                    get an additional 2 points. If someone else picked the answer you gave
+                    in the setup stage, then you will get one more point for each person
+                    picking your answer.
+                </p>
+                <p>
+                    When the game is over, the one with the most points wins.
+                </p>
+            </div>
         </section>
 
-        <section id='game-setup-page' class='page'>
+        <!-- This is option where host will create a room  -->
+        <!-- HOST will be pick OPTIONS below to create a room -->
+        <section id='game-setup-page' class='page hidden'>
             <h2>Game Setup</h2>
-            
+
+            <!-- Pick a CATERGORY for QUESTIONS-->
             <div>
                 <label for="category-dropdown">Category</label>
-                <select id="category-dropdown">
+                <select id="category-dropdown"  class="w3-border w3-round-xlarge">
                     <option value="">Any Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Books</option>
@@ -80,7 +95,8 @@
                     <option value="20">Mythology</option>
                 </select>
             </div>
-            
+
+            <!-- Decide how many player can be join -->
             <div>
                 <label for="player-count-slider">Max Number of Players <em>(2 - 10)</em></label>
                 <div class="slider-widget">
@@ -88,7 +104,8 @@
                     <input id="player-count-slider" type="range" min="2" max="10" value="5">
                 </div>
             </div>
-            
+
+            <!-- How many QUESTIONS to play in the game -->
             <div>
                 <label for="question-count-slider">Number of Question <em>(4 - 20)</em></label>
                 <div class="slider-widget">
@@ -96,45 +113,50 @@
                     <input id="question-count-slider" type="range" min="4" max="20" value="10">
                 </div>
             </div>
-            
+
+            <!-- SELECT difficulty level -->
             <div>
                 <label for="difficulty-options">Select Difficulty</label>
                 <div id="difficulty-options">
                     <span>
-                        <input id="difficulty-any-radio-button" type="radio" name="difficulty-option" value="">
+                        <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="">
                         <label for="difficulty-any-radio-button">Any Difficulty</label>
                     </span>
                     
                     <span>
-                        <input id="difficulty-easy-radio-button" type="radio" name="difficulty-option" value="easy">
+                        <input id="difficulty-easy-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="easy">
                         <label for="difficulty-easy-radio-button">Easy</label>
                     </span>
                     
                     <span>
-                        <input id="difficulty-medium-radio-button" type="radio" name="difficulty-option" value="medium">
+                        <input id="difficulty-medium-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="medium">
                         <label for="difficulty-medium-radio-button">Medium</label>
                     </span>
                     
                     <span>
-                        <input id="difficulty-hard-radio-button" type="radio" name="difficulty-option" value="hard">
+                        <input id="difficulty-hard-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="hard">
                         <label for="difficulty-hard-radio-button">Hard</label>
                     </span>
                 </div>
             </div>
             
+            <!-- Button to create room -->
             <span>
                 <button id="create-game-button">Create Game</button>
             </span>
         </section>
 
-        <section id='join-game-page' class='page'>
+        <!-- This is for Guest Player to ENTER Private Key -->
+        <section id='join-game-page' class='page hidden'>
             <div>
                 <label for="private-key-input">Private Key:</label>
                 <input id="private-key-input" type="text">
             </div>
         </section>
 
-        <section id='lobby-page' class='page'>
+        <!-- Once the Players join in a WAITING-ROOM, HOST can start the game-->
+        <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can be start -->
+        <section id='lobby-page' class='page hidden'>
             <h2>Waiting for Players</h2>
 
             <div id="players-in-lobby-list"></div>
@@ -142,25 +164,37 @@
             <button id="start-game-button">Start Game</button>
 
             <span>
-                <span id="players-count-display"></span>/
+                <span id="players-count-display"></span>
                 <span id="max-players-display"></span>
             </span>
         </section>
 
-        <section id='stage-1-page' class='page'>
-            <h2>Provide your WRONG answer!</h2>
+        <!-- This is FIRST Stage of the game -->
+        <!-- Once game Started, Question will be display and TIME start counting-Down -->
+        <!-- Player will SUBMIT an answer (It can be anything) -->
+        <!-- ANSWERs will be saved in localStorage, but not Display to the player yet -->
+        <section id='stage-1-page' class='page hidden'>
+            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge" style="width: 500px; height: 300px;">
+                <h2>Provide your WRONG answer!</h2>
             
-            <em id="stage-1-timer-display"></em>
-
-            <h3 class='question-display'></h3>
-            
-            <input type="text" id="wrong-answer-input">
-            <button id="submit-wrong-answer-button">Submit</button>
-
-            <span id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few others.</span>
+                <em id="stage-1-timer-display"></em>
+    
+                <h3 class='question-display'></h3>
+                
+                <input type="text" id="wrong-answer-input">
+                <button id="submit-wrong-answer-button">Submit</button>
+    
+                <span id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few others.</span>
+            </div>
         </section>
 
-        <section id='stage-2-page' class='page'>
+        <!-- Once all Player Submitted thier answer or time ran out -->
+        <!-- Player will jump into second stage of the game -->
+        <!-- SECOND STAGE -->
+        <!-- All the answer will be shown at this stage -->
+        <!-- Each Player will SELECT an ANSWER that think it is CORRECT answer (This will including CORRECT answer from system-->
+        <!-- Score start adding to you if other players SELECT your Answer -->
+        <section id='stage-2-page' class='page hidden'>
             <h2>Select the correct answer!</h2>
             
             <em id="stage-2-timer-display"></em>
@@ -172,18 +206,23 @@
             <span id="stage-2-waiting-display">You have selected your answer. We are still waiting for a few others.</span>
         </section>
 
-        <section id='score-page' class='page'>
+        <!-- Score will be shown once all Player SELECTED an Answer or TIME run out -->
+        <section id='score-page' class='page hidden'>
             <h2>And the scores are ...</h2>
 
             <div id="scores-list"></div>
 
+            <!-- Count-Down the time for next question -->
             <div>
                 <span>The next question starts in <span id="next-question-timer">0</span> seconds!</span>
             </div>
         </section>
 
-        <section id='final-page' class='page'>
-            <h2>Congradulations <span id="winner-display"></span>!</h2>
+        <!-- Display `CONGRATE` page to show who is the Winner is -->
+        <!-- WINNER name will be in BIGGER FONT -->
+        <!-- your name and score will be GLOW/Highlighted IF You are not a WINNER -->
+        <section id='final-page' class='page hidden'>
+            <h2>Congratulations <span id="winner-display"></span>!</h2>
             
 
             <h3>The final scores are ...</h3>
@@ -194,12 +233,17 @@
                 <span>The next question starts in <span id="next-question-timer">0</span> seconds!</span>
             </div>
         </section>
+
+        <div style></div>
+
     </main>
 
     <!-- SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>  
     <script src="./assets/scripts/script.js"></script>
     <script src="./assets/scripts/link.js"></script>
+    <script>init()</script>
 </body>
 </html>
