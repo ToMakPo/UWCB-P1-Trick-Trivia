@@ -41,6 +41,8 @@
                 <button id='join-game-button'>Join Game</button>
             </div>
 
+            <hr>
+
             <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
             <!-- Player will be CLICK on the the RULE Button to view the rules -->
             <!-- Once Player click button, it will display pop-up a BLOCK page with the RULE DISPLAY -->
@@ -166,7 +168,7 @@
 
         <!-- Once the Players join in a WAITING-ROOM, HOST can start the game-->
         <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can be start -->
-        <section id='lobby-page' class='page'>
+        <section id='lobby-page' class='page hidden'>
             <h2>Waiting for Players</h2>
 
             <button id="start-game-button">Start Game</button>
@@ -186,19 +188,19 @@
         <!-- Player will SUBMIT an answer (It can be anything) -->
         <!-- ANSWERs will be saved in localStorage, but not Display to the player yet -->
         <section id='stage-1-page' class='page hidden'>
-            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge"
+            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge w3-container w3-cell"
                 style="width: 500px; height: 300px;">
                 <h2>Provide your WRONG answer!</h2>
 
                 <em id="stage-1-timer-display"></em>
 
-                <h3 class='question-display'></h3>
+                <h3 class='question-display'>Question Display Here</h3>
 
                 <input type="text" id="wrong-answer-input">
                 <button id="submit-wrong-answer-button">Submit</button>
 
-                <span id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few
-                    others.</span>
+                <p id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few
+                    others.</p>
             </div>
         </section>
 
@@ -209,20 +211,24 @@
         <!-- Each Player will SELECT an ANSWER that think it is CORRECT answer (This will including CORRECT answer from system-->
         <!-- Score start adding to you if other players SELECT your Answer -->
         <section id='stage-2-page' class='page hidden'>
-            <h2>Select the correct answer!</h2>
+            <h2>Select A correct answer!</h2>
 
             <em id="stage-2-timer-display"></em>
 
-            <h3 class='question-display'></h3>
+            <h3 class='question-display'>Question show again here</h3>
 
-            <div id="answers-list"></div>
+            <div id="answers-list">
+                <ul>
+                    <button>Answer List act as a button</button>
+                </ul>
+            </div>
 
-            <span id="stage-2-waiting-display">You have selected your answer. We are still waiting for a few
-                others.</span>
+            <p id="stage-2-waiting-display">You have selected your answer. We are still waiting for a few
+                others.</p>
         </section>
 
         <!-- Score will be shown once all Player SELECTED an Answer or TIME run out -->
-        <section id='score-page' class='page hidden'>
+        <section id='score-page' class='page'>
             <h2>And the scores are ...</h2>
 
             <div id="scores-list"></div>
