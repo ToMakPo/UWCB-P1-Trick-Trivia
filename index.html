@@ -12,12 +12,13 @@
     <!-- Framework CSS Link -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
 </head>
 <body class="w3-container w3-center w3-deep-purple w3-text-white">
     <header>
         <h1>Trick Trivia</h1>
         <nav>
-            <button id="back-button" data-page="">back</button>
+            <button id="back-button" data-page="">Back</button>
         </nav>
     </header>
 
@@ -70,7 +71,7 @@
 
         <!-- This is option where host will create a room  -->
         <!-- HOST will be pick OPTIONS below to create a room -->
-        <section id='game-setup-page' class='page'>
+        <section id='game-setup-page' class='page hidden'>
             <h2>Game Setup</h2>
 
             <!-- Pick a CATERGORY for QUESTIONS-->
@@ -147,7 +148,7 @@
         </section>
 
         <!-- This is for Guest Player to ENTER Private Key -->
-        <section id='join-game-page' class='page'>
+        <section id='join-game-page' class='page hidden'>
             <div>
                 <label for="private-key-input">Private Key:</label>
                 <input id="private-key-input" type="text">
@@ -156,7 +157,7 @@
 
         <!-- Once the Players join in a WAITING-ROOM, HOST can start the game-->
         <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can be start -->
-        <section id='lobby-page' class='page'>
+        <section id='lobby-page' class='page hidden'>
             <h2>Waiting for Players</h2>
 
             <div id="players-in-lobby-list"></div>
@@ -173,17 +174,19 @@
         <!-- Once game Started, Question will be display and TIME start counting-Down -->
         <!-- Player will SUBMIT an answer (It can be anything) -->
         <!-- ANSWERs will be saved in localStorage, but not Display to the player yet -->
-        <section id='stage-1-page' class='page'>
-            <h2>Provide your WRONG answer!</h2>
+        <section id='stage-1-page' class='page hidden'>
+            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge" style="width: 500px; height: 300px;">
+                <h2>Provide your WRONG answer!</h2>
             
-            <em id="stage-1-timer-display"></em>
-
-            <h3 class='question-display'></h3>
-            
-            <input type="text" id="wrong-answer-input">
-            <button id="submit-wrong-answer-button">Submit</button>
-
-            <span id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few others.</span>
+                <em id="stage-1-timer-display"></em>
+    
+                <h3 class='question-display'></h3>
+                
+                <input type="text" id="wrong-answer-input">
+                <button id="submit-wrong-answer-button">Submit</button>
+    
+                <span id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few others.</span>
+            </div>
         </section>
 
         <!-- Once all Player Submitted thier answer or time ran out -->
@@ -192,7 +195,7 @@
         <!-- All the answer will be shown at this stage -->
         <!-- Each Player will SELECT an ANSWER that think it is CORRECT answer (This will including CORRECT answer from system-->
         <!-- Score start adding to you if other players SELECT your Answer -->
-        <section id='stage-2-page' class='page'>
+        <section id='stage-2-page' class='page hidden'>
             <h2>Select the correct answer!</h2>
             
             <em id="stage-2-timer-display"></em>
@@ -205,7 +208,7 @@
         </section>
 
         <!-- Score will be shown once all Player SELECTED an Answer or TIME run out -->
-        <section id='score-page' class='page'>
+        <section id='score-page' class='page hidden'>
             <h2>And the scores are ...</h2>
 
             <div id="scores-list"></div>
@@ -219,7 +222,7 @@
         <!-- Display `CONGRATE` page to show who is the Winner is -->
         <!-- WINNER name will be in BIGGER FONT -->
         <!-- your name and score will be GLOW/Highlighted IF You are not a WINNER -->
-        <section id='final-page' class='page'>
+        <section id='final-page' class='page hidden'>
             <h2>Congratulations <span id="winner-display"></span>!</h2>
             
 
@@ -231,6 +234,9 @@
                 <span>The next question starts in <span id="next-question-timer">0</span> seconds!</span>
             </div>
         </section>
+
+        <div style></div>
+
     </main>
 
     <!-- SCRIPTS -->
