@@ -158,21 +158,24 @@
         </section>
 
         <!-- This is for Guest Player to ENTER Private Key -->
-        <section id='join-game-page' class='page'>
+        <section id='join-game-page' class='page hidden'>
             <div>
                 <label for="private-key-input">Private Key:</label>
                 <input id="private-key-input" type="text">
+                <p>Use your private Key and share it to your friends to join your room</p>
             </div>
         </section>
 
         <!-- Once the Players join in a WAITING-ROOM, HOST can start the game-->
         <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can be start -->
-        <section id='lobby-page' class='page hidden'>
+        <section id='lobby-page' class='page'>
             <h2>Waiting for Players</h2>
 
-            <div id="players-in-lobby-list"></div>
-
             <button id="start-game-button">Start Game</button>
+
+            <div id="players-in-lobby-list">
+                <ul id="list-player-joined" class=""></ul>
+            </div>
 
             <span>
                 <span id="players-count-display"></span>
