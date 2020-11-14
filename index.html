@@ -29,9 +29,7 @@
     <!-- Host will switch to page where HOST can set up game with OPTIONS -->
     <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
-        <!-- <img src="assets/images/space.jpg" alt="cartoon space background" width= "100%" height= "100%" > -->
-        
-        <section id='landing-page' class='page'>
+        <section id='landing-page' class='page hidden'>
             <h2>Welcome to Trick Trivia!</h2>
             <span id="player-name">
                 <label for="player-name-input">Player Name: </label>
@@ -129,7 +127,7 @@
             </div>
 
             <!-- SELECT difficulty level -->
-            <div>
+            <div class="w3-margin-bottom">  
                 <label for="difficulty-options">Select Difficulty</label>
                 <div id="difficulty-options">
                     <span>
@@ -165,6 +163,7 @@
             <div>
                 <label for="private-key-input">Private Key:</label>
                 <input id="private-key-input" type="text">
+                <p>Use your private Key and share it to your friends to join your room</p>
             </div>
         </section>
 
@@ -173,9 +172,11 @@
         <section id='lobby-page' class='page hidden'>
             <h2>Waiting for Players</h2>
 
-            <div id="players-in-lobby-list"></div>
-
             <button id="start-game-button">Start Game</button>
+
+            <div id="players-in-lobby-list">
+                <ul id="list-player-joined"></ul>
+            </div>
 
             <span>
                 <span id="players-count-display"></span>

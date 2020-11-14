@@ -12,7 +12,7 @@ main {
 }
 
 button {
-    border-radius: 5px;
+    border-radius: 15px;
     border-color: rgb(144, 47, 255);
     background-color: rgb(45, 155, 60);
     color: rgb(228, 231, 61);
@@ -58,6 +58,14 @@ input{
     margin: auto;
 }
 
-/* #show-rule-hover:hover + div{
-    display: block;
-} */
+#game-setup-page div{
+    margin-top: 10px;
+}
+
+#list-player-joined {
+    border-radius: 15px;
+    border: 10px solid #DE4F49;
+    width: 50%;
+    margin: 10px auto;
+
+}
