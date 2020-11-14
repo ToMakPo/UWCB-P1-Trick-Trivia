@@ -24,8 +24,8 @@
 
     <!-- Welcome page will be in the middle of the page  -->
     <!-- in the Welcome page, player have option to pick. 1- be a HOST, 2-Join a room with a code provided from HOST -->
-    <!-- Host will switch to page where HOST can set up room with OPTIONS -->
-    <!-- Guest player will be switch to new page to enter the CODE from HOST  -->
+    <!-- Host will switch to page where HOST can set up game with OPTIONS -->
+    <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
         <section id='landing-page' class='page'>
             <h2>Welcome to Trick Trivia!</h2>
@@ -42,8 +42,8 @@
             <hr>
             
             <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
-            <!-- Player will be CLICK on the the RULE Button to view the rules -->
-            <!-- Once Player click button, it will display pop-up a BLOCK page with the RULE DISPLAY -->
+            <!-- Player will CLICK on the the RULE Button to view the rules -->
+            <!-- Once Player click button, it will display a modal and BLOCK page with the RULE DISPLAY -->
             <h3>Rules:</h3>
             <p>
                 The goal of this game is to trick your friends and get the most points to 
@@ -70,9 +70,10 @@
         </section>
 
         <!-- This is option where host will create a room  -->
-        <!-- HOST will be pick OPTIONS below to create a room -->
-        <section id='game-setup-page' class='page hidden'>
+        <!-- HOST will be picking OPTIONS below to create a room -->
+        <section id='game-setup-page' class='page hdden'>
             <h2>Game Setup</h2>
+            <i class="fas fa-atom"></i>
 
             <!-- Pick a CATERGORY for QUESTIONS-->
             <div>
@@ -97,7 +98,7 @@
                 </select>
             </div>
 
-            <!-- Decide how many player can be join -->
+            <!-- Decide how many players can join -->
             <div>
                 <label for="player-count-slider">Max Number of Players <em>(2 - 10)</em></label>
                 <div class="slider-widget">
@@ -141,7 +142,7 @@
                 </div>
             </div>
             
-            <!-- Button to create room -->
+            <!-- Button to create game -->
             <span>
                 <button id="create-game-button">Create Game</button>
             </span>
@@ -156,7 +157,7 @@
         </section>
 
         <!-- Once the Players join in a WAITING-ROOM, HOST can start the game-->
-        <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can be start -->
+        <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can start -->
         <section id='lobby-page' class='page hidden'>
             <h2>Waiting for Players</h2>
 
@@ -171,9 +172,9 @@
         </section>
 
         <!-- This is FIRST Stage of the game -->
-        <!-- Once game Started, Question will be display and TIME start counting-Down -->
+        <!-- Once game Starts, Question will display and TIME start counting-Down -->
         <!-- Player will SUBMIT an answer (It can be anything) -->
-        <!-- ANSWERs will be saved in localStorage, but not Display to the player yet -->
+        <!-- ANSWERs will be saved in localStorage, but not Displayed to the player yet -->
         <section id='stage-1-page' class='page hidden'>
             <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge" style="width: 500px; height: 300px;">
                 <h2>Provide your WRONG answer!</h2>
@@ -189,12 +190,12 @@
             </div>
         </section>
 
-        <!-- Once all Player Submitted thier answer or time ran out -->
+        <!-- Once all Players Submit thier answer or time runs out -->
         <!-- Player will jump into second stage of the game -->
         <!-- SECOND STAGE -->
-        <!-- All the answer will be shown at this stage -->
-        <!-- Each Player will SELECT an ANSWER that think it is CORRECT answer (This will including CORRECT answer from system-->
-        <!-- Score start adding to you if other players SELECT your Answer -->
+        <!-- All the answers will be shown at this stage -->
+        <!-- Each Player will SELECT an ANSWER that thinks is the CORRECT answer (This will include CORRECT answer from system-->
+        <!-- Score starts adding to you if other players SELECT your Answer -->
         <section id='stage-2-page' class='page hidden'>
             <h2>Select the correct answer!</h2>
             
@@ -207,7 +208,7 @@
             <span id="stage-2-waiting-display">You have selected your answer. We are still waiting for a few others.</span>
         </section>
 
-        <!-- Score will be shown once all Player SELECTED an Answer or TIME run out -->
+        <!-- Score will be shown once all Players SELECT an Answer or TIME runs out -->
         <section id='score-page' class='page hidden'>
             <h2>And the scores are ...</h2>
 
@@ -219,8 +220,8 @@
             </div>
         </section>
 
-        <!-- Display `CONGRATE` page to show who is the Winner is -->
-        <!-- WINNER name will be in BIGGER FONT -->
+        <!-- Display `CONGRATULATIONS!` page to show who the Winner is -->
+        <!-- WINNER's name will be in BIGGER FONT -->
         <!-- your name and score will be GLOW/Highlighted IF You are not a WINNER -->
         <section id='final-page' class='page hidden'>
             <h2>Congratulations <span id="winner-display"></span>!</h2>
