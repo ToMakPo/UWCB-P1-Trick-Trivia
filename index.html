@@ -16,18 +16,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body class="w3-container w3-center w3-deep-purple w3-text-white">
-    <header class="hidden">
+<body class="w3-container w3-center w3-text-white">
+    <header>
         <h1>Trick Trivia</h1>
         <nav>
             <button id="back-button" data-page="">Back</button>
         </nav>
     </header>
-
+    
     <!-- Welcome page will be in the middle of the page  -->
     <!-- in the Welcome page, player have option to pick. 1- be a HOST, 2-Join a room with a code provided from HOST -->
-    <!-- Host will switch to page where HOST can set up room with OPTIONS -->
-    <!-- Guest player will be switch to new page to enter the CODE from HOST  -->
+    <!-- Host will switch to page where HOST can set up game with OPTIONS -->
+    <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
         <section id='landing-page' class='page hidden'>
             <h2>Welcome to Trick Trivia!</h2>
@@ -40,8 +40,6 @@
                 <button id='host-game-button'>Host Game</button>
                 <button id='join-game-button'>Join Game</button>
             </div>
-
-            <hr>
 
             <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
             <!-- Player will be CLICK on the the RULE Button to view the rules -->
@@ -83,6 +81,7 @@
         <!-- HOST will be pick OPTIONS below to create a room -->
         <section id='game-setup-page' class='page'>
             <h2>Game Setup</h2>
+            <i class="fas fa-atom"></i>
 
             <!-- Pick a CATERGORY for QUESTIONS-->
             <div>
@@ -109,7 +108,7 @@
                 </select>
             </div>
 
-            <!-- Decide how many player can be join -->
+            <!-- Decide how many players can join -->
             <div>
                 <label for="player-count-slider">Max Number of Players <em>(2 - 10)</em></label>
                 <div class="slider-widget">
@@ -186,9 +185,9 @@
         </section>
 
         <!-- This is FIRST Stage of the game -->
-        <!-- Once game Started, Question will be display and TIME start counting-Down -->
+        <!-- Once game Starts, Question will display and TIME start counting-Down -->
         <!-- Player will SUBMIT an answer (It can be anything) -->
-        <!-- ANSWERs will be saved in localStorage, but not Display to the player yet -->
+        <!-- ANSWERs will be saved in localStorage, but not Displayed to the player yet -->
         <section id='stage-1-page' class='page hidden'>
             <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge"
                 style="width: 500px; height: 300px;">
@@ -206,12 +205,12 @@
             </div>
         </section>
 
-        <!-- Once all Player Submitted thier answer or time ran out -->
+        <!-- Once all Players Submit thier answer or time runs out -->
         <!-- Player will jump into second stage of the game -->
         <!-- SECOND STAGE -->
-        <!-- All the answer will be shown at this stage -->
-        <!-- Each Player will SELECT an ANSWER that think it is CORRECT answer (This will including CORRECT answer from system-->
-        <!-- Score start adding to you if other players SELECT your Answer -->
+        <!-- All the answers will be shown at this stage -->
+        <!-- Each Player will SELECT an ANSWER that thinks is the CORRECT answer (This will include CORRECT answer from system-->
+        <!-- Score starts adding to you if other players SELECT your Answer -->
         <section id='stage-2-page' class='page hidden'>
             <h2>Select A correct answer!</h2>
 
@@ -229,7 +228,7 @@
                 others.</p>
         </section>
 
-        <!-- Score will be shown once all Player SELECTED an Answer or TIME run out -->
+        <!-- Score will be shown once all Players SELECT an Answer or TIME runs out -->
         <section id='score-page' class='page hidden'>
             <!-- Count-Down the time for next question -->
             <div>
@@ -242,8 +241,8 @@
 
         </section>
 
-        <!-- Display `CONGRATE` page to show who is the Winner is -->
-        <!-- WINNER name will be in BIGGER FONT -->
+        <!-- Display `CONGRATULATIONS!` page to show who the Winner is -->
+        <!-- WINNER's name will be in BIGGER FONT -->
         <!-- your name and score will be GLOW/Highlighted IF You are not a WINNER -->
         <section id='final-page' class='page hidden'>
 
