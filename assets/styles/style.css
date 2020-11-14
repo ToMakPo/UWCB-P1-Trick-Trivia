@@ -1,3 +1,16 @@
+header {
+    background-color: rgb(7, 7, 85);
+}
+
+main {
+    height: 100vh;
+    background-color: rgb(144, 47, 255);
+    background-image: url("../images/space.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 button {
     border-radius: 5px;
     border-color: rgb(144, 47, 255);
@@ -10,6 +23,41 @@ input{
     border-radius: 10px;
 }
 
+#enter-game-options {
+    margin-top: 20px;
+}
+
 #stage-1-page{
     margin: auto;
 }
+
+#game-rule-text {
+    background-color:#F5AC5D;
+    color: #5AFAD7;
+    width: 70%;
+    display: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+#game-rule-text h4 {
+    color: #91DE09;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#show-rule-hover{
+    font-size: medium;
+    font-weight: bold;
+    background-color: #F5C816;
+    color: #DE4209;
+    margin: auto;
+}
+
+/* #show-rule-hover:hover + div{
+    display: block;
+} */
