@@ -29,7 +29,7 @@
     <!-- Host will switch to page where HOST can set up room with OPTIONS -->
     <!-- Guest player will be switch to new page to enter the CODE from HOST  -->
     <main>
-        <section id='landing-page' class='page'>
+        <section id='landing-page' class='page hidden'>
             <h2>Welcome to Trick Trivia!</h2>
             <span id="player-name">
                 <label for="player-name-input">Player Name: </label>
@@ -126,7 +126,7 @@
             </div>
 
             <!-- SELECT difficulty level -->
-            <div>
+            <div class="w3-margin-bottom">  
                 <label for="difficulty-options">Select Difficulty</label>
                 <div id="difficulty-options">
                     <span>
@@ -158,7 +158,7 @@
         </section>
 
         <!-- This is for Guest Player to ENTER Private Key -->
-        <section id='join-game-page' class='page hidden'>
+        <section id='join-game-page' class='page'>
             <div>
                 <label for="private-key-input">Private Key:</label>
                 <input id="private-key-input" type="text">

@@ -45,6 +45,6 @@ input{
     margin: auto;
 }
 
-/* #show-rule-hover:hover + div{
-    display: block;
-} */
+#game-setup-page div{
+    margin-top: 10px;
+}
