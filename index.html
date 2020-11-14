@@ -126,7 +126,7 @@
             </div>
 
             <!-- SELECT difficulty level -->
-            <div class="w3-margin-bottom">  
+            <div class="w3-margin-bottom">
                 <label for="difficulty-options">Select Difficulty</label>
                 <div id="difficulty-options">
                     <span>
@@ -228,31 +228,32 @@
         </section>
 
         <!-- Score will be shown once all Player SELECTED an Answer or TIME run out -->
-        <section id='score-page' class='page'>
-            <h2>And the scores are ...</h2>
-
-            <div id="scores-list"></div>
-
+        <section id='score-page' class='page hidden'>
             <!-- Count-Down the time for next question -->
             <div>
                 <span>The next question starts in <span id="next-question-timer">0</span> seconds!</span>
             </div>
+
+            <h2>And the scores are ...</h2>
+
+            <div id="scores-list">Player Name: Score</div>
+
         </section>
 
         <!-- Display `CONGRATE` page to show who is the Winner is -->
         <!-- WINNER name will be in BIGGER FONT -->
         <!-- your name and score will be GLOW/Highlighted IF You are not a WINNER -->
-        <section id='final-page' class='page hidden'>
-            <h2>Congratulations <span id="winner-display"></span>!</h2>
-
-
-            <h3>The final scores are ...</h3>
-
-            <div id="final-scores-list"></div>
+        <section id='final-page' class='page'>
 
             <div>
                 <span>The next question starts in <span id="next-question-timer">0</span> seconds!</span>
             </div>
+
+            <h2>Congratulations <span id="winner-display"></span>!</h2>
+
+            <h3>The final scores are ...</h3>
+
+            <div id="final-scores-list">Player Name: score </div>
         </section>
 
         <div style></div>
