@@ -13,7 +13,7 @@
     <!-- Framework CSS Link -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="w3-container w3-center w3-deep-purple w3-text-white">
@@ -81,12 +81,14 @@
 
         <!-- This is option where host will create a room  -->
         <!-- HOST will be pick OPTIONS below to create a room -->
-        <section id='game-setup-page' class='page hidden'>
+        <section id='game-setup-page' class='page'>
             <h2>Game Setup</h2>
 
             <!-- Pick a CATERGORY for QUESTIONS-->
             <div>
                 <label for="category-dropdown">Category</label>
+                <!-- <i class="fa fa-globe fa-2x"></i> -->
+
                 <select id="category-dropdown" class="w3-border w3-round-xlarge">
                     <option value="">Any Category</option>
                     <option value="9">General Knowledge</option>
@@ -188,7 +190,7 @@
         <!-- Player will SUBMIT an answer (It can be anything) -->
         <!-- ANSWERs will be saved in localStorage, but not Display to the player yet -->
         <section id='stage-1-page' class='page hidden'>
-            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge w3-container w3-cell"
+            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge"
                 style="width: 500px; height: 300px;">
                 <h2>Provide your WRONG answer!</h2>
 
@@ -243,7 +245,7 @@
         <!-- Display `CONGRATE` page to show who is the Winner is -->
         <!-- WINNER name will be in BIGGER FONT -->
         <!-- your name and score will be GLOW/Highlighted IF You are not a WINNER -->
-        <section id='final-page' class='page'>
+        <section id='final-page' class='page hidden'>
 
             <div>
                 <span>The next question starts in <span id="next-question-timer">0</span> seconds!</span>
