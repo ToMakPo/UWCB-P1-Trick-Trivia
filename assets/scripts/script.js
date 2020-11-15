@@ -2,7 +2,7 @@
 function showRuleButton() {
     var x = document.getElementById("game-rule-text");
     if (x.style.display === "none") {
-        x.style.display = "block";
+        x.style.display = "inline-block";
     } else {
         x.style.display = "none";
     }
