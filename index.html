@@ -16,11 +16,13 @@
 </head>
 
 <body class="w3-display-container w3-center w3-text-white">
-    <header>
-        <h1 class="w3-display-topmiddle w3-container">Trick</h1>
-        <img src="https://3z489t2p9kbdv4il24as7q51-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/YpJilaXXT8qJR6HQVKFM_ISM_Trivia.gif" alt="See the source image" width="100%" >
-        <nav>
-            <button id="back-button"  class="hidden" data-page="">Back</button>
+    <header class="w3-display-container w3-center">
+       
+            <h1 class="w3-display-topmiddle">Trick</h1>
+            <img src="https://3z489t2p9kbdv4il24as7q51-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/YpJilaXXT8qJR6HQVKFM_ISM_Trivia.gif" alt="See the source image" width="100%" >
+        
+            <nav>
+            <button id="back-button"  class="hidden w3-display-bottommiddle" data-page="">Back</button>
         </nav>
     </header>
     
@@ -29,49 +31,48 @@
     <!-- Host will switch to page where HOST can set up game with OPTIONS -->
     <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
-        <section id='landing-page' class='page hidden'>
+        <section id='landing-page' class='page w3-display-container w3-center'>
             <h2>Welcome to Trick Trivia!</h2>
             <span id="player-name">
-                <label for="player-name-input">Player Name: </label>
-                <input id="player-name-input" type="text">
+                <label for="player-name-input">Player: </label>
+                <input id="player-name-input" type="text" >
             </span>
 
-            <div id="enter-game-options">
+            <div id="enter-game-options" class="w3-margin-top">
                 <button id='host-game-button'>Host Game</button>
                 <button id='join-game-button'>Join Game</button>
+                <button id="show-rule-hover" class="w3-margin-top">Rules</button>
             </div>
 
             <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
             <!-- Player will be CLICK on the the RULE Button to view the rules -->
             <!-- Once Player click button, it will display pop-up a BLOCK page with the RULE DISPLAY -->
-            <div class="w3-container">
-                <button id="show-rule-hover" class="w3-button w3-medium" onclick="showRuleButton()">Rules</button>
-                <div id="game-rule-text" class="w3-border w3-round-large">
+            <div class="game-rule-card">
+                <div id="game-rule-text" class="w3-left-align">
                     <h4>GOAL</h4>
                     <p>
-                        The goal of this game is to trick your friends and get the most points to
-                        win. There are two stages to this game; setup and guessing.
+                        Try and trick your friends with the best wrong answers to earn the most points. 
                     </p>
                     <h4>Stage-1</h4>
                     <p>
-                        In the setup stage, you will be shown a question and you will be able
-                        to provide a believable answer that is <strong>NOT</strong> correct.
-                        You will only have 30 seconds to come up with the answer and submit it.
+                        In <strong>Trick Trivia</strong>, players will be shown a question and then
+                        you will need to provide the best <strong>wrong</strong> answer.
                     </p>
                     <h4>Stage-2</h4>
                     <p>
-                        In the guessing stage, you will be given a list of answers. One of them
-                        will be the correct answer, but the rest will be a mix of the ones
-                        provided by your friends and ones provided by the game. You will have to
-                        select the correct answer. If you get the correct answer, you will get
-                        3 points. If you are the first to select the correct answer, you will
-                        get an additional 2 points. If someone else picked the answer you gave
-                        in the setup stage, then you will get one more point for each person
-                        picking your answer.
+                        Next, players will be given a list of answers. One of them will be the 
+                        correct answer, but the rest will be a mix of the <strong>wrong</strong> 
+                        answers players provided. If you've played your chance well, you will have 
+                        <strong>tricked</strong> everyone else into picking your wrong answer. 
+                        You will get: 
+                        <ul>
+                            <li>3 points for the correct answer.</li>
+                            <li>2 additional points for being the first to provide the correct answer.</li>
+                            <li>1 additional point for every player that picked your <strong>Trick</strong> answer.</li>
+                        </ul> 
                     </p>
-                    <h4>End Game</h4>
                     <p>
-                        When the game is over, the one with the most points wins.
+                        When <strong>Trick</strong> Trivia questions are over, the one with the most points wins.
                     </p>
                 </div>
             </div>
@@ -79,7 +80,7 @@
 
         <!-- This is option where host will create a room  -->
         <!-- HOST will be pick OPTIONS below to create a room -->
-        <section id='game-setup-page' class='page'>
+        <section id='game-setup-page' class='page hidden w3-display-container w3-center'>
             <h2>Game Setup</h2>
             <i class="fas fa-atom"></i>
 
@@ -88,8 +89,8 @@
                 <label for="category-dropdown">Category</label>
                 <!-- <i class="fa fa-globe fa-2x"></i> -->
 
-                <select id="category-dropdown" class="w3-border w3-round-xlarge">
-                    <option value="">Any Category</option>
+                <select id="category-dropdown" class="w3-round-xlarge">
+                    <option value=""> Any Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Books</option>
                     <option value="11">Films</option>
@@ -129,7 +130,7 @@
             <!-- SELECT difficulty level -->
             <div class="w3-margin-bottom">
                 <label for="difficulty-options">Select Difficulty</label>
-                <div id="difficulty-options">
+                <div id="difficulty-options" class="">
                     <span>
                         <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="">
                         <label for="difficulty-any-radio-button">Any Difficulty</label>
