@@ -18,16 +18,16 @@ header img {
     max-height: 290px;
 }
 
-main {
-    height: 100vh;
+body{
     background-color:  rgb(7, 7, 85);
-    /* background-image: url("../images/texture.jpg"); */
+}
+
+/* Save for future if needed */
+/* main {
     background-position: center;
     background-size: cover;
     background-repeat: repeat;
-
-    /* rgb(0, 37, 245); */
-}
+} */
 
 input{
     border-radius: 10px;

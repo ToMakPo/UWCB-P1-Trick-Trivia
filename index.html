@@ -48,33 +48,35 @@
             <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
             <!-- Player will be CLICK on the the RULE Button to view the rules -->
             <!-- Once Player click button, it will display pop-up a BLOCK page with the RULE DISPLAY -->
-            <div class="game-rule-card">
-                <div id="game-rule-text" class="w3-left-align">
-                    <h4>GOAL</h4>
-                    <p>
-                        Try and trick your friends with the best wrong answers to earn the most points.
-                    </p>
-                    <h4>Stage-1</h4>
-                    <p>
-                        In <strong>Trick Trivia</strong>, players will be shown a question and then
-                        you will need to provide the best <strong>wrong</strong> answer.
-                    </p>
-                    <h4>Stage-2</h4>
-                    <p>
-                        Next, players will be given a list of answers. One of them will be the
-                        correct answer, but the rest will be a mix of the <strong>wrong</strong>
-                        answers players provided. If you've played your chance well, you will have
-                        <strong>tricked</strong> everyone else into picking your wrong answer.
-                        You will get:
-                    <ul>
-                        <li>3 points for the correct answer.</li>
-                        <li>2 additional points for being the first to provide the correct answer.</li>
-                        <li>1 additional point for every player that picked your <strong>Trick</strong> answer.</li>
-                    </ul>
-                    </p>
-                    <p>
-                        When <strong>Trick</strong> Trivia questions are over, the one with the most points wins.
-                    </p>
+            <div class="game-rule-card ">
+                <div id="game-rule-text" class="w3-left-align w3-border w3-round-xlarge w3-aqua">
+                    <div class="w3-teal w3-section w3-padding-large w3-border w3-round-xlarge">
+                        <h4>GOAL</h4>
+                        <p>
+                            Try and trick your friends with the best wrong answers to earn the most points.
+                        </p>
+                        <h4>Stage-1</h4>
+                        <p>
+                            In <strong>Trick Trivia</strong>, players will be shown a question and then
+                            you will need to provide the best <strong>wrong</strong> answer.
+                        </p>
+                        <h4>Stage-2</h4>
+                        <p>
+                            Next, players will be given a list of answers. One of them will be the
+                            correct answer, but the rest will be a mix of the <strong>wrong</strong>
+                            answers players provided. If you've played your chance well, you will have
+                            <strong>tricked</strong> everyone else into picking your wrong answer.
+                            You will get:
+                        <ul>
+                            <li>3 points for the correct answer.</li>
+                            <li>2 additional points for being the first to provide the correct answer.</li>
+                            <li>1 additional point for every player that picked your <strong>Trick</strong> answer.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            When <strong>Trick</strong> Trivia questions are over, the one with the most points wins.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -223,12 +225,8 @@
             <em id="stage-2-timer-display"></em>
 
             <h3 class='question-display'>Question show again here</h3>
-
-            <div id="answers-list">
-                <ul>
-                    <button>Answer List act as a button</button>
-                </ul>
-            </div>
+            <p>Timer: <span></span></p>
+            <div id="answers-list"></div>
 
             <p id="stage-2-waiting-display">You have selected your answer. We are still waiting for a few
                 others.</p>
