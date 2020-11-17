@@ -1,12 +1,13 @@
-// used to run the game
-function showRuleButton() {
+// Click Rule Button to show the Rule 
+$("#show-rule-hover").on("click", function showRuleButton() {
     var x = document.getElementById("game-rule-text");
     if (x.style.display === "none") {
         x.style.display = "inline-block";
     } else {
         x.style.display = "none";
     }
-}
+})
+
 /// USED TO RUN THE GAME ///
 prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
     playerName: '',
