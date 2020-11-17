@@ -18,16 +18,9 @@ header img {
     max-height: 290px;
 }
 
-main {
-    height: 100vh;
-    background-color:  rgb(7, 7, 85);
-    /* background-image: url("../images/texture.jpg"); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat;
+/* main {
 
-    /* rgb(0, 37, 245); */
-}
+} */
 
 input{
     border-radius: 10px;
@@ -142,11 +135,18 @@ nav button {
     -webkit-text-stroke: 1px black;
 }
 
-#difficulty-options label {
+#difficulty-options {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
     font-size: 24px;
 }
 
-#list-player-joined {
+#players-in-lobby-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     border-radius: 15px;
     border: 10px solid #DE4F49;
     width: 50%;
@@ -155,6 +155,12 @@ nav button {
 
 #stage-1-page{
     margin: auto;
+    padding-left: 0.9rem;
+}
+
+#stage-1-timer-display {
+    border-color: white;
+    border-radius: 10px;
 }
 
 @media only screen and (min-width: 320px){
