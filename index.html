@@ -32,7 +32,7 @@
     <!-- Host will switch to page where HOST can set up game with OPTIONS -->
     <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
-        <section id='landing-page' class='page w3-display-container w3-center'>
+        <section id='landing-page' class='page hidden w3-display-container w3-center'>
             <h2>Welcome to Trick Trivia!</h2>
             <span id="player-name">
                 <label for="player-name-input">Player: </label>
@@ -133,30 +133,34 @@
             <!-- SELECT difficulty level -->
             <div class="w3-margin-bottom">
                 <label for="difficulty-options">Select Difficulty</label>
-                <div id="difficulty-options" class="">
-                    <span>
-                        <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button"
-                            name="difficulty-option" value="">
-                        <label for="difficulty-any-radio-button">Any Difficulty</label>
-                    </span>
+                <div>
+                    <div id="difficulty-options" class="">
 
-                    <span>
-                        <input id="difficulty-easy-radio-button" type="radio" class="difficulty-radio-button"
-                            name="difficulty-option" value="easy">
-                        <label for="difficulty-easy-radio-button">Easy</label>
-                    </span>
+                        <span>
+                            <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button"
+                                name="difficulty-option" value="">
+                            <label for="difficulty-any-radio-button">Any</label>
+                        </span>
 
-                    <span>
-                        <input id="difficulty-medium-radio-button" type="radio" class="difficulty-radio-button"
-                            name="difficulty-option" value="medium">
-                        <label for="difficulty-medium-radio-button">Medium</label>
-                    </span>
+                        <span>
+                            <input id="difficulty-easy-radio-button" type="radio" class="difficulty-radio-button"
+                                name="difficulty-option" value="easy">
+                            <label for="difficulty-easy-radio-button">Easy</label>
+                        </span>
 
-                    <span>
-                        <input id="difficulty-hard-radio-button" type="radio" class="difficulty-radio-button"
-                            name="difficulty-option" value="hard">
-                        <label for="difficulty-hard-radio-button">Hard</label>
-                    </span>
+                        <span>
+                            <input id="difficulty-medium-radio-button" type="radio" class="difficulty-radio-button"
+                                name="difficulty-option" value="medium">
+                            <label for="difficulty-medium-radio-button">Medium</label>
+                        </span>
+
+                        <span>
+                            <input id="difficulty-hard-radio-button" type="radio" class="difficulty-radio-button"
+                                name="difficulty-option" value="hard">
+                            <label for="difficulty-hard-radio-button">Hard</label>
+                        </span>
+
+                    </div>
                 </div>
             </div>
 
@@ -171,6 +175,7 @@
             <div>
                 <label for="private-key-input">Private Key:</label>
                 <input id="private-key-input" type="text">
+                <button id="key-submit-button">Submit</button>
                 <p>Use your private Key and share it to your friends to join your room</p>
             </div>
         </section>
@@ -182,9 +187,7 @@
 
             <button id="start-game-button">Start Game</button>
 
-            <div id="players-in-lobby-list">
-                <ul id="list-player-joined"></ul>
-            </div>
+            <div id="players-in-lobby-list"></div>
 
             <span>
                 <span id="players-count-display"></span>
@@ -196,21 +199,23 @@
         <!-- Once game Starts, Question will display and TIME start counting-Down -->
         <!-- Player will SUBMIT an answer (It can be anything) -->
         <!-- ANSWERs will be saved in localStorage, but not Displayed to the player yet -->
-        <section id='stage-1-page' class='page hidden'>
-            <div class="w3-display-middle w3-card-2 w3-green w3-border w3-round-xlarge"
-                style="width: 500px; height: 300px;">
-                <h2>Provide your WRONG answer!</h2>
-
+        <section id='stage-1-page' class='page '>
+            <div class="w3-display-top w3-card-4 w3-white w3-border w3-round-xlarge "
+                style="width: 350px; height: 300px;">
+                
                 <em id="stage-1-timer-display"></em>
 
                 <h3 class='question-display'>Question Display Here</h3>
-
-                <input type="text" id="wrong-answer-input">
-                <button id="submit-wrong-answer-button">Submit</button>
-
-                <p id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few
-                    others.</p>
             </div>
+
+            <input type="text" id="wrong-answer-input" class="w3-margin-top">
+            <button id="submit-wrong-answer-button">Submit</button>
+
+            <h2>Provide your WRONG answer!</h2>
+
+            <p id="stage-1-waiting-display">You have locked in your answer. We are still waiting for a few
+                    others.</p>
+            
         </section>
 
         <!-- Once all Players Submit thier answer or time runs out -->
