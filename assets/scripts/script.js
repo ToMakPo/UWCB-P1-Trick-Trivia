@@ -1,3 +1,5 @@
+
+
 // Click Rule Button to show the Rule 
 $("#show-rule-hover").on("click", function showRuleButton() {
     var x = document.getElementById("game-rule-text");
@@ -7,6 +9,11 @@ $("#show-rule-hover").on("click", function showRuleButton() {
         x.style.display = "none";
     }
 })
+
+// TODO: Function to play the sound/music in the game.
+    // Maybe a "click" sound for the buttons
+    // Play a music while in the WAITING room.
+    // Music when join the game
 
 /// USED TO RUN THE GAME ///
 prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
