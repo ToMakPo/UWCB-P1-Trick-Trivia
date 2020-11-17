@@ -23,7 +23,7 @@
             alt="See the source image" width="100%">
 
         <nav>
-            <button id="back-button" class="hidden w3-display-bottommiddle" data-page="">Back</button>
+            <button id="back-button" class="hidden" data-page="">Back</button>
         </nav>
     </header>
 
@@ -82,15 +82,20 @@
         <!-- This is option where host will create a room  -->
         <!-- HOST will be pick OPTIONS below to create a room -->
         <section id='game-setup-page' class='page hidden w3-display-container w3-center'>
+            <!-- Button to create room -->
+            <span>
+                <button id="create-game-button">Create Game</button>
+            </span>
+            
             <h2>Game Setup</h2>
             <i class="fas fa-atom"></i>
 
             <!-- Pick a CATERGORY for QUESTIONS-->
             <div>
-                <label for="category-dropdown">Category</label>
+                <label for="category-dropdown" class="w3-margin w3-xlarge">Category</label>
                 <!-- <i class="fa fa-globe fa-2x"></i> -->
 
-                <select id="category-dropdown" class="w3-round-xlarge">
+                <select id="category-dropdown" class="w3-round-xlarge w3-margin">
                     <option value=""> Any Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Books</option>
@@ -112,27 +117,27 @@
 
             <!-- Decide how many players can join -->
             <div>
-                <label for="player-count-slider">Max Number of Players <em>(2 - 10)</em></label>
+                <label for="player-count-slider" class="w3-margin">Number of Players <em>(2 - 10)</em></label>
                 <div class="slider-widget">
-                    <span id="player-count-display" class="slider-display"></span>
-                    <input id="player-count-slider" type="range" min="2" max="10" value="5">
+                    <span id="player-count-display" class="slider-display w3-margin"></span>
+                    <input id="player-count-slider" class="w3-margin" type="range" min="2" max="10" value="5">
                 </div>
             </div>
 
             <!-- How many QUESTIONS to play in the game -->
             <div>
-                <label for="question-count-slider">Number of Question <em>(4 - 20)</em></label>
+                <label for="question-count-slider" class="w3-margin">Number of Question <em>(4 - 20)</em></label>
                 <div class="slider-widget">
-                    <span id="question-count-display" class="slider-display"></span>
-                    <input id="question-count-slider" type="range" min="4" max="20" value="10">
+                    <span id="question-count-display" class="slider-display w3-margin"></span>
+                    <input id="question-count-slider" class="w3-margin" type="range" min="4" max="20" value="10">
                 </div>
             </div>
 
             <!-- SELECT difficulty level -->
             <div class="w3-margin-bottom">
-                <label for="difficulty-options">Select Difficulty</label>
+                <label for="difficulty-options" class="w3-margin">Select Difficulty</label>
                 <div>
-                    <div id="difficulty-options" class="">
+                    <div id="difficulty-options" class="w3-margin">
 
                         <span>
                             <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button"
@@ -162,19 +167,17 @@
                 </div>
             </div>
 
-            <!-- Button to create room -->
-            <span>
-                <button id="create-game-button">Create Game</button>
-            </span>
         </section>
 
         <!-- This is for Guest Player to ENTER Private Key -->
         <section id='join-game-page' class='page hidden'>
             <div>
-                <label for="private-key-input">Private Key:</label>
-                <input id="private-key-input" type="text">
-                <button id="key-submit-button">Submit</button>
-                <p>Use your private Key and share it to your friends to join your room</p>
+                <button id="key-submit-button" class="">Submit</button>
+                <div>
+                    <label for="private-key-input">Private Key:</label>
+                    <input id="private-key-input" type="text" style="width: 90%; height: 3rem;">
+                    <p>Use your private Key and share it to your friends to join your room</p>
+                </div>
             </div>
         </section>
 
@@ -197,17 +200,17 @@
         <!-- Once game Starts, Question will display and TIME start counting-Down -->
         <!-- Player will SUBMIT an answer (It can be anything) -->
         <!-- ANSWERs will be saved in localStorage, but not Displayed to the player yet -->
-        <section id='stage-1-page' class='page '>
-            <div class="w3-display-top w3-card-4 w3-white w3-border w3-round-xlarge "
-                style="width: 350px; height: 300px;">
+        <section id='stage-1-page' class='page'>
+            <div id='stage-1-card' class="w3-card-4 w3-white w3-border w3-round-xlarge "
+                style="width: 90%; height: 300px;">
                 
                 <em id="stage-1-timer-display"></em>
 
                 <h3 class='question-display'>Question Display Here</h3>
             </div>
 
-            <input type="text" id="wrong-answer-input" class="w3-margin-top">
-            <button id="submit-wrong-answer-button">Submit</button>
+            <input type="text" id="wrong-answer-input" class="w3-margin-top" style="width: 90%; height: 4rem;">
+            <button id="submit-wrong-answer-button" class="w3-margin-top-24" style="width: 90%; height: auto;">Submit</button>
 
             <h2>Provide your WRONG answer!</h2>
 
