@@ -1,3 +1,8 @@
+/* Teal color  rgb(0, 255, 255) */
+/* Aqua color  rgba(0, 128, 128, 0.712) */
+/* Dark Blue colro  rgba(7, 7, 85, 0.856) */
+
+
 body {
     background-image:
     linear-gradient(to bottom, rgba(255, 255, 255, 0.384),rgba(7, 7, 85, 0.856)), url("../images/background_art.jpg");
@@ -22,8 +27,11 @@ main {
 }
 
 input{
+    width: 80%;
     border-radius: 10px;
     background-color: white;
+    color: rgba(7, 7, 85, 0.856);
+    font-size: 2rem;
 }
 
 input:hover {
@@ -61,13 +69,15 @@ nav button {
     left: 18%;
 }
 
+/* Let's Play title */
 #landing-page h2 {
     font-family: "Bangers", cursive;
     font-size: 3rem;
+    font-weight: bolder;
     line-height: 4.5rem;
-    color: white;
+    color: rgb(0, 255, 255);
     margin-top: -2rem;
-    -webkit-text-stroke: 2px black;
+    -webkit-text-stroke: 2px rgba(7, 7, 85, 0.856);
 }
 
 #landing-page label {
