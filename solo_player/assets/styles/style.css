@@ -1,0 +1,183 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+main .page {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+}
+
+main button, main input[type='button'], main input[type='submit'] {
+  padding: 0.75rem 1.5rem;
+}
+
+main input[type='text'], main input[type='number'], main select {
+  padding: 0.5rem;
+}
+
+#landing-page #setup-game-button {
+  margin-top: 0.5rem;
+}
+
+#landing-page #show-rules-button {
+  position: fixed;
+  top: 0.35rem;
+  right: 0.35rem;
+}
+
+#landing-page #game-rules-model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  max-width: 1000px;
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background-color: #555;
+  color: #eee;
+}
+
+#landing-page #game-rules-model #hide-rules-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  color: inherit;
+  font-size: 2rem;
+  border: 0;
+  cursor: pointer;
+}
+
+#landing-page #game-rules-model #hide-rules-button:focus {
+  outline: none;
+}
+
+#setup-page #back-button {
+  position: fixed;
+  top: 0.35rem;
+  right: 0.35rem;
+}
+
+#setup-page #difficulty-options {
+  display: flex;
+  flex-direction: column;
+}
+
+#setup-page #start-game-button, #setup-page #difficulty, #setup-page #question-count {
+  margin-top: 0.75rem;
+}
+
+#setup-page #start-game-button, #setup-page #question-count-input, #setup-page #category-dropdown {
+  width: 100%;
+}
+
+#question-page #timer {
+  position: fixed;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+#question-page #category-span {
+  display: flex;
+  align-items: center;
+}
+
+#question-page #category-icon {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+#question-page #category-display {
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
+#question-page #difficulty-display {
+  display: none;
+}
+
+#question-page #question-display {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+
+#question-page #answers-list {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25rem;
+}
+
+#question-page #answers-list span {
+  display: flex;
+  align-items: baseline;
+}
+
+#question-page #answers-list span label {
+  margin-left: 0.25rem;
+}
+
+#question-page #submit-answer-button {
+  margin-top: 2rem;
+}
+
+#score-page #result-animation-box {
+  display: flex;
+  justify-content: center;
+}
+
+#score-page #result-animation {
+  max-width: 100%;
+  max-height: 350px;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+#score-page #next-question-timer {
+  position: fixed;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+#score-page #next-question-button {
+  margin-top: 0.5rem;
+}
+
+#final-page #final-animation-box {
+  display: flex;
+  justify-content: center;
+}
+
+#final-page #final-animation {
+  max-width: 100%;
+  max-height: 350px;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+#final-page #final-scores-display {
+  font-family: fantasy;
+  font-size: 3rem;
+  text-align: center;
+  color: #2da5f5;
+}

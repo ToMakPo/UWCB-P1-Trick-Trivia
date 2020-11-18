@@ -1,0 +1,157 @@
+body
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+*
+    box-sizing: border-box
+
+header
+    display: flex
+    justify-content: space-between
+
+main
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
+
+    .page
+        display: inline-flex
+        flex-direction: column
+        position: relative
+        width: 100%
+        max-width: 1000px
+    
+    button, input[type='button'], input[type='submit']
+        padding: 0.75rem 1.5rem
+
+    input[type='text'], input[type='number'], select
+        padding: 0.5rem
+
+#landing-page
+    #setup-game-button
+        margin-top: 0.5rem
+
+    #show-rules-button
+        position: fixed
+        top: 0.35rem
+        right: 0.35rem
+    
+    #game-rules-model
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100vw
+        max-width: 1000px
+        border: 1px solid black
+        padding: 2rem
+        border-radius: 1.5rem
+        background-color: #555
+        color: #eee
+
+        #hide-rules-button
+            position: absolute
+            top: 0.5rem
+            right: 0.5rem
+            background-color: transparent
+            color: inherit
+            font-size: 2rem
+            border: 0
+            cursor: pointer
+
+            &:focus
+                outline: none
+
+#setup-page
+    #back-button
+        position: fixed
+        top: 0.35rem
+        right: 0.35rem
+
+    #difficulty-options
+        display: flex
+        flex-direction: column
+    
+    #start-game-button, #difficulty, #question-count
+        margin-top: 0.75rem
+    
+    #start-game-button, #question-count-input, #category-dropdown, 
+        width: 100%
+
+#question-page
+    #timer
+        position: fixed
+        top: 0.25rem
+        right: 0.25rem
+
+    #category-span
+        display: flex
+        align-items: center
+
+    #category-icon
+        max-width: 40px
+        max-height: 40px
+    
+    #category-display
+        margin-left: 1rem
+        font-size: 2rem
+
+    #difficulty-display
+        display: none
+    
+    #question-display
+        margin: 2rem 0
+        font-size: 1.5rem
+
+    #answers-list
+        display: flex
+        flex-direction: column
+        font-size: 1.25rem
+        
+        span
+            display: flex
+            align-items: baseline
+            
+            label
+                margin-left: 0.25rem
+    
+    #submit-answer-button
+        margin-top: 2rem
+
+$gif-height: 350px
+#score-page
+    #result-animation-box
+        display: flex
+        justify-content: center
+
+    #result-animation
+        max-width: 100%
+        max-height: $gif-height
+        border-radius: 1rem
+        border: 2px solid black
+    
+    #next-question-timer
+        position: fixed
+        top: 0.25rem
+        right: 0.25rem
+
+    #next-question-button
+        margin-top: 0.5rem
+
+#final-page
+    #final-animation-box
+        display: flex
+        justify-content: center
+
+    #final-animation
+        max-width: 100%
+        max-height: $gif-height
+        border-radius: 1rem
+        border: 2px solid black
+    
+    #final-scores-display
+        font-family: fantasy
+        font-size: 3rem
+        text-align: center
+        color: #2da5f5
+
