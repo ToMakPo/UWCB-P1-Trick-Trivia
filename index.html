@@ -30,51 +30,56 @@
     <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
         <section id='landing-page' class='page hidden w3-display-container w3-center'>
-            <h2>Let's Play!</h2>
+            <!-- Let's Play! button Prism effect -->
+            <figure>
+                <div id="enter-game-options" class="">
+                    <button id='host-game-button'>Press Me</button>    <!--replaced span-->
+                    <button id='host-game-button'>Let's Play!</button> <!--replaced span-->
+                </div>
+            </figure>
             
             <span id="player-name">
                 <!-- <label for="player-name-input">Player: </label> -->
                 <input id="player-name-input" class="w3-center" type="text" placeholder="Screen Name">
             </span>
 
-            <div id="enter-game-options" class="w3-margin-top">
-                <button id='host-game-button'>Host Game</button>
-                <button id='join-game-button'>Join Game</button>
-                <button id="show-rule-hover" class="w3-margin-top">Rules</button>
+            <div id="show-rule-hover" class="w3-margin-top">
+                <!-- <button id='host-game-button'>Host Game</button> -->
+                <!-- <button id='join-game-button'>Join Game</button> -->
+                <button id="show-rule-button" class="w3-margin-top">Rules</button>
             </div>
 
             <!-- Rule page will be hidden. Instead it only show a button which will be on the top RIGHT/LEFT side of the Welcome page -->
             <!-- Player will be CLICK on the the RULE Button to view the rules -->
             <!-- Once Player click button, it will display pop-up a BLOCK page with the RULE DISPLAY -->
-            <div class="game-rule-card ">
-                <div id="game-rule-text" class="w3-left-align w3-border w3-round-xlarge w3-aqua">
-                    <div class="w3-teal w3-section w3-padding-large w3-border w3-round-xlarge">
-                        <h4>GOAL</h4>
-                        <p>
-                            Try and trick your friends with the best wrong answers to earn the most points.
-                        </p>
-                        <h4>Stage-1</h4>
-                        <p>
-                            In <strong>Trick Trivia</strong>, players will be shown a question and then
-                            you will need to provide the best <strong>wrong</strong> answer.
-                        </p>
-                        <h4>Stage-2</h4>
-                        <p>
-                            Next, players will be given a list of answers. One of them will be the
-                            correct answer, but the rest will be a mix of the <strong>wrong</strong>
-                            answers players provided. If you've played your chance well, you will have
-                            <strong>tricked</strong> everyone else into picking your wrong answer.
-                            You will get:
-                        <ul>
-                            <li>3 points for the correct answer.</li>
-                            <li>2 additional points for being the first to provide the correct answer.</li>
-                            <li>1 additional point for every player that picked your <strong>Trick</strong> answer.</li>
-                        </ul>
-                        </p>
-                        <p>
-                            When <strong>Trick</strong> Trivia questions are over, the one with the most points wins.
-                        </p>
-                    </div>
+            <div id="game-rule-card" class="">
+                <div id="game-rule-text" class="w3-left-align w3-padding-large w3-round-xlarge">
+                    <h4>GOAL</h4>
+                    <p>
+                        Try and trick your friends with the best wrong answers to earn the most points.
+                    </p>
+                    <h4>Stage-1</h4>
+                    <p>
+                        In <strong>Trick Trivia</strong>, players will be shown a question and then
+                        you will need to provide the best <strong>wrong</strong> answer.
+                    </p>
+                    <h4>Stage-2</h4>
+                    <p>
+                        Next, players will be given a list of answers. One of them will be the
+                        correct answer, but the rest will be a mix of the <strong>wrong</strong>
+                        answers players provided. If you've played your chance well, you will have
+                        <strong>tricked</strong> everyone else into picking your wrong answer.
+                        You will get:
+                    <ul>
+                        <li>3 points for the correct answer.</li>
+                        <li>2 additional points for being the first to provide the correct answer.</li>
+                        <li>1 additional point for every player that picked your <strong>Trick</strong> answer.</li>
+                    </ul>
+                    </p>
+                    <p>
+                        When <strong>Trick</strong> Trivia questions are over, the one with the most points wins.
+                    </p>
+                
                 </div>
             </div>
         </section>
@@ -134,7 +139,7 @@
             </div>
 
             <!-- SELECT difficulty level -->
-            <div class="w3-margin-bottom">
+            <div class="">
                 <label for="difficulty-options" class="w3-margin">Select Difficulty</label>
                 <div>
                     <div id="difficulty-options" class="w3-margin">
@@ -201,7 +206,7 @@
         <!-- Player will SUBMIT an answer (It can be anything) -->
         <!-- ANSWERs will be saved in localStorage, but not Displayed to the player yet -->
         <section id='stage-1-page' class='page'>
-            <div id='stage-1-card' class="w3-card-4 w3-white w3-border w3-round-xlarge "
+            <div id='stage-1-card' class="w3-round-xlarge "
                 style="width: 90%; height: 300px;">
                 
                 <em id="stage-1-timer-display"></em>

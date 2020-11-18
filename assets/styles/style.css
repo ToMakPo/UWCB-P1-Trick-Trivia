@@ -1,7 +1,8 @@
 /* Teal color  rgb(0, 255, 255) */
 /* Aqua color  rgba(0, 128, 128, 0.712) */
-/* Dark Blue colro  rgba(7, 7, 85, 0.856) */
+/* Dark Blue color  rgba(7, 7, 85, 0.856) */
 
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
 body {
     background-image:
@@ -11,115 +12,161 @@ body {
     position: fixed;
 }
 
+/* Header container */
 header {
     max-height: 290px;
 }
 
+/* Trivia Night logo */
 header img {
     max-width: 800px;
     max-height: 290px;
     margin: 2rem auto;
 }
 
+/* Main container */
 main {
     display: flex;
     justify-content: center;
 }
 
+/* Let's Play! button --------------------------------------------*/
+figure {
+    width: 200px;
+    height: 60px;
+    align-self: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    perspective: 500px;
+    -webkit-perspective: 500px;
+}
+
+figure div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
+}
+
+figure:hover div {
+    transform: rotateX(-90deg);
+}
+
+#enter-game-options button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 5px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 50px;
+    font-size: 2rem;
+    font-weight: 500;
+    -webkit-text-stroke: 1px rgba(7, 7, 85, 0.856);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:nth-child(1) {
+    color: rgb(0, 255, 255)f;
+    transform: translate3d(0, 0, 30px);
+    -webkit-transform: translate3d(0, 0, 30px);
+}
+
+button:nth-child(2) {
+    color: rgba(7, 7, 85, 0.856);
+    background: rgb(0, 255, 255);
+    transform: rotateX(90deg) translate3d(0, 0, 30px);
+    -webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);
+}
+/* Let's Play! button --------------------------------------------*/
+
+/* Screen Name */
 input{
     width: 80%;
     border-radius: 10px;
     background-color: white;
     color: rgba(7, 7, 85, 0.856);
     font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 3rem;
 }
 
+/* Screen Name hover*/
 input:hover {
-    border: 1px solid gold;
+    border: 1px solid rgb(0, 255, 255);
 }
 
+/* Screen Name focus*/
 input:focus {
     outline: 0;
-    border: 2px solid gold;
+    border: 2px solid  rgb(0, 255, 255);
 }
-
+/* All Buttons */
 button {
-    border-radius: 15px;
-    border-color: rgb(154, 204, 16);
-    background-color: rgb(45, 155, 60);
-    color: rgb(228, 231, 61);
+    background-color: rgba(7, 7, 85, 0.856);
+    color: rgb(0, 255, 255);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
     padding: 0.11rem 1rem;
+    border: 2px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
 }
 
+/* All Buttons hover */
 button:hover {
     font-size: medium;
 }
 
+/* All Buttons focus */
 button:focus {
     outline: 0;
-    border: 2px solid gold;
+    border: 2px solid rgb(0, 255, 255);
 }
 
+/* Back Button */
 nav button {
-    border-radius: 15px;
     position: absolute;
-    left: 18%;
+    top: 80%;
+    left:40%;
 }
 
-/* Let's Play title */
-#landing-page h2 {
-    font-family: "Bangers", cursive;
-    font-size: 3rem;
-    font-weight: bolder;
-    line-height: 4.5rem;
-    color: rgb(0, 255, 255);
-    margin-top: -2rem;
-    -webkit-text-stroke: 2px rgba(7, 7, 85, 0.856);
-}
-
-#landing-page label {
-    font-family: "Bangers", cursive;
-    color: white;
-    -webkit-text-stroke: 1px black;
-}
-
-#landing-page input {
-    margin-top: 1rem;
-    line-height: 2rem;
-    color: rgb(66, 62, 62);
-}
-
-.game-rule-card {
+/* Rules container */
+#game-rule-card {
     width: 100%;
 }
 
+/* Rules text */
 #game-rule-text {
-    background-color: rgba(255, 255, 255, 0.397);
-    color: black;
     width: 100vw;
-    max-height: 100%;
+    border: 10px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+    background-color: rgba(0, 128, 128, 0.712);
+    color: white;
     display: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 12.8px;
-    font-style: italic;
-    font-weight: 600;
+    font-size: 20px !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
     margin: 0 auto;
-    padding: 0 1rem;
-    border-style: none solid solid solid;
-    border-width: 0.15rem;
+    padding: 0 0rem;
 }
 
+/* Rules header */
 #game-rule-text h4 {
-    color: black;
+    color: rgba(7, 7, 85, 0.856);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     font-weight: bolder;
     margin-top: 16px;
 }
 
+/* A generic class for any page */
 .page {
     padding: 1rem 0rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -131,25 +178,16 @@ nav button {
     align-content: center;
 }
 
+/* A generic header for any class using page */
 .page h2 {
     font-family: "Bangers", cursive;
-    -webkit-text-stroke: 2px black;
+    color: rgba(7, 7, 85, 0.856);
+    -webkit-text-stroke: 2px rgba(0, 128, 128, 0.712);
     font-size: 50px;
     margin-top: 1rem;
 }
 
-.page label {
-    padding: 1rem auto;
-}
-
-#create-game-button {
-    border-radius: 15px;
-    margin-bottom: 8rem;
-    position: absolute;
-    top: -2%;
-    right: 18%
-}
-
+/* game set up page container */
 #game-setup-page {
     background-color: rgba(0, 128, 128, 0.712);
     width: 80vw;
@@ -162,23 +200,19 @@ nav button {
     margin-bottom: 2rem;
     padding: 0rem 0rem;
     border: 10px solid rgb(0, 255, 255);
-}
-
-#game-setup-page label {
-    padding: 0.5rem;
-    font-size: 1.3rem;
+    box-shadow: 0 0 10px white;
 }
 
 /* Select Difficulty contents */
 #difficulty-options {
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     margin: 0 auto;
     font-size: 24px;
 }
 
-#players-in-lobby-list {
+/* #players-in-lobby-list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -186,29 +220,38 @@ nav button {
     border: 10px solid #DE4F49;
     width: 50%;
     margin: 10px auto;
-}
+} */
 
+/* stage 1 container */
 #stage-1-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+/* stage 1 card */
 #stage-1-card {
     max-width: 800px;
     align-self: center;
+    background-color: rgba(0, 128, 128, 0.712);
+    border: 10px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
 }
 
+/* stage 1 timer */
 #stage-1-timer-display {
     border-color: white;
     border-radius: 10px;
+    box-shadow: 0 0 10px white;
 }
 
+/* Input answer */
 #wrong-answer-input {
     max-width: 800px;
     align-self: center;
 }
 
+/* Input answer button */
 #submit-wrong-answer-button {
     max-width: 200px;
     align-self: center;
@@ -216,17 +259,19 @@ nav button {
     margin-top: 2rem;
 }
 
+/* stage 1 header */
 #stage-1-page h2 {
     display: inline-block;
     line-height: 3.5rem;
 }
 
+/* waiting text */
 #stage-1-waiting-display {
     display: none;
     padding: 0 1rem;
 }
 
-#key-submit-button {
+/* #key-submit-button {
     position: absolute;
     top: 39%;
     left: 60%;
@@ -239,7 +284,7 @@ nav button {
  
 #join-game-page p {
     padding: 0 2rem;
-}
+} */
 
 @media only screen and (min-width: 320px){
 
