@@ -1,5 +1,3 @@
-
-
 // Click Rule Button to show the Rule 
 $("#show-rule-hover").on("click", function showRuleButton() {
     var x = document.getElementById("game-rule-text");
