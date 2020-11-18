@@ -17,10 +17,7 @@
 
 <body class="w3-display-container w3-center w3-text-white">
     <header class="w3-display-container w3-center">
-
-        <h1 class="w3-display-topmiddle">Trick</h1>
-        <img src="https://3z489t2p9kbdv4il24as7q51-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/YpJilaXXT8qJR6HQVKFM_ISM_Trivia.gif"
-            alt="See the source image" width="100%">
+        <img src="assets/images/trivia_logo.png" alt="Trivia Night logo" width="90%" height="90%">
 
         <nav>
             <button id="back-button" class="hidden" data-page="">Back</button>
@@ -33,15 +30,17 @@
     <!-- Guest player will be switching to a new page to enter the CODE from HOST  -->
     <main>
         <section id='landing-page' class='page hidden w3-display-container w3-center'>
-            <h2>Welcome to Trick Trivia!</h2>
+            <h2>Welcome</h2>
+            <h2>to</h2>
+            <h2>Trivia Night!</h2>
             <span id="player-name">
-                <label for="player-name-input">Player: </label>
-                <input id="player-name-input" type="text">
+                <!-- <label for="player-name-input">Player: </label> -->
+                <input id="player-name-input" class="w3-center" type="text" placeholder="Screen Name">
             </span>
 
             <div id="enter-game-options" class="w3-margin-top">
                 <button id='host-game-button'>Host Game</button>
-                <button id='join-game-button'>Join Game</button>
+                <!-- <button id='join-game-button'>Join Game</button> -->
                 <button id="show-rule-hover" class="w3-margin-top">Rules</button>
             </div>
 
@@ -83,12 +82,12 @@
 
         <!-- This is option where host will create a room  -->
         <!-- HOST will be pick OPTIONS below to create a room -->
-        <section id='game-setup-page' class='page hidden w3-display-container w3-center'>
+        <section id='game-setup-page' class='page hidden w3-display-container w3-center w3-left-align w3-round-xlarge'>   
             <!-- Button to create room -->
             <span>
                 <button id="create-game-button">Create Game</button>
             </span>
-            
+                
             <h2>Game Setup</h2>
             <i class="fas fa-atom"></i>
 
@@ -118,13 +117,13 @@
             </div>
 
             <!-- Decide how many players can join -->
-            <div>
+            <!-- <div>
                 <label for="player-count-slider" class="w3-margin">Number of Players <em>(2 - 10)</em></label>
                 <div class="slider-widget">
                     <span id="player-count-display" class="slider-display w3-margin"></span>
                     <input id="player-count-slider" class="w3-margin" type="range" min="2" max="10" value="5">
                 </div>
-            </div>
+            </div> -->
 
             <!-- How many QUESTIONS to play in the game -->
             <div>
@@ -172,7 +171,7 @@
         </section>
 
         <!-- This is for Guest Player to ENTER Private Key -->
-        <section id='join-game-page' class='page hidden'>
+        <!-- <section id='join-game-page' class='page hidden'>
             <div>
                 <button id="key-submit-button" class="">Submit</button>
                 <div>
@@ -181,11 +180,11 @@
                     <p>Use your private Key and share it to your friends to join your room</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Once the Players join in a WAITING-ROOM, HOST can start the game-->
         <!-- Once more than 2 players join the ROOM, START Button will LIGHTUP = game can be start -->
-        <section id='lobby-page' class='page hidden'>
+        <!-- <section id='lobby-page' class='page hidden'>
             <h2>Waiting for Players</h2>
 
             <button id="start-game-button">Start Game</button>
@@ -196,7 +195,7 @@
                 <span id="players-count-display"></span>
                 <span id="max-players-display"></span>
             </span>
-        </section>
+        </section> -->
 
         <!-- This is FIRST Stage of the game -->
         <!-- Once game Starts, Question will display and TIME start counting-Down -->

@@ -1,26 +1,24 @@
 body {
-    background-color: rgb(7, 7, 85);
+    background-image:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.384),rgba(7, 7, 85, 0.856)), url("../images/background_art.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
 }
 
 header {
     max-height: 290px;
-    background-color: rgb(7, 7, 85);
-}
-
-header h1 {
-    font-family: "Bangers", cursive;
-    font-size: 60px;
-    color: white;
-    text-shadow: 3px 3px white;
-    -webkit-text-stroke: 2px black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
 }
 
 header img {
-    max-width: 1000px;
+    max-width: 800px;
     max-height: 290px;
+    margin: 2rem auto;
+}
+
+main {
+    display: flex;
+    justify-content: center;
 }
 
 input{
@@ -65,18 +63,23 @@ nav button {
 
 #landing-page h2 {
     font-family: "Bangers", cursive;
-    font-size: 50px;
-    line-height: 3rem;
+    font-size: 3rem;
+    line-height: 4.5rem;
     color: white;
-    margin-top: 2rem;
+    margin-top: -2rem;
     -webkit-text-stroke: 2px black;
 }
 
 #landing-page label {
     font-family: "Bangers", cursive;
-    font-size: 30px;
     color: white;
     -webkit-text-stroke: 1px black;
+}
+
+#landing-page input {
+    margin-top: 1rem;
+    line-height: 2rem;
+    color: rgb(66, 62, 62);
 }
 
 .game-rule-card {
@@ -108,11 +111,8 @@ nav button {
 }
 
 .page {
-    width: 100vw;
-    margin-top: 10px;
     padding: 1rem 0rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 22px;
     font-weight: bolder;
     color: white;
     display: flex;
@@ -125,7 +125,7 @@ nav button {
     font-family: "Bangers", cursive;
     -webkit-text-stroke: 2px black;
     font-size: 50px;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .page label {
@@ -140,9 +140,23 @@ nav button {
     right: 18%
 }
 
+#game-setup-page {
+    background-color: rgba(0, 128, 128, 0.712);
+    width: 80vw;
+    display: inline-block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0rem 0rem;
+    border: 10px solid rgb(0, 255, 255);
+}
+
 #game-setup-page label {
-    -webkit-text-stroke: 1px black;
     padding: 0.5rem;
+    font-size: 1.3rem;
 }
 
 /* Select Difficulty contents */
