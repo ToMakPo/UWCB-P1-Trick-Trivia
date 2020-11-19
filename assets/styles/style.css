@@ -1,11 +1,20 @@
+/* Teal color rgb(0, 255, 255) */
+/* Aqua color rgba(0, 128, 128, 0.712) */
+/* Dark Blue Color rgba(7, 7, 85, 0.856) */
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image:
+  linear-gradient(to bottom, rgba(255, 255, 255, 0.384),rgba(7, 7, 85, 0.856)), url("../images/background_art.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
 }
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 header {
   display: flex;
