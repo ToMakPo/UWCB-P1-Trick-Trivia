@@ -155,7 +155,6 @@ function init() {
         questionIndex = -1
         score = [0, 0]
         
-        //TODO: have this point to the API
         let category = prefs.gameSettings.category
         let amount = prefs.gameSettings.questionsCount
         let difficulty = prefs.gameSettings.difficulty
@@ -182,7 +181,6 @@ function init() {
     })
 
     nextQuestionButton.on('click', event => {
-        //TODO: change this back to questions.length
         let pageName = questionIndex + 1 < prefs.gameSettings.questionsCount ? 'question' : 'final'
         displayPage(pageName)
     })
@@ -238,7 +236,7 @@ function displayPage(pageID) {
         e.innerHTML = input;
         // handle case of empty input
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-      }
+    }
 
     function displayLanding() {}
     function displayGameSetup() {}
@@ -255,13 +253,16 @@ function displayPage(pageID) {
         categoryIcon.attr('src', iconPath)
         difficultyDisplay.text(info.difficulty)
 
+        info.correct_answer = scrubText(info.correct_answer)
+        info.incorrect_answers = info.incorrect_answers.map(a => scrubText(a))
+
         let options = [info.correct_answer, ...info.incorrect_answers]
         let answers = []
         answersList.html('')
         let x = 0
         while (options.length) {
             let i = Math.floor(Math.random() * options.length)
-            let a = scrubText(options.splice(i, 1)[0])
+            let a = options.splice(i, 1)[0]
             x++
             answers.push(a)
             let input = $('<input>')
@@ -309,7 +310,7 @@ function getRightWrongGif(correct, element) {
         ['accurate', 334],
         ['precise', 224],
         ['flawless', 345],
-        ['perfect', 7958]
+        ['perfect', 4999]
     ] : [
         ['incorrect', 170],
         ['wrong', 3167],
@@ -326,24 +327,16 @@ function getRightWrongGif(correct, element) {
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
 
     $.get(apiURL, data => {
-        try {
-            let gifURL = data.data[0].images.original.url
-            element.attr('src', gifURL).removeClass('hidden')
-        }
-        catch(e)
-        {
-            let s = JSON.stringify(data.data[0])
-            console.error("data.data[0] is " + s)
-        }
+        let gifURL = data.data[0].images.original.url
+        element.attr('src', gifURL).removeClass('hidden')
     })
-    //TODO: sometimes the gif doesn't load. Fix it. ????
 }
 
 function getFinalGif(element) {
     let perc = score[0] / score[1]
     let lookup
-    if (perc == 1) lookup = ['perfect', 8575]
-    else if (perc > 0.9) lookup = ['amazing', 6535]
+    if (perc == 1) lookup = ['perfect', 4999]
+    else if (perc > 0.9) lookup = ['amazing', 4999]
     else if (perc > 0.8) lookup = ['pretty good', 313]
     else if (perc > 0.7) lookup = ['its okay', 895]
     else if (perc > 0.5) lookup = ['meh', 1278]
@@ -360,5 +353,4 @@ function getFinalGif(element) {
         let gifURL = data.data[0].images.original.url
         element.attr('src', gifURL).removeClass('hidden')
     })
-    //TODO: sometimes the gif doesn't load. Fix it.
 }
