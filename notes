@@ -1,0 +1,296 @@
+/* Teal color  rgb(0, 255, 255) */
+/* Aqua color  rgba(0, 128, 128, 0.712) */
+/* Dark Blue color  rgba(7, 7, 85, 0.856) */
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+body {
+    background-image:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.384),rgba(7, 7, 85, 0.856)), url("../images/background_art.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+}
+
+/* Header container */
+header {
+    max-height: 290px;
+}
+
+/* Trivia Night logo */
+header img {
+    max-width: 800px;
+    max-height: 290px;
+    margin-top: 2rem;
+}
+
+/* Main container */
+main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Let's Play! button --------------------------------------------*/
+figure {
+    width: 200px;
+    height: 60px;
+    align-self: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    perspective: 500px;
+    -webkit-perspective: 500px;
+}
+
+figure div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
+}
+
+figure:hover div {
+    transform: rotateX(-90deg);
+}
+
+#enter-game-options button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 5px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 50px;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:nth-child(1) {
+    color: rgb(0, 255, 255)f;
+    transform: translate3d(0, 0, 30px);
+    -webkit-transform: translate3d(0, 0, 30px);
+}
+
+button:nth-child(2) {
+    color: rgba(7, 7, 85, 0.856);
+    background: rgb(0, 255, 255);
+    transform: rotateX(90deg) translate3d(0, 0, 30px);
+    -webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);
+}
+/* Let's Play! button --------------------------------------------*/
+
+/* Screen Name */
+input{
+    max-width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    color: rgba(7, 7, 85, 0.856);
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 3rem;
+}
+
+/* Screen Name hover*/
+input:hover {
+    border: 1px solid rgb(0, 255, 255);
+}
+
+/* Screen Name focus*/
+input:focus {
+    outline: 0;
+    border: 2px solid  rgb(0, 255, 255);
+}
+/* All Buttons */
+button {
+    background-color: rgba(7, 7, 85, 0.856);
+    color: rgb(0, 255, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+    padding: 0.11rem 1rem;
+    border: 2px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+}
+
+/* All Buttons hover */
+button:hover {
+    font-size: medium;
+}
+
+/* All Buttons focus */
+button:focus {
+    outline: 0;
+    border: 2px solid rgb(0, 255, 255);
+}
+
+/* Back Button */
+nav button {
+ margin: 1rem 0;
+} 
+
+/* Rules container */
+#game-rule-card {
+    width: 90vw;
+    margin: 1rem 0;
+}
+
+/* Rules text */
+#game-rule-text {
+    width: 90vw;
+    border: 10px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+    background-color: rgba(0, 128, 128, 0.712);
+    color: white;
+    display: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
+    margin: 0 auto;
+    padding: 0 0rem;
+}
+
+/* Rules header */
+#game-rule-text h4 {
+    color: rgba(7, 7, 85, 0.856);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 16px;
+}
+
+/* A generic class for any page */
+.page {
+    padding: 1rem 0rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/* A generic header for any class using page */
+.page h2 {
+    font-family: "Bangers", cursive;
+    color: rgba(7, 7, 85, 0.856);
+    -webkit-text-stroke: 2px rgba(0, 128, 128, 0.712);
+    font-size: 50px;
+    margin-top: 1rem;
+}
+
+/* game set up page container */
+#game-setup-page {
+    max-width: 100vw;
+    display: inline-block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    margin-top:6rem;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 128, 128, 0.712);
+    border: 10px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+}
+
+/* Select Difficulty contents */
+#difficulty-options {
+    /* display: inline-flex; */
+    /* flex-direction: row; */
+    /* align-items: flex-start; */
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+/* #players-in-lobby-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 15px;
+    border: 10px solid #DE4F49;
+    width: 50%;
+    margin: 10px auto;
+} */
+
+/* stage 1 container */
+#stage-1-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+/* stage 1 card */
+#stage-1-card {
+    max-width: 800px;
+    align-self: center;
+    background-color: rgba(0, 128, 128, 0.712);
+    border: 10px solid rgb(0, 255, 255);
+    box-shadow: 0 0 10px white;
+}
+
+/* stage 1 timer */
+#stage-1-timer-display {
+    border-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+}
+
+/* Input answer */
+#wrong-answer-input {
+    max-width: 800px;
+    align-self: center;
+}
+
+/* Input answer button */
+#submit-wrong-answer-button {
+    max-width: 200px;
+    align-self: center;
+    padding: 0.4rem 1rem;
+    margin-top: 2rem;
+}
+
+/* stage 1 header */
+#stage-1-page h2 {
+    display: inline-block;
+    line-height: 3.5rem;
+}
+
+/* waiting text */
+#stage-1-waiting-display {
+    display: none;
+    padding: 0 1rem;
+}
+
+/* #key-submit-button {
+    position: absolute;
+    top: 39%;
+    left: 60%;
+}
+
+#private-key-input {
+    max-width: 400px;
+    margin-top: 3rem;
+}
+ 
+#join-game-page p {
+    padding: 0 2rem;
+} */
+
+/* @media only screen and (min-width: 320px){
+
+
+}
+
+@media only screen and (min-width: 768px){
+
+  
+} */
