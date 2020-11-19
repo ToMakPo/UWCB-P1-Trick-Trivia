@@ -1,2 +1,2 @@
-# Group_Project_1
+# UWCB P1 - Trick Trivia
 Our first group project for UW Coding Bootcamp
