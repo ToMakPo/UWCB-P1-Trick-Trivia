@@ -1,4 +1,5 @@
-prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
+"use strict"
+var prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
     playerName: '',
     gameSettings: {
         category: '',
@@ -37,42 +38,42 @@ const categoryIcons = {
 }
 
 //landing page
-playerNameInput = $('#player-name-input')
-setupGameButton = $('#setup-game-button')
+const playerNameInput = $('#player-name-input')
+const setupGameButton = $('#setup-game-button')
 
 //rules model
-showRulesButton = $('#show-rules-button')
-gameRulesModel = $('#game-rules-model')
-hideRulesButton = $('#hide-rules-button')
+const showRulesButton = $('#show-rules-button')
+const gameRulesModel = $('#game-rules-model')
+const hideRulesButton = $('#hide-rules-button')
 
 //game setup
-backButton = $('#back-button')
-categoryDropdown = $('#category-dropdown')
-questionCountInput = $('#question-count-input')
-difficultyRadioButtons = $('.difficulty-radio-button')
-startGameButton = $('#start-game-button')
+const backButton = $('#back-button')
+const categoryDropdown = $('#category-dropdown')
+const questionCountInput = $('#question-count-input')
+const difficultyRadioButtons = $('.difficulty-radio-button')
+const startGameButton = $('#start-game-button')
 
 //question & answers
-timerDisplay = $('#timer-display')
-categoryDisplay = $('#category-display')
-categoryIcon = $('#category-icon')
-difficultyDisplay = $('#difficulty-display')
-questionDisplay = $('#question-display')
-answersList = $('#answers-list')
-submitAnswerButton = $('#submit-answer-button')
+const timerDisplay = $('#timer-display')
+const categoryDisplay = $('#category-display')
+const categoryIcon = $('#category-icon')
+const difficultyDisplay = $('#difficulty-display')
+const questionDisplay = $('#question-display')
+const answersList = $('#answers-list')
+const submitAnswerButton = $('#submit-answer-button')
 
 //score
-questionResultDisplay = $('#question-result-display')
-resultAnimation = $('#result-animation')
-nextQuestionTimerDisplay = $('#next-question-timer-display')
-nextQuestionButton = $('#next-question-button')
+const questionResultDisplay = $('#question-result-display')
+const resultAnimation = $('#result-animation')
+const nextQuestionTimerDisplay = $('#next-question-timer-display')
+const nextQuestionButton = $('#next-question-button')
 
 //final
-winnerDisplay = $('#winner-display')
-finalScoresDisplay = $('#final-scores-display')
-finalAnimationBox = $('#final-animation-box')
-finalAnimation = $('#final-animation')
-endGameButton = $('#end-game-button')
+const winnerDisplay = $('#winner-display')
+const finalScoresDisplay = $('#final-scores-display')
+const finalAnimationBox = $('#final-animation-box')
+const finalAnimation = $('#final-animation')
+const endGameButton = $('#end-game-button')
 
 function init() {
     //Display the landing page.
@@ -171,6 +172,7 @@ function init() {
         if (event.target.matches('input')) {
             let val = $(event.target).val()
             info.selected = val
+            displayPage('score')
         }
     })
 
@@ -238,8 +240,12 @@ function displayPage(pageID) {
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
 
-    function displayLanding() {}
-    function displayGameSetup() {}
+    function displayLanding() {
+        setupGameButton.focus()
+    }
+    function displayGameSetup() {
+        startGameButton.focus()
+    }
     function displayQuestion() {
         questionIndex++
 
@@ -259,6 +265,7 @@ function displayPage(pageID) {
         let options = [info.correct_answer, ...info.incorrect_answers]
         let answers = []
         answersList.html('')
+        let firstInput = null
         let x = 0
         while (options.length) {
             let i = Math.floor(Math.random() * options.length)
@@ -275,8 +282,12 @@ function displayPage(pageID) {
                 .text(a)
             let span = $('<span>')
                 .append(input, label)
+            if(!firstInput) {
+                firstInput = input
+            }
             answersList.append(span)
         }
+        firstInput.focus()
         info.answers = answers
 
         //TODO: Set up timer function
@@ -289,11 +300,22 @@ function displayPage(pageID) {
 
         getRightWrongGif(correct, resultAnimation)
 
+        let difficultyReward = 0
+
         switch (info.difficulty) {
-            case 'easy': score[0] += correct ? 2 : -1; score[1] += 2; break
-            case 'medium': score[0] += correct ? 4 : -2; score[1] += 4; break
-            case 'hard': score[0] += correct ? 8 : -4; score[1] += 8; break
+            case 'easy':   difficultyReward = 2; break
+            case 'medium': difficultyReward = 4; break
+            case 'hard':   difficultyReward = 8; break
         }
+
+        if(correct) {
+            score[0] += difficultyReward
+        } else {
+            score[0] -= (difficultyReward/2)
+        }
+        score[1] += difficultyReward
+
+        nextQuestionButton.focus()
 
         //TODO: Set up timer function
     }
@@ -301,6 +323,7 @@ function displayPage(pageID) {
         getFinalGif(finalAnimation)
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
+        endGameButton.focus()
     }
 }
 
@@ -327,8 +350,12 @@ function getRightWrongGif(correct, element) {
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
 
     $.get(apiURL, data => {
+        try {
         let gifURL = data.data[0].images.original.url
         element.attr('src', gifURL).removeClass('hidden')
+        } catch(e) {
+            console.error(e)
+        }
     })
 }
 

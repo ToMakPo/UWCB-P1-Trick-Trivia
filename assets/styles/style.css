@@ -94,6 +94,13 @@ main input[type='text'], main input[type='number'], main select {
   width: 100%;
 }
 
+/* TODO this is inactive */
+#question-page #rounds {
+  position: fixed;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
 #question-page #timer {
   position: fixed;
   top: 0.25rem;

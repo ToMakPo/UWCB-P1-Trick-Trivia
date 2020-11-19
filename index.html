@@ -89,7 +89,7 @@
 
             <!-- How many questions to play in the game -->
             <div id="question-count">
-                <label for="question-count-input">Number of Question <em>(4 - 20)</em></label><br>
+                <label for="question-count-input">Number of Questions <em>(4 - 20)</em></label><br>
                 <input id="question-count-input" type="number" min="4" max="20" value="10">
             </div>
 
@@ -128,6 +128,9 @@
         <section id='question-page' class='page hidden'>
             <h2>Select the correct answer!</h2>
             
+            <!-- TODO rig the script up to allow this to show the current round # -->
+            <!-- <div id='rounds'>Round: <span id='current-round-number-display'></span>> of <span id='round-count-display'></span></div> -->
+
             <div id='timer'>Remaining time: <span id="timer-display">0:00</span></div>
             
             <span id="category-span">
@@ -150,7 +153,7 @@
         <section id='score-page' class='page hidden'>
             <h2 id="question-result-display"></h2>
             <div id="result-animation-box">
-                <img id="result-animation" alt="And animated gif impfisizing the result.">
+                <img id="result-animation" width="350" height="350" alt="And animated gif impfisizing the result.">
             </div>
             <div id='next-question-timer'>Next question in: <span id="next-question-timer-display">0:00</span></div>
             <button id="next-question-button">Next</button>
