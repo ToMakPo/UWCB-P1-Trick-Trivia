@@ -2,7 +2,7 @@ prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
     playerName: '',
     gameSettings: {
         category: '',
-        numberOfQuestions: 10,
+        questionsCount: 10,
         difficulty: ''
     }
 }
@@ -131,11 +131,11 @@ function init() {
     //Setup the question count input
     questionCountInput
         //Set the value to the one stored in the local storage.
-        .val(prefs.gameSettings.numberOfQuestions)
+        .val(prefs.gameSettings.questionsCount)
         //Store the new value to local storage
         .on('change', event => {
             let value = questionCountInput.val()
-            prefs.gameSettings.numberOfQuestions = value
+            prefs.gameSettings.questionsCount = value
             savePrefs()
         })
 
@@ -156,7 +156,12 @@ function init() {
         score = [0, 0]
         
         //TODO: have this point to the API
-        $.get('/assets/json/debug.json', data => {
+        let category = prefs.gameSettings.category
+        let amount = prefs.gameSettings.questionsCount
+        let difficulty = prefs.gameSettings.difficulty
+        
+        let apiURL = `https://opentdb.com/api.php?type=multiple&category=${category}&amount=${amount}&difficulty=${difficulty}`
+        $.get(apiURL, data => {
             questions = data
             
             displayPage('question')
@@ -178,7 +183,7 @@ function init() {
 
     nextQuestionButton.on('click', event => {
         //TODO: change this back to questions.length
-        let pageName = questionIndex + 1 < prefs.gameSettings.numberOfQuestions ? 'question' : 'final'
+        let pageName = questionIndex + 1 < prefs.gameSettings.questionsCount ? 'question' : 'final'
         displayPage(pageName)
     })
 
