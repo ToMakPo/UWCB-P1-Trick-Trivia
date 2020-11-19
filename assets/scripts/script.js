@@ -233,6 +233,13 @@ function displayPage(pageID) {
     //If no page was selected, then return null.
     return null
 
+    function htmlDecode(input){
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+      }
+
     function displayLanding() {}
     function displayGameSetup() {}
     function displayQuestion() {
@@ -241,9 +248,7 @@ function displayPage(pageID) {
         info = questions.results[questionIndex]
 
         let category = info.category.split(': ').pop()
-        var scrubText = str => str
-            .replace(/(&quot;|&(l|r)dquo;)/g, '"')
-            .replace(/(&quot;|&(l|r)squo;)/g, "'")
+        var scrubText = str => htmlDecode(str)
         questionDisplay.text(scrubText(info.question))
         categoryDisplay.text(category)
         let iconPath = categoryIcons[category][0]
@@ -277,7 +282,9 @@ function displayPage(pageID) {
     }
     function displayScore() {
         let correct = info.selected == info.correct_answer
-        questionResultDisplay.text(correct ? 'You got it right!' : 'You got it wrong!')
+        let correct_answer_text = htmlDecode(questions.results[questionIndex].correct_answer)
+
+        questionResultDisplay.text(correct ? 'CORRECT!' : 'WRONG! The correct answer is "' + correct_answer_text + '"')
 
         getRightWrongGif(correct, resultAnimation)
 
@@ -319,10 +326,17 @@ function getRightWrongGif(correct, element) {
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
 
     $.get(apiURL, data => {
-        let gifURL = data.data[0].images.original.url
-        element.attr('src', gifURL).removeClass('hidden')
+        try {
+            let gifURL = data.data[0].images.original.url
+            element.attr('src', gifURL).removeClass('hidden')
+        }
+        catch(e)
+        {
+            let s = JSON.stringify(data.data[0])
+            console.error("data.data[0] is " + s)
+        }
     })
-    //TODO: sometimes the gif doesn't load. Fix it.
+    //TODO: sometimes the gif doesn't load. Fix it. ????
 }
 
 function getFinalGif(element) {
@@ -334,7 +348,7 @@ function getFinalGif(element) {
     else if (perc > 0.7) lookup = ['its okay', 895]
     else if (perc > 0.5) lookup = ['meh', 1278]
     else if (perc > 0.3) lookup = ['yeaiks', 2900]
-    else if (perc > 0.0) lookup = ['you suck', 287]
+    else lookup = ['you suck', 287]
     
     let q = lookup[0]
     let offset = Math.floor(Math.random() * lookup[1])
