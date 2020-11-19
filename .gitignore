@@ -1,4 +1,6 @@
 .vscode
 .gitignore
+# config.js
 
 # debug.*
+
