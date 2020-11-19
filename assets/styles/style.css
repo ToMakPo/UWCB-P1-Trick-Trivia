@@ -1,6 +1,7 @@
 /* Teal color rgb(0, 255, 255) */
 /* Aqua color rgba(0, 128, 128, 0.712) */
 /* Dark Blue Color rgba(7, 7, 85, 0.856) */
+/* font-family: "Source Sans Pro", sans-serif; */
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
@@ -12,13 +13,7 @@ body {
   position: fixed;
 }
 
-/* * {
-  box-sizing: border-box;
-} */
-
 header {
-  /* display: flex; */
-  /* justify-content: space-between; */
   max-height: 290px;
 }
 
@@ -27,9 +22,12 @@ header img {
   max-width: 800px;
   max-height: 290px;
   margin-top: 2rem;
-  
 }
 
+#show-rules-button {
+  background: transparent;
+  border: none;
+}
 
 /* Main container */
 main {
@@ -47,24 +45,39 @@ main .page {
   max-width: 1000px;
 }
 
-/* main button, main input[type='button'], main input[type='submit'] {
-  padding: 0.75rem 1.5rem;
-} */
+/* Screen Name input */
+main input[type='text'] {
+  max-width: 300px;
+  border-radius: 10px 0 0 10px;
+  background-color: white;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 0 10px white;
+}
 
-/* main input[type='text'], main input[type='number'], main select {
-  padding: 0.5rem;
-} */
+/* Screen Name hover */
+main input:hover {
+  border: 1px solid rgb(0, 255, 255);
+  box-shadow: none;
+}
 
-/* #landing-page #setup-game-button {
-  margin-top: 0.5rem;
-} */
+/* Screen Name focus */
+main input:focus {
+  outline: 0;
+  border: 2px solid  rgb(0, 255, 255);
+ 
+}
 
-/* Let's Play! button --------------------------------------------*/
+/* Setup Game Let's Play! button --------------------------------------------*/
 .prism-button {
   width: 200px;
   height: 60px;
   align-self: center;
-  /* margin-bottom: 2rem; */
+  margin-top: 3rem;
   cursor: pointer;
   perspective: 500px;
   -webkit-perspective: 500px;
@@ -106,15 +119,30 @@ main .page {
 .prism-button span:nth-child(2) {
   color: rgba(7, 7, 85, 0.856);
   background: rgb(0, 255, 255);
+  font-weight: bolder;
   transform: rotateX(90deg) translate3d(0, 0, 30px);
   -webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);
 }
-/* Let's Play! button --------------------------------------------*/
+/* End of Setup Game Let's Play! button --------------------------------------------*/
 
 #landing-page #show-rules-button {
-  position: fixed;
-  top: 0.35rem;
-  right: 0.35rem;
+  position: relative;
+  top: -0.27rem;
+  right: 0.1rem;
+  display: inline-block;
+  padding: 0px 15px;
+  font-size: 21.5px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color:  rgb(0, 255, 255);
+  background-color:rgba(7, 7, 85, 0.856);
+  border: 5px solid  rgb(0, 255, 255);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 10px white;
 }
 
 #landing-page #game-rules-model {
@@ -122,13 +150,10 @@ main .page {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 90vw;
   max-width: 1000px;
-  border: 1px solid black;
   padding: 0.5rem;
-  border-radius: 1.5rem;
-  background-color: #555;
-  color: #eee;
+  box-shadow: 0 0 10px white;
 }
 
 #landing-page #game-rules-model #hide-rules-button {
@@ -145,6 +170,7 @@ main .page {
 #landing-page #game-rules-model #hide-rules-button:focus {
   outline: none;
 }
+/* End of landing page --------------------------------------------*/
 
 #setup-page #back-button {
   position: fixed;
