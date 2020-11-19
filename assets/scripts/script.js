@@ -161,9 +161,9 @@ function init() {
         let difficulty = prefs.gameSettings.difficulty
         
         let apiURL = `https://opentdb.com/api.php?type=multiple&category=${category}&amount=${amount}&difficulty=${difficulty}`
+        
         $.get(apiURL, data => {
             questions = data
-            
             displayPage('question')
         })
     })
@@ -249,9 +249,23 @@ function displayPage(pageID) {
     function displayQuestion() {
         questionIndex++
 
+        if(questionIndex >= questions.results.length)
+        {
+            console.error("questionIndex >= questions.results.length")
+            return
+        }
         info = questions.results[questionIndex]
 
-        let category = info.category.split(': ').pop()
+        let category = null
+        try {
+            category = info.category.split(': ').pop()
+        } catch(e) {
+            console.log("info = " + JSON.stringify(info))
+            console.log("questionIndex = " + questionIndex)
+            console.log("questions.results = " + JSON.stringify(questions.results))
+            console.error(e)
+        }
+        
         var scrubText = str => htmlDecode(str)
         questionDisplay.text(scrubText(info.question))
         categoryDisplay.text(category)
@@ -351,8 +365,8 @@ function getRightWrongGif(correct, element) {
 
     $.get(apiURL, data => {
         try {
-        let gifURL = data.data[0].images.original.url
-        element.attr('src', gifURL).removeClass('hidden')
+            let gifURL = data.data[0].images.original.url
+            element.attr('src', gifURL).removeClass('hidden')
         } catch(e) {
             console.error(e)
         }
@@ -377,7 +391,16 @@ function getFinalGif(element) {
 
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
     $.get(apiURL, data => {
+        try {
+            if(data.data.length == 0) {
+                console.error("data.data.length == 0")
+                return;
+            }
         let gifURL = data.data[0].images.original.url
         element.attr('src', gifURL).removeClass('hidden')
+        } catch(e) {
+            console.log("data = " + JSON.stringify(data))
+            console.error(e)
+        }
     })
 }
