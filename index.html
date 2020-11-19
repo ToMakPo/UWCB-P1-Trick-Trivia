@@ -14,19 +14,25 @@
 </head>
 <body class="">
     <header>
-        <h1>Trick Trivia</h1>
         <img src="assets/images/logo.svg" alt="Trick Triva logo" width="90%" height="90%">
     </header>
     
     <main>
         <section id='landing-page' class='page'>
             <button id="show-rules-button">Rules</button>
-            <h2>Welcome to Trick Trivia!</h2>
+            <!-- <h2>Welcome to Trick Trivia!</h2> -->
             <div id="player-name">
                 <label for="player-name-input" pattern='[a-zA-Z0-9 ]*'>Player Name: </label>
                 <input id="player-name-input" type="text">
             </div>
             <input id="setup-game-button" type="submit" value="Setup Game">
+
+            <figure>
+                <div>
+                  <span>Setup Game</span>
+                  <span>Let's Play!</span>
+                </div>
+              </figure>
             
             <div id="game-rules-model" class="hidden model">
                 <button id="hide-rules-button">×</button>
