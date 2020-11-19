@@ -39,10 +39,12 @@ THEN I will be able to go back to the main page to play again
 ## Technologies Used
 ### For Styling
 * [Google Font](https://fonts.google.com/)
+
 * [W3.CSS Framework](https://www.w3schools.com/w3css/default.asp)
 
 ### For server-side APIs
 * [open Trivia Database API](https://opentdb.com/api_config.php)
+
 * [giphy API](https://developers.giphy.com/)
 
 ### Other
@@ -52,6 +54,7 @@ THEN I will be able to go back to the main page to play again
 
 ## Links
 [Github Repo](https://github.com/ToMakPo/UWCB-P1-Trick-Trivia)
+
 [Live Game](https://tomakpo.github.io/UWCB-P1-Trick-Trivia/)
 
 ## Future Development
