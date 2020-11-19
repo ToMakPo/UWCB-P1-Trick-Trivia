@@ -60,7 +60,7 @@ main .page {
 } */
 
 /* Let's Play! button --------------------------------------------*/
-figure {
+.prism-button {
   width: 200px;
   height: 60px;
   align-self: center;
@@ -68,8 +68,10 @@ figure {
   cursor: pointer;
   perspective: 500px;
   -webkit-perspective: 500px;
+  background: transparent;
+  border: none;
 }
-figure div {
+.prism-button div {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -79,10 +81,10 @@ figure div {
   transition: 0.25s;
   -webkit-transition: 0.25s;
 }
-figure:hover div {
+.prism-button:hover div {
   transform: rotateX(-90deg);
 }
-span {
+.prism-button span{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -95,13 +97,13 @@ span {
   text-align: center;
   text-transform: uppercase;
 }
-span:nth-child(1) {
+.prism-button span:nth-child(1) {
   color:rgb(0, 255, 255);
   background-color:  rgba(7, 7, 85, 0.856);
   transform: translate3d(0, 0, 30px);
   -webkit-transform: translate3d(0, 0, 30px);
 }
-span:nth-child(2) {
+.prism-button span:nth-child(2) {
   color: rgba(7, 7, 85, 0.856);
   background: rgb(0, 255, 255);
   transform: rotateX(90deg) translate3d(0, 0, 30px);
