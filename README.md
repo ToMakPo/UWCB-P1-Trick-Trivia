@@ -55,9 +55,7 @@ THEN I will be able to go back to the main page to play again
 [Live Game](https://tomakpo.github.io/UWCB-P1-Trick-Trivia/)
 
 ## Future Development
-```
 We could make the game more fun by adding an online multyplayer option. 
  - Players can provide their own trick answers to the question
  - Game can have waiting room in multiple players mode where players have an avatar that can run around while they wait
 Add background music and sound effect to make game more attractive
-```
