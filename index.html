@@ -11,9 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/layout.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
+
+    <!-- more styling links -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
-<body class="">
-    <header>
+<body class="w3-display-container w3-center">
+    <header class="w3-display-container w3-center">
         <img src="assets/images/logo.svg" alt="Trick Triva logo" width="90%" height="90%">
     </header>
     
@@ -34,32 +39,35 @@
                 </div>
               </figure>
             
-            <div id="game-rules-model" class="hidden model">
-                <button id="hide-rules-button">×</button>
-                <h3>Rules</h3>
-                <!-- TODO: Fix the rules -->
-                <p>
-                    The goal of this game is to trick your friends and get the most points to 
-                    win. There are two stages to this game; setup and guessing.
-                </p>
-                <p>
-                    In the setup stage, you will be shown a question and you will be able 
-                    to provide a believable answer that is <strong>NOT</strong> correct. 
-                    You will only have 30 seconds to come up with the answer and submit it.
-                </p>
-                <p>
-                    In the guessing stage, you will be given a list of answers. One of them
-                    will be the correct answer, but the rest will be a mix of the ones
-                    provided by your friends and ones provided by the game. You will have to
-                    select the correct answer. If you get the correct answer, you will get 
-                    3 points. If you are the first to select the correct answer, you will 
-                    get an additional 2 points. If someone else picked the answer you gave
-                    in the setup stage, then you will get one more point for each person
-                    picking your answer.
-                </p>
-                <p>
-                    When the game is over, the one with the most points wins.
-                </p>
+            <div id="game-rules-model" class="hidden model w3-left-align w3-border w3-round-xlarge w3-aqua">
+                <div class="w3-teal w3-padding-small w3-border w3-round-xlarge">
+                    <button id="hide-rules-button">×</button>
+                    <h3>Rules</h3>
+                    <!-- TODO: Fix the rules -->
+                    <p>
+                        The goal of this game is to trick your friends and get the most points to 
+                        win. There are two stages to this game; setup and guessing.
+                    </p>
+                    <p>
+                        In the setup stage, you will be shown a question and you will be able 
+                        to provide a believable answer that is <strong>NOT</strong> correct. 
+                        You will only have 30 seconds to come up with the answer and submit it.
+                    </p>
+                    <p>
+                        In the guessing stage, you will be given a list of answers. One of them
+                        will be the correct answer, but the rest will be a mix of the ones
+                        provided by your friends and ones provided by the game. You will have to
+                        select the correct answer. If you get the correct answer, you will get 
+                        3 points. If you are the first to select the correct answer, you will 
+                        get an additional 2 points. If someone else picked the answer you gave
+                        in the setup stage, then you will get one more point for each person
+                        picking your answer.
+                    </p>
+                    <p>
+                        When the game is over, the one with the most points wins.
+                    </p>
+                </div>
+                
             </div>
         </section>
         
