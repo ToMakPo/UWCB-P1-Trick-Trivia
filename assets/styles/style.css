@@ -208,7 +208,7 @@ main input:focus {
 }
 
 /* Setup page buttons (Start Game, Back) */
-#setup-page button {
+#setup-page button, #question-page button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -361,7 +361,9 @@ main input:focus {
 }
 
 #question-page #submit-answer-button {
-  margin-top: 2rem;
+  margin: 2rem auto;
+  font-size: 20px;
+  width: 15rem;
 }
 
 #score-page #result-animation-box {
