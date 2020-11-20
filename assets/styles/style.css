@@ -242,10 +242,6 @@ main input:focus {
   margin-top: 0.75rem;
 }
 
-/* Class for the difficutly radio buttons */
-.difficulty-radio-button {
-  margin-top: 0rem;
-}
 /* End of setup page --------------------------------------------*/
 
 #question-page #timer {
