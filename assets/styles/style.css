@@ -44,7 +44,7 @@ main .page {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: bolder;
   color: white;
-  line-height: 3rem;
+  line-height: 2.3rem;
 }
 
 /* A reuseable header for any class using page */
@@ -165,6 +165,8 @@ main input:focus {
   transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 1000px;
+  height: 90vh;
+  max-height: 1000px;
   padding: 0.5rem;
 }
 
@@ -173,12 +175,13 @@ main input:focus {
   border: 10px solid rgb(0, 255, 255);
   box-shadow: 0 0 10px white;
   color: white;
+  line-height: 1.5rem;
 }
 
 /* Rules modal button */
 #landing-page #game-rules-model #hide-rules-button {
   position: absolute;
-  top: 0.8rem;
+  top: 1.5rem;
   right: 1.5rem;
   background-color: transparent;
   color: white;
