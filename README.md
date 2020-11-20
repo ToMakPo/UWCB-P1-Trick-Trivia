@@ -1,68 +1,65 @@
-# P1 Trick Trivia Game
+# Trick Trivia Game
 Our first group project for UW Coding Bootcamp
+
+![Trick Trivia Logo](./assets/images/logo.svg)
 
 ## Description
 ### User Story
 ```
-As a student who like to play game and gain knowledge same time
-I WANT to play a trivia game that have all kind of questions in any catergories
-So I can play and learn at same time.
+As a student who likes to play games and gain knowledge at the same time
+I WANT to play a trivia game that has all kinds of questions from a large range of categories
+So that I can play and learn at same time.
 ```
 
 ### Game Flow
 ```
 GIVEN a trivia game application
-WHEN Open game application
-THEN I see game logo with nice background with name input, start button, Rule buttons
-WHEN I click on rule button
-THEN I see the game rule pop-up
-WHEN I close the game rule
-THEN I go back to front page
-WHEN I type in a name
-THEN I be able to click Start button
-WHEN I click start button
-THEN I go to setup page
-WHEN I am in setup page
-THEN I have option to choose catergory, difficulty level, number of questions
-WHEN I have the game set up
-THEN I start the game with a button
-WHEN I start the game
-THEN I see questions with multiple choice answer
-WHEN I click an answer
-THEN I see RIGHT or WRONG answer with Giphy represent for RIGHT or WRONG
-WHEN I went through all questions
-THEN I see my score with Giphy represent my score
-WHEN I end game
-THEN I can see highest score list
-WHEN I am at end game screen
-THEN I be able to go back to main page to play again
+WHEN I open the game application
+THEN I should see a logo with the name of the game and a nice background, inputs, a start button, and an option to display the rules
+WHEN I click on the rules button
+THEN I should be shown the rules of the game and an option to hide the rules
+WHEN I type in my name
+THEN I should be able to click the start button
+WHEN I click the start button
+THEN I will be brought to the game setup page
+WHEN I am in the setup page
+THEN I will have the options to choose the category, the number of questions, and the difficulty level 
+WHEN I have the game set up and hit the start game button
+THEN I will be shown a question along with multiple choice answers
+WHEN I select an answer and click confirm
+THEN I will be able to see if I picked the RIGHT or WRONG answer and a gif corrasponding the the result
+WHEN I get through all of the questions
+THEN I will see my score with a gif representing how I did
+WHEN I end the game
+THEN I can see the leadership board and my place on it
+WHEN I am at the end game screen
+THEN I will be able to go back to the main page to play again
 ```
 
 ## Technologies Used
 ### For Styling
-* Google Font
-* W3school framework
+* [Google Font](https://fonts.google.com/)
+
+* [W3.CSS Framework](https://www.w3schools.com/w3css/default.asp)
 
 ### For server-side APIs
-* open Trivia Database API
-* giphy API
+* [open Trivia Database API](https://opentdb.com/api_config.php)
+
+* [giphy API](https://developers.giphy.com/)
 
 ### Other
-* flatIcon to get the Icon represent for each catergory
+* [flatIcon](https://www.flaticon.com/) to get the icon represent for each catergory
 
 ## Screenshot
 
 ## Links
-[Repo Link](https://github.com/ToMakPo/UWCB-P1-Trick-Trivia)
+[Github Repo](https://github.com/ToMakPo/UWCB-P1-Trick-Trivia)
 
-[Click To PLay Trick Trivia Game]()
+[Live Game](https://tomakpo.github.io/UWCB-P1-Trick-Trivia/)
 
 ## Future Development
-```
-We could make the game more fun with multiple player can join the game as same time.
-Game can be change format and rule to entertain all player
-Game can have waiting room in multiple players mode
-Player can their input to interact with other players in multiple player mode
+We could make the game more fun by adding an online multyplayer option. 
+ - Players can provide their own trick answers to the question
+ - Game can have waiting room in multiple players mode where players have an avatar that can run around while they wait
+ 
 Add background music and sound effect to make game more attractive
-Instead of name, Player can have an avatar that can walking around while in the waiting room.
-```

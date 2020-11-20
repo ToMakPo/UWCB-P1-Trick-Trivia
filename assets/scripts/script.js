@@ -1,4 +1,5 @@
-prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
+"use strict"
+var prefs = JSON.parse(localStorage.getItem('TrickTriviaData')) || {
     playerName: '',
     gameSettings: {
         category: '',
@@ -37,42 +38,42 @@ const categoryIcons = {
 }
 
 //landing page
-playerNameInput = $('#player-name-input')
-setupGameButton = $('#setup-game-button')
+const playerNameInput = $('#player-name-input')
+const setupGameButton = $('#setup-game-button')
 
 //rules model
-showRulesButton = $('#show-rules-button')
-gameRulesModel = $('#game-rules-model')
-hideRulesButton = $('#hide-rules-button')
+const showRulesButton = $('#show-rules-button')
+const gameRulesModel = $('#game-rules-model')
+const hideRulesButton = $('#hide-rules-button')
 
 //game setup
-backButton = $('#back-button')
-categoryDropdown = $('#category-dropdown')
-questionCountInput = $('#question-count-input')
-difficultyRadioButtons = $('.difficulty-radio-button')
-startGameButton = $('#start-game-button')
+const backButton = $('#back-button')
+const categoryDropdown = $('#category-dropdown')
+const questionCountInput = $('#question-count-input')
+const difficultyRadioButtons = $('.difficulty-radio-button')
+const startGameButton = $('#start-game-button')
 
 //question & answers
-timerDisplay = $('#timer-display')
-categoryDisplay = $('#category-display')
-categoryIcon = $('#category-icon')
-difficultyDisplay = $('#difficulty-display')
-questionDisplay = $('#question-display')
-answersList = $('#answers-list')
-submitAnswerButton = $('#submit-answer-button')
+const timerDisplay = $('#timer-display')
+const categoryDisplay = $('#category-display')
+const categoryIcon = $('#category-icon')
+const difficultyDisplay = $('#difficulty-display')
+const questionDisplay = $('#question-display')
+const answersList = $('#answers-list')
+const submitAnswerButton = $('#submit-answer-button')
 
 //score
-questionResultDisplay = $('#question-result-display')
-resultAnimation = $('#result-animation')
-nextQuestionTimerDisplay = $('#next-question-timer-display')
-nextQuestionButton = $('#next-question-button')
+const questionResultDisplay = $('#question-result-display')
+const resultAnimation = $('#result-animation')
+const nextQuestionTimerDisplay = $('#next-question-timer-display')
+const nextQuestionButton = $('#next-question-button')
 
 //final
-winnerDisplay = $('#winner-display')
-finalScoresDisplay = $('#final-scores-display')
-finalAnimationBox = $('#final-animation-box')
-finalAnimation = $('#final-animation')
-endGameButton = $('#end-game-button')
+const winnerDisplay = $('#winner-display')
+const finalScoresDisplay = $('#final-scores-display')
+const finalAnimationBox = $('#final-animation-box')
+const finalAnimation = $('#final-animation')
+const endGameButton = $('#end-game-button')
 
 function init() {
     //Display the landing page.
@@ -155,15 +156,14 @@ function init() {
         questionIndex = -1
         score = [0, 0]
         
-        //TODO: have this point to the API
         let category = prefs.gameSettings.category
         let amount = prefs.gameSettings.questionsCount
         let difficulty = prefs.gameSettings.difficulty
         
         let apiURL = `https://opentdb.com/api.php?type=multiple&category=${category}&amount=${amount}&difficulty=${difficulty}`
+        
         $.get(apiURL, data => {
             questions = data
-            
             displayPage('question')
         })
     })
@@ -172,6 +172,7 @@ function init() {
         if (event.target.matches('input')) {
             let val = $(event.target).val()
             info.selected = val
+            displayPage('score')
         }
     })
 
@@ -182,7 +183,6 @@ function init() {
     })
 
     nextQuestionButton.on('click', event => {
-        //TODO: change this back to questions.length
         let pageName = questionIndex + 1 < prefs.gameSettings.questionsCount ? 'question' : 'final'
         displayPage(pageName)
     })
@@ -233,30 +233,57 @@ function displayPage(pageID) {
     //If no page was selected, then return null.
     return null
 
-    function displayLanding() {}
-    function displayGameSetup() {}
+    function htmlDecode(input){
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    function displayLanding() {
+        setupGameButton.focus()
+    }
+    function displayGameSetup() {
+        startGameButton.focus()
+    }
     function displayQuestion() {
         questionIndex++
 
+        if(questionIndex >= questions.results.length)
+        {
+            console.error("questionIndex >= questions.results.length")
+            return
+        }
         info = questions.results[questionIndex]
 
-        let category = info.category.split(': ').pop()
-        var scrubText = str => str
-            .replace(/(&quot;|&(l|r)dquo;)/g, '"')
-            .replace(/(&quot;|&(l|r)squo;)/g, "'")
+        let category = null
+        try {
+            category = info.category.split(': ').pop()
+        } catch(e) {
+            console.log("info = " + JSON.stringify(info))
+            console.log("questionIndex = " + questionIndex)
+            console.log("questions.results = " + JSON.stringify(questions.results))
+            console.error(e)
+        }
+        
+        var scrubText = str => htmlDecode(str)
         questionDisplay.text(scrubText(info.question))
         categoryDisplay.text(category)
         let iconPath = categoryIcons[category][0]
         categoryIcon.attr('src', iconPath)
         difficultyDisplay.text(info.difficulty)
 
+        info.correct_answer = scrubText(info.correct_answer)
+        info.incorrect_answers = info.incorrect_answers.map(a => scrubText(a))
+
         let options = [info.correct_answer, ...info.incorrect_answers]
         let answers = []
         answersList.html('')
+        let firstInput = null
         let x = 0
         while (options.length) {
             let i = Math.floor(Math.random() * options.length)
-            let a = scrubText(options.splice(i, 1)[0])
+            let a = options.splice(i, 1)[0]
             x++
             answers.push(a)
             let input = $('<input>')
@@ -269,23 +296,40 @@ function displayPage(pageID) {
                 .text(a)
             let span = $('<span>')
                 .append(input, label)
+            if(!firstInput) {
+                firstInput = input
+            }
             answersList.append(span)
         }
+        firstInput.focus()
         info.answers = answers
 
         //TODO: Set up timer function
     }
     function displayScore() {
         let correct = info.selected == info.correct_answer
-        questionResultDisplay.text(correct ? 'You got it right!' : 'You got it wrong!')
+        let correct_answer_text = htmlDecode(questions.results[questionIndex].correct_answer)
+
+        questionResultDisplay.text(correct ? 'CORRECT!' : 'WRONG! The correct answer is "' + correct_answer_text + '"')
 
         getRightWrongGif(correct, resultAnimation)
 
+        let difficultyReward = 0
+
         switch (info.difficulty) {
-            case 'easy': score[0] += correct ? 2 : -1; score[1] += 2; break
-            case 'medium': score[0] += correct ? 4 : -2; score[1] += 4; break
-            case 'hard': score[0] += correct ? 8 : -4; score[1] += 8; break
+            case 'easy':   difficultyReward = 2; break
+            case 'medium': difficultyReward = 4; break
+            case 'hard':   difficultyReward = 8; break
         }
+
+        if(correct) {
+            score[0] += difficultyReward
+        } else {
+            score[0] -= (difficultyReward/2)
+        }
+        score[1] += difficultyReward
+
+        nextQuestionButton.focus()
 
         //TODO: Set up timer function
     }
@@ -293,6 +337,7 @@ function displayPage(pageID) {
         getFinalGif(finalAnimation)
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
+        endGameButton.focus()
     }
 }
 
@@ -302,7 +347,7 @@ function getRightWrongGif(correct, element) {
         ['accurate', 334],
         ['precise', 224],
         ['flawless', 345],
-        ['perfect', 7958]
+        ['perfect', 4999]
     ] : [
         ['incorrect', 170],
         ['wrong', 3167],
@@ -319,22 +364,25 @@ function getRightWrongGif(correct, element) {
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
 
     $.get(apiURL, data => {
-        let gifURL = data.data[0].images.original.url
-        element.attr('src', gifURL).removeClass('hidden')
+        try {
+            let gifURL = data.data[0].images.original.url
+            element.attr('src', gifURL).removeClass('hidden')
+        } catch(e) {
+            console.error(e)
+        }
     })
-    //TODO: sometimes the gif doesn't load. Fix it.
 }
 
 function getFinalGif(element) {
     let perc = score[0] / score[1]
     let lookup
-    if (perc == 1) lookup = ['perfect', 8575]
-    else if (perc > 0.9) lookup = ['amazing', 6535]
+    if (perc == 1) lookup = ['perfect', 4999]
+    else if (perc > 0.9) lookup = ['amazing', 4999]
     else if (perc > 0.8) lookup = ['pretty good', 313]
     else if (perc > 0.7) lookup = ['its okay', 895]
     else if (perc > 0.5) lookup = ['meh', 1278]
     else if (perc > 0.3) lookup = ['yeaiks', 2900]
-    else if (perc > 0.0) lookup = ['you suck', 287]
+    else lookup = ['you suck', 287]
     
     let q = lookup[0]
     let offset = Math.floor(Math.random() * lookup[1])
@@ -343,8 +391,16 @@ function getFinalGif(element) {
 
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
     $.get(apiURL, data => {
+        try {
+            if(data.data.length == 0) {
+                console.error("data.data.length == 0")
+                return;
+            }
         let gifURL = data.data[0].images.original.url
         element.attr('src', gifURL).removeClass('hidden')
+        } catch(e) {
+            console.log("data = " + JSON.stringify(data))
+            console.error(e)
+        }
     })
-    //TODO: sometimes the gif doesn't load. Fix it.
 }
