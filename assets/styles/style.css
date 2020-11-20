@@ -44,6 +44,7 @@ main .page {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: bolder;
   color: white;
+  line-height: 3rem;
 }
 
 /* A reuseable header for any class using page */
@@ -326,18 +327,58 @@ main input:focus {
 #final-page #final-animation-box {
   display: flex;
   justify-content: center;
+  align-self: center;
+  width: 90.3vw;
+  max-width: 800px;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.500);
 }
 
 #final-page #final-animation {
-  max-width: 100%;
+  width: 90vw;
+  max-width: 800px;
   max-height: 350px;
   border-radius: 1rem;
-  border: 2px solid black;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
+}
+
+#end-game-button-box {
+  width: 107px;
+  height: 37px;
+  align-self: center;
+  border: 1px solid rgba(0, 0, 0, 0.500);
+  margin-top: 2rem;
+}
+
+#final-page #end-game-button {
+  background-color: rgba(7, 7, 85, 0.856);
+  color: rgb(0, 255, 255);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  align-self: center;
+  padding: 0rem 1rem;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
+}
+
+#final-scores-display-box {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  position: relative;
 }
 
 #final-page #final-scores-display {
   font-family: fantasy;
   font-size: 3rem;
   text-align: center;
-  color: #2da5f5;
+  color: rgb(0, 255, 255);
+  position: absolute;
+  top: 0.8rem;
+  right: -3rem;
+}
+
+#congrats {
+  margin-top: 4rem;
 }
