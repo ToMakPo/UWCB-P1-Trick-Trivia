@@ -54,7 +54,7 @@ const difficultyRadioButtons = $('.difficulty-radio-button')
 const startGameButton = $('#start-game-button')
 
 //question & answers
-const timerDisplay = $('#timer-display')
+// const timerDisplay = $('#timer-display')
 const scoreElement = $('#score')
 const currentQuestionDisplay = $('#current-question-display')
 const totalQuestionDisplay = $('#total-questions-display')
@@ -69,7 +69,7 @@ const submitAnswerButton = $('#submit-answer-button')
 //score
 const questionResultDisplay = $('#question-result-display')
 const resultAnimation = $('#result-animation')
-const nextQuestionTimerDisplay = $('#next-question-timer-display')
+// const nextQuestionTimerDisplay = $('#next-question-timer-display')
 const nextQuestionButton = $('#next-question-button')
 
 //final
