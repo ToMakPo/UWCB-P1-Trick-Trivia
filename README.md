@@ -2,6 +2,8 @@
 Our first group project for UW Coding Bootcamp. 
 Contributers: Makai Post, Andrew Olson, Truc Nguyen, and Bryson Palmer
 
+![Trick Trivia Logo](./assets/images/logo.svg)
+
 ## Description
 ### User Story
 ```
@@ -14,63 +16,52 @@ So I can play and learn at same time.
 ```
 GIVEN a trivia game application
 WHEN I open the game application
-THEN I see the game logo with a nice background, name input, start button, and Rule button
-WHEN I click on the rule button
-THEN I see the game rule modal pop-up
-WHEN I close the game rule modal pop-up
-THEN I see the front page of the game
-WHEN I type in a name
-THEN I am able to click the start button
+THEN I should see a logo with the name of the game and a nice background, inputs, a start button, and an option to display the rules
+WHEN I click on the rules button
+THEN I should be shown the rules of the game and an option to hide the rules
+WHEN I type in my name
+THEN I should be able to click the start button
 WHEN I click the start button
-THEN I go to the game setup page
-WHEN I am in game setup page
-THEN I have the option to choose a category, difficulty level, and number of questions
-WHEN I have the game set up
-THEN I am ready to hit the game start button
-WHEN I start the game
-THEN I see a timer, header, category with icon, and question with multiple choice answers
-WHEN I click an answer
-THEN I see a RIGHT or WRONG answer Giphy accordingly
+THEN I will be brought to the game setup page
+WHEN I am in the setup page
+THEN I will have the options to choose the category, the number of questions, and the difficulty level 
+WHEN I have the game set up and hit the start game button
+THEN I will be shown a question along with multiple choice answers
+WHEN I select an answer and click confirm
+THEN I will be able to see if I picked the RIGHT or WRONG answer and a gif corrasponding the the result
 WHEN I get through all of the questions
-THEN I see my total score with a Giphy that represents how well I did on the quiz
-WHEN I end game
-THEN I can see highest scores list
-WHEN I am at end game screen
-THEN I will be able to go back to main page to play again
+THEN I will see my score with a gif representing how I did
+WHEN I end the game
+THEN I can see the leadership board and my place on it
+WHEN I am at the end game screen
+THEN I will be able to go back to the main page to play again
 ```
 
 ## Technologies Used
 ### For Styling
-* Google Fonts
-* W3school  CSS framework
-* JQuery
+* [Google Font](https://fonts.google.com/)
+
+* [W3.CSS Framework](https://www.w3schools.com/w3css/default.asp)
 
 ### For server-side APIs
-* open Trivia Database API
-* giphy API
+* [open Trivia Database API](https://opentdb.com/api_config.php)
 
-### Attributions
-* FlatIcon to get the Icon that represents each catergory
-* Background Photo by Anni Roenkae from Pexels
-* Trick Trivia logo created by Makai Post
+* [giphy API](https://developers.giphy.com/)
+
+### Other
+* [flatIcon](https://www.flaticon.com/) to get the icon represent for each catergory
+* Background Photo by Anni Roenkae from Pexels.com
 
 ## Screenshot
 
 ## Links
-[Repo Link](https://github.com/ToMakPo/UWCB-P1-Trick-Trivia)
+[Github Repo](https://github.com/ToMakPo/UWCB-P1-Trick-Trivia)
 
-[Click To PLay Trick Trivia Game]()
+[Live Game](https://tomakpo.github.io/UWCB-P1-Trick-Trivia/)
 
 ## Future Development
-```
-We would like to make the game more fun with a multi player mode so others can join the same game.
-Instant messaging would be part of the technologie used.
-This game could have a waiting room for players, in multi player mode, to wait in until their game is ready.
-Players would input their own answer to the trivia question.
-Players of the game would get presented with all the user answers plus a correct answer.
-Points are given for: having your answer picked as a right answer, picking the right answer, and being first to pick the right answer.  
-We would also like to add background music and sound effects to make game more attractive. 
-We would also like to add an avatar api that users could select as theirs for the game. 
-Somehow let the avatars interact with eachother in the waiting room. 
-Also, to have user's info and avatar stored for future games.
-```
+We could make the game more fun by adding an online multyplayer option. 
+ - Players can provide their own trick answers to the question
+ - Game can have waiting room in multiple players mode where players have an avatar that can run around while they wait
+ 
+Add background music and sound effect to make game more attractive
