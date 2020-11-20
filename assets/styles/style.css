@@ -430,10 +430,7 @@ main input:focus {
 }
 
 #end-game-button-box {
-  width: 107px;
-  height: 37px;
   align-self: center;
-  border: 1px solid rgba(0, 0, 0, 0.500);
   margin-top: 2rem;
 }
 
