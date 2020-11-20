@@ -81,7 +81,6 @@ main input:hover {
 main input:focus {
   outline: 0;
   border: 2px solid  rgb(0, 255, 255);
- 
 }
 
 /* Setup Game Let's Play! button --------------------------------------------*/
@@ -211,7 +210,10 @@ main input:focus {
 }
 
 /* Setup page buttons (Start Game, Back) */
-#setup-page button {
+#setup-page button,
+#question-page button,
+#score-page button,
+#end-game-button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -247,8 +249,9 @@ main input:focus {
 /* End of setup page --------------------------------------------*/
 
 /* TODO this is inactive */
-#question-page #rounds {
-  position: fixed;
+/* This section for question-page */
+#question-page {
+  /* position: fixed; */
   top: 0.25rem;
   right: 0.25rem;
 }
@@ -262,31 +265,110 @@ main input:focus {
 #question-page #category-span {
   display: flex;
   align-items: center;
+  margin: auto;
+}
+
+#question-page .catergory-block{
+  border-width: 13px;
+  border-style: groove;
+  border-radius: 25px;
+  border-color: aqua;
+  background-image: linear-gradient(to right, orange,yellow,lightblue);
 }
 
 #question-page #category-icon {
-  max-width: 40px;
-  max-height: 40px;
+  max-width: 35px;
+  max-height: 35px;
 }
 
 #question-page #category-display {
   margin-left: 1rem;
   font-size: 2rem;
+  font-weight: bold;
+  color: crimson;
 }
 
 #question-page #difficulty-display {
   display: none;
 }
 
-#question-page #question-display {
-  margin: 2rem 0;
-  font-size: 1.5rem;
+/* display question box */
+#question-page .gradient-border{
+  width: 40rem;
+  height: 11rem;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Raleway';
+  margin: 20px auto;
 }
 
+#question-page .gradient-border p{
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+#question-page #question-display {
+  padding: 0 10px;
+  /* margin: 20px auto; */
+  font-size: 1.5rem;
+  
+}
+.gradient-border {
+  --borderWidth: 10px;
+  background: #000000d9;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Answer List */
 #question-page #answers-list {
   display: flex;
   flex-direction: column;
   font-size: 1.25rem;
+  margin: auto;
+}
+
+#question-page #answers-list input {
+  margin: 10px 0px;
+  border-radius: 1rem;
+  width: 50rem;
+  background-image: linear-gradient(to left, red, yellow);
+  font-size: 1.5rem;
+  color: blue;
+  font-family: auto;
+  border-width: thick;
+  border-color: rgb(79, 200, 240);
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
 }
 
 #question-page #answers-list span {
@@ -299,7 +381,9 @@ main input:focus {
 }
 
 #question-page #submit-answer-button {
-  margin-top: 2rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  width: 15rem;
 }
 
 #score-page #result-animation-box {
@@ -321,7 +405,9 @@ main input:focus {
 }
 
 #score-page #next-question-button {
-  margin-top: 0.5rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  width: 15rem;
 }
 
 #final-page #final-animation-box {
@@ -381,4 +467,19 @@ main input:focus {
 
 #congrats {
   margin-top: 4rem;
+}
+
+#end-game-button{
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  width: 15rem;
+}
+
+#final-page h3 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  background: -webkit-linear-gradient(red, yellow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
