@@ -69,7 +69,6 @@ main input:hover {
 main input:focus {
   outline: 0;
   border: 2px solid  rgb(0, 255, 255);
- 
 }
 
 /* Setup Game Let's Play! button --------------------------------------------*/
@@ -192,8 +191,9 @@ main input:focus {
 }
 
 /* TODO this is inactive */
-#question-page #rounds {
-  position: fixed;
+/* This section for question-page */
+#question-page {
+  /* position: fixed; */
   top: 0.25rem;
   right: 0.25rem;
 }
@@ -207,31 +207,95 @@ main input:focus {
 #question-page #category-span {
   display: flex;
   align-items: center;
+  margin: auto;
+}
+
+#question-page .catergory-block{
+  border-width: 13px;
+  border-style: groove;
+  border-radius: 25px;
+  border-color: aqua;
+  background-image: linear-gradient(to right, orange,yellow,lightblue);
 }
 
 #question-page #category-icon {
-  max-width: 40px;
-  max-height: 40px;
+  max-width: 35px;
+  max-height: 35px;
 }
 
 #question-page #category-display {
   margin-left: 1rem;
   font-size: 2rem;
+  font-weight: bold;
+  color: crimson;
 }
 
 #question-page #difficulty-display {
   display: none;
 }
 
-#question-page #question-display {
-  margin: 2rem 0;
-  font-size: 1.5rem;
+/* display question box */
+#question-page .gradient-border{
+  width: 40rem;
+  height: 11rem;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Raleway';
+  margin: 20px auto;
 }
 
+#question-page .gradient-border p{
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+#question-page #question-display {
+  padding: 0 10px;
+  /* margin: 20px auto; */
+  font-size: 1.5rem;
+  
+}
+.gradient-border {
+  --borderWidth: 10px;
+  background: #000000d9;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Answer List */
 #question-page #answers-list {
   display: flex;
   flex-direction: column;
   font-size: 1.25rem;
+  margin: auto;
 }
 
 #question-page #answers-list span {
