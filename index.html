@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
 
     <!-- more styling links -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 <body class="w3-display-container w3-center">
     <header class="w3-display-container w3-center">
         <img src="assets/images/logo.svg" alt="Trick Triva logo" width="90%" height="90%">
+        <span id="running-score-dispaly"></span>
     </header>
     
     <main>
@@ -143,7 +144,10 @@
             <h2>Select the correct answer!</h2>
             
             <!-- TODO rig the script up to allow this to show the current round # -->
-            <!-- <div id='rounds'>Round: <span id='current-round-number-display'></span>> of <span id='round-count-display'></span></div> -->
+            <div id='question-count-box'>Question: <span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
+
+            <!-- to display the running tally so far -->
+            <div id="score-box">Score: <span id="score"></span></div>
 
             <div id='timer'>Remaining time: <span id="timer-display">0:00</span></div>
             
@@ -165,8 +169,6 @@
                     <button>Answer List act as a button</button>
                 </ul> -->
             </div>
-
-            <button id="submit-answer-button">Confirm Answer</button>
         </section>
 
         <section id='score-page' class='page hidden'>
@@ -193,11 +195,25 @@
                 <button id="end-game-button">End Game</button>
             </div>
 
+            <div>
+                <button id="see-leaderboard-button">See Leaderboard</button>
+            </div>
+
             <h2>Congratulations <span id="winner-display"></span>!</h2>
 
             <h3>The final scores are ...</h3>
 
             <div id="final-scores-list">Player Name: score </div>
+
+        </section>
+
+        <section id="leaderboard-page" class="page hidden">
+            <h2>Leaderboard</h2>
+            <table id="leaderboard-table"></table>
+            <div>
+                <button id="leaderboard-clear">Clear Scores</button>
+                <button id="end-game-button2">End Game</button>
+            </div>
         </section>
     </main>
 

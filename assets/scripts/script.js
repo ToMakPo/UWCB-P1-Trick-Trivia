@@ -55,6 +55,10 @@ const startGameButton = $('#start-game-button')
 
 //question & answers
 const timerDisplay = $('#timer-display')
+const scoreElement = $('#score')
+const currentQuestionDisplay = $('#current-question-display')
+const totalQuestionDisplay = $('#total-questions-display')
+
 const categoryDisplay = $('#category-display')
 const categoryIcon = $('#category-icon')
 const difficultyDisplay = $('#difficulty-display')
@@ -74,6 +78,12 @@ const finalScoresDisplay = $('#final-scores-display')
 const finalAnimationBox = $('#final-animation-box')
 const finalAnimation = $('#final-animation')
 const endGameButton = $('#end-game-button')
+const leaderboardButton = $('#see-leaderboard-button')
+
+//leaderboard
+const leaderTable = $('#leaderboard-table')
+const leaderClearButton = $('#leaderboard-clear')
+const endGameButton2 = $('#end-game-button2')
 
 function init() {
     //Display the landing page.
@@ -190,6 +200,38 @@ function init() {
     endGameButton.on('click', event => {
         displayPage('landing')
     })
+
+    endGameButton2.on('click', event => {
+        displayPage('landing')
+    })
+
+    leaderboardButton.on('click', event => {
+        displayPage('leaderboard')
+    })
+
+    leaderClearButton.on('click', event => {
+        clearLeaderboard()
+        displayLeaderboard()
+    })
+}
+
+function saveScoreToLocalStorage(name, score) {
+    let newscoreobj = {name: name,score: score};
+    let allscores = JSON.parse(localStorage.getItem("allscores"));
+    if(allscores == null || (typeof(allscores) != "object"))
+    {
+      allscores = new Array();
+    }
+    allscores.push(newscoreobj)
+    let jsobjstring = JSON.stringify(allscores);
+  
+    localStorage.setItem("allscores", jsobjstring);
+}
+
+function clearLeaderboard()
+{
+    // 1) clear the localStorage
+    localStorage.setItem("allscores", "[]");
 }
 
 /**Save the prefs to local storage. */
@@ -206,6 +248,7 @@ var questionIndex
  * @param {string} pageID The id of the page to be displayed.
  */
 function displayPage(pageID) {
+    
     //Makes it so that you dont have to add '#' or 'page' but you can if you want to.
     pageID = pageID.replace('#', '').replace('-page', '')
 
@@ -225,6 +268,7 @@ function displayPage(pageID) {
             case 'question': displayQuestion(); break
             case 'score': displayScore(); break
             case 'final': displayFinal(); break
+            case 'leaderboard': displayLeaderboard(); break
         }
 
         //Return the selected page.
@@ -248,6 +292,12 @@ function displayPage(pageID) {
     }
     function displayQuestion() {
         questionIndex++
+
+        
+        scoreElement.text(score[0])
+
+        currentQuestionDisplay.text(questionIndex+1) // foolish humans index from 1, not 0
+        totalQuestionDisplay.text(prefs.gameSettings.questionsCount)
 
         if(questionIndex >= questions.results.length)
         {
@@ -337,9 +387,29 @@ function displayPage(pageID) {
         getFinalGif(finalAnimation)
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
+        saveScoreToLocalStorage(prefs.playerName, score[0])
         endGameButton.focus()
     }
 }
+
+function displayLeaderboard() {
+
+    let data = JSON.parse(localStorage.getItem("allscores"))
+    
+    leaderTable.html('')
+    
+    data.sort((x,y) => y.score - x.score)
+    
+    for (const d of data) {
+        console.log("d=" + JSON.stringify(d))
+        let tr = $('<tr>')
+        let nameTd = $('<td>').html(d.name)
+        let scoreTd = $('<td>').html(d.score)
+        tr.append(nameTd, scoreTd)
+        leaderTable.append(tr)
+    }
+}
+
 
 function getRightWrongGif(correct, element) {
     let options = (correct ? [
