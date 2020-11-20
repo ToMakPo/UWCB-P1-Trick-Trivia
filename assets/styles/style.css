@@ -438,5 +438,6 @@ main input:focus {
   font-weight: bolder;
   background: -webkit-linear-gradient(red, yellow);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
