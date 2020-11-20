@@ -54,7 +54,7 @@ main .page h2 {
   -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
   font-size: 50px;
   font-weight: bolder;
-  margin-top: 1rem;
+  margin: 2rem 0;
 }
 
 /* Screen Name input */
@@ -238,11 +238,49 @@ main input:focus {
   border: 2px solid rgb(0, 255, 255);
 }
 
+#setup-page #category-dropdown {
+  max-width: 300px;
+  border-radius: 10px;
+  background-color: white;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+#setup-page #question-count-input {
+  width: 265px;
+  border-radius: 10px;
+  background-color: white;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+/* #setup-page #difficulty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; 
+} */
+
 /* Flexing difficulty options */
 #setup-page #difficulty-options {
   display: flex;
   flex-direction: column;
+  line-height: 1.8rem;
 }
+
+/* #setup-page #difficulty-options span {
+  display: flex;
+  justify-content: space-between;
+  align-content: center; 
+  flex-direction: row;
+  align-self: center;
+} */
 
 /* Top margin for the difficulty container and question count */
 #setup-page #difficulty, #setup-page #question-count {
