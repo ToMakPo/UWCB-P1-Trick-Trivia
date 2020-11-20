@@ -1,14 +1,15 @@
-# Trick Trivia Game
-Our first group project for UW Coding Bootcamp
+# P1 Trick Trivia Game
+Our first group project for UW Coding Bootcamp. 
+Contributers: Makai Post, Andrew Olson, Truc Nguyen, and Bryson Palmer
 
 ![Trick Trivia Logo](./assets/images/logo.svg)
 
 ## Description
 ### User Story
 ```
-As a student who likes to play games and gain knowledge at the same time
-I WANT to play a trivia game that has all kinds of questions from a large range of categories
-So that I can play and learn at same time.
+As a student who likes to play games and gain knowledge at the same time,
+I WANT to play a trivia game that has all kinds of questions in many catergories
+So I can play and learn at same time.
 ```
 
 ### Game Flow
@@ -49,6 +50,7 @@ THEN I will be able to go back to the main page to play again
 
 ### Other
 * [flatIcon](https://www.flaticon.com/) to get the icon represent for each catergory
+* Background Photo by Anni Roenkae from Pexels.com
 
 ## Screenshot
 
