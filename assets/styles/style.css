@@ -208,7 +208,7 @@ main input:focus {
 }
 
 /* Setup page buttons (Start Game, Back) */
-#setup-page button, #question-page button {
+#setup-page button, #question-page button, #score-page button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -351,6 +351,21 @@ main input:focus {
   margin: auto;
 }
 
+#question-page #answers-list input {
+  margin: 10px 0px;
+  border-radius: 1rem;
+  width: 50rem;
+  background-image: linear-gradient(to left, red, yellow);
+  font-size: 1.5rem;
+  color: blue;
+  font-family: auto;
+  border-width: thick;
+  border-color: rgb(79, 200, 240);
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+
 #question-page #answers-list span {
   display: flex;
   align-items: baseline;
@@ -362,7 +377,7 @@ main input:focus {
 
 #question-page #submit-answer-button {
   margin: 2rem auto;
-  font-size: 20px;
+  font-size: 1.5rem;
   width: 15rem;
 }
 
@@ -385,7 +400,9 @@ main input:focus {
 }
 
 #score-page #next-question-button {
-  margin-top: 0.5rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  width: 15rem;
 }
 
 #final-page #final-animation-box {
