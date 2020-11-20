@@ -287,13 +287,13 @@ function displayPage(pageID) {
             x++
             answers.push(a)
             let input = $('<input>')
-            input.attr('type', 'radio')
+            input.attr('type', 'button')
             input.attr('name', 'answer')
             input.attr('id', `answer-${x}`)
             input.val(a)
             let label = $('<label>')
                 .attr('for', `answer-${x}`)
-                .text(a)
+                // .text(a)
             let span = $('<span>')
                 .append(input, label)
             if(!firstInput) {
