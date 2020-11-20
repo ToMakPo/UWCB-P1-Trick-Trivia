@@ -225,6 +225,7 @@ function displayPage(pageID) {
             case 'question': displayQuestion(); break
             case 'score': displayScore(); break
             case 'final': displayFinal(); break
+            case 'leaderboard': displayLeaderboard(); break
         }
 
         //Return the selected page.
@@ -338,6 +339,9 @@ function displayPage(pageID) {
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
         endGameButton.focus()
+    }
+    function displayLeaderboard() {
+        //TODO: for Andrew
     }
 }
 
