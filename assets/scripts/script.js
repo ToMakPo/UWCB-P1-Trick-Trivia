@@ -55,6 +55,10 @@ const startGameButton = $('#start-game-button')
 
 //question & answers
 const timerDisplay = $('#timer-display')
+const scoreElement = $('#score')
+const currentQuestionDisplay = $('#current-question-display')
+const totalQuestionDisplay = $('#total-questions-display')
+
 const categoryDisplay = $('#category-display')
 const categoryIcon = $('#category-icon')
 const difficultyDisplay = $('#difficulty-display')
@@ -249,6 +253,12 @@ function displayPage(pageID) {
     }
     function displayQuestion() {
         questionIndex++
+
+        
+        scoreElement.text(score[0])
+
+        currentQuestionDisplay.text(questionIndex+1) // foolish humans index from 1, not 0
+        totalQuestionDisplay.text(prefs.gameSettings.questionsCount)
 
         if(questionIndex >= questions.results.length)
         {
