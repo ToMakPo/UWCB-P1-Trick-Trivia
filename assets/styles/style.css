@@ -191,6 +191,13 @@ main input:focus {
   width: 100%;
 }
 
+/* TODO this is inactive */
+#question-page #rounds {
+  position: fixed;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
 #question-page #timer {
   position: fixed;
   top: 0.25rem;
