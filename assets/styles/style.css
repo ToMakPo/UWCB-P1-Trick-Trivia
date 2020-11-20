@@ -195,7 +195,8 @@ main input:focus {
 
 /* Setup page container */
 #setup-page {
-  max-width: 90vw;
+  width: 90vw;
+  max-width: 1000px;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
