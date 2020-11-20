@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="logo - Copy.svg">
+   sodipodi:docname="favicon.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.4316407"
-     inkscape:cx="537.84086"
-     inkscape:cy="54.304828"
+     inkscape:zoom="11.825753"
+     inkscape:cx="88.919483"
+     inkscape:cy="24.164809"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,13 +53,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(34.637329,-99.033394)">
-    <rect
-       style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-       id="rect831"
-       width="20"
-       height="20"
-       x="-34.637329"
-       y="99.033394" />
     <g
        id="g835"
        transform="matrix(0.10924361,0,0,0.30421892,-35.172844,79.102568)">
