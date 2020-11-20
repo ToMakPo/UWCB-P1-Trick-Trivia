@@ -13,6 +13,7 @@ body {
   position: fixed;
 }
 
+/* Header max height */
 header {
   max-height: 290px;
 }
@@ -24,11 +25,6 @@ header img {
   margin-top: 2rem;
 }
 
-#show-rules-button {
-  background: transparent;
-  border: none;
-}
-
 /* Main container */
 main {
   display: flex;
@@ -37,12 +33,27 @@ main {
   width: 100%;
 }
 
+/* A reuseable class for any page */
 main .page {
   display: inline-flex;
   flex-direction: column;
   position: relative;
   width: 100%;
   max-width: 1000px;
+  padding: 1rem 0rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bolder;
+  color: white;
+}
+
+/* A reuseable header for any class using page */
+main .page h2 {
+  font-family: "Bangers", cursive;
+  color: rgba(7, 7, 85, 0.856);
+  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
+  font-size: 50px;
+  font-weight: bolder;
+  margin-top: 1rem;
 }
 
 /* Screen Name input */
@@ -125,6 +136,7 @@ main input:focus {
 }
 /* End of Setup Game Let's Play! button --------------------------------------------*/
 
+/* Button that shows the rules on the initial landing page */
 #landing-page #show-rules-button {
   position: relative;
   top: -0.27rem;
@@ -145,6 +157,7 @@ main input:focus {
   box-shadow: 0 0 10px white;
 }
 
+/* Rules modal */
 #landing-page #game-rules-model {
   position: fixed;
   top: 50%;
@@ -153,43 +166,87 @@ main input:focus {
   width: 90vw;
   max-width: 1000px;
   padding: 0.5rem;
-  box-shadow: 0 0 10px white;
 }
 
+#game-rules-inner-modal {
+  background-color: rgb(0, 128, 128);
+  border: 10px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
+  color: white;
+}
+
+/* Rules modal button */
 #landing-page #game-rules-model #hide-rules-button {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.8rem;
+  right: 1.5rem;
   background-color: transparent;
-  color: inherit;
+  color: white;
   font-size: 2rem;
   border: 0;
   cursor: pointer;
 }
 
+/* Rules modal button on focus */
 #landing-page #game-rules-model #hide-rules-button:focus {
   outline: none;
 }
 /* End of landing page --------------------------------------------*/
 
-#setup-page #back-button {
-  position: fixed;
-  top: 0.35rem;
-  right: 0.35rem;
+/* Setup page container */
+#setup-page {
+  max-width: 90vw;
+  display: inline-block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  background-color: rgba(0, 128, 128, 0.849);
+  border: 10px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
 }
 
+/* Setup page buttons (Start Game, Back) */
+#setup-page button {
+  background-color: rgba(7, 7, 85, 0.856);
+  color: rgb(0, 255, 255);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
+  padding: 0.11rem 1rem;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
+}
+
+/* Setup page buttons (Start Game, Back) hover */
+#setup-page button:hover {
+  font-size: medium;
+}
+
+/* Setup page buttons (Start Game, Back) focus */
+#setup-page button:focus {
+  outline: 0;
+  border: 2px solid rgb(0, 255, 255);
+}
+
+/* Flexing difficulty options */
 #setup-page #difficulty-options {
   display: flex;
   flex-direction: column;
 }
 
-#setup-page #start-game-button, #setup-page #difficulty, #setup-page #question-count {
+/* Top margin for the difficulty container and question count */
+#setup-page #difficulty, #setup-page #question-count {
   margin-top: 0.75rem;
 }
 
-#setup-page #start-game-button, #setup-page #question-count-input, #setup-page #category-dropdown {
-  width: 100%;
+/* Class for the difficutly radio buttons */
+.difficulty-radio-button {
+  margin-top: 0rem;
 }
+/* End of setup page --------------------------------------------*/
 
 #question-page #timer {
   position: fixed;

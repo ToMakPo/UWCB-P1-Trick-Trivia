@@ -39,8 +39,8 @@
                 </div>
             </button>
             
-            <div id="game-rules-model" class="hidden model w3-left-align w3-border w3-round-xlarge w3-aqua">
-                <div class="w3-teal w3-padding-small w3-border w3-round-xlarge">
+            <div id="game-rules-model" class="hidden w3-left-align w3-round-xlarge">
+                <div id="game-rules-inner-modal" class="w3-padding-small w3-round-xlarge">
                     <button id="hide-rules-button">×</button>
                     <h3>Rules</h3>
                     <!-- TODO: Fix the rules -->
@@ -71,14 +71,18 @@
             </div>
         </section>
         
-        <section id='setup-page' class='page hidden'>
-            <button id="back-button">Back</button>
-            <h2>Game Setup</h2>
-            <i class="fas fa-atom"></i>
+        <section id='setup-page' class='page hidden w3-display-container w3-center w3-left-align w3-round-xlarge'>
+            <span class="w3-cell-row">
+                <!-- Button to create room -->
+                <button id="start-game-button" class="w3-container w3-cell">Start Game</button>
+                <button id="back-button" class="w3-container w3-cell">Back</button>
+            </span>
 
+            <h2>Game Setup</h2>
+            
             <!-- Pick a question category -->
             <div>
-                <label for="category-dropdown">Category</label><br>
+                <label for="category-dropdown" class="w3-margin w3-xlarge">Category</label><br>
                 <select id="category-dropdown"  class="w3-border w3-round-xlarge">
                     <option value="">Any Category</option>
                     <option value="9">General Knowledge</option>
@@ -102,14 +106,14 @@
 
             <!-- How many questions to play in the game -->
             <div id="question-count">
-                <label for="question-count-input">Number of Question <em>(4 - 20)</em></label><br>
+                <label for="question-count-input" class="w3-margin">Number of Question <em>(4 - 20)</em></label><br>
                 <input id="question-count-input" type="number" min="4" max="20" value="10">
             </div>
 
             <!-- Select the difficulty level -->
-            <div id="difficulty">
-                <label for="difficulty-options">Select Difficulty</label>
-                <div id="difficulty-options" class="">
+            <div id="difficulty" class="w3-margin-bottom">
+                <label for="difficulty-options" class="w3-margin">Select Difficulty</label>
+                <div id="difficulty-options">
                     <span>
                         <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="">
                         <label for="difficulty-any-radio-button">Any</label>
@@ -131,11 +135,6 @@
                     </span>
                 </div>
             </div>
-
-            <!-- Button to create room -->
-            <span>
-                <button id="start-game-button">Start Game</button>
-            </span>
         </section>
 
         <section id='question-page' class='page hidden'>
