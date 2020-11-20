@@ -208,7 +208,10 @@ main input:focus {
 }
 
 /* Setup page buttons (Start Game, Back) */
-#setup-page button, #question-page button, #score-page button {
+#setup-page button,
+#question-page button,
+#score-page button,
+#end-game-button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -422,4 +425,10 @@ main input:focus {
   font-size: 3rem;
   text-align: center;
   color: #2da5f5;
+}
+
+#end-game-button{
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  width: 15rem;
 }
