@@ -210,15 +210,28 @@ function init() {
     })
 
     leaderClearButton.on('click', event => {
-        // TODO !!!!
         clearLeaderboard()
+        displayLeaderboard()
     })
+}
+
+function saveScoreToLocalStorage(name, score) {
+    let newscoreobj = {name: name,score: score};
+    let allscores = JSON.parse(localStorage.getItem("allscores"));
+    if(allscores == null || (typeof(allscores) != "object"))
+    {
+      allscores = new Array();
+    }
+    allscores.push(newscoreobj)
+    let jsobjstring = JSON.stringify(allscores);
+  
+    localStorage.setItem("allscores", jsobjstring);
 }
 
 function clearLeaderboard()
 {
     // 1) clear the localStorage
-    // 2) reset the table so nothingness shows immediately
+    localStorage.setItem("allscores", "[]");
 }
 
 /**Save the prefs to local storage. */
@@ -374,33 +387,29 @@ function displayPage(pageID) {
         getFinalGif(finalAnimation)
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
+        saveScoreToLocalStorage(prefs.playerName, score[0])
         endGameButton.focus()
     }
-    function displayLeaderboard() {
+}
 
-        // !!!!
-        // TODO load this from localStorage.
-        // for that i'll also need to SAVE scores to localStorage
-        // and for good measure, I really should add a Clear Scores button
-        var data = [ {name: "Andy", score:1000},
-                     {name: "NotAsGood", score:5},
-                     {name: "Meh", score:1},
-                     {name: "WeakSauce", score: -5} ]
-        
-        leaderTable.html('')
+function displayLeaderboard() {
 
-        data.sort((x,y) => y.score - x.score)
-
-        for (const d of data) {
-            console.log("d=" + JSON.stringify(d))
-            let tr = $('<tr>')
-            let nameTd = $('<td>').html(d.name)
-            let scoreTd = $('<td>').html(d.score)
-            tr.append(nameTd, scoreTd)
-            leaderTable.append(tr)
-        }
+    let data = JSON.parse(localStorage.getItem("allscores"))
+    
+    leaderTable.html('')
+    
+    data.sort((x,y) => y.score - x.score)
+    
+    for (const d of data) {
+        console.log("d=" + JSON.stringify(d))
+        let tr = $('<tr>')
+        let nameTd = $('<td>').html(d.name)
+        let scoreTd = $('<td>').html(d.score)
+        tr.append(nameTd, scoreTd)
+        leaderTable.append(tr)
     }
 }
+
 
 function getRightWrongGif(correct, element) {
     let options = (correct ? [
