@@ -78,6 +78,12 @@ const finalScoresDisplay = $('#final-scores-display')
 const finalAnimationBox = $('#final-animation-box')
 const finalAnimation = $('#final-animation')
 const endGameButton = $('#end-game-button')
+const leaderboardButton = $('#see-leaderboard-button')
+
+//leaderboard
+const leaderTable = $('#leaderboard-table')
+const leaderClearButton = $('#leaderboard-clear')
+const endGameButton2 = $('#end-game-button2')
 
 function init() {
     //Display the landing page.
@@ -194,6 +200,25 @@ function init() {
     endGameButton.on('click', event => {
         displayPage('landing')
     })
+
+    endGameButton2.on('click', event => {
+        displayPage('landing')
+    })
+
+    leaderboardButton.on('click', event => {
+        displayPage('leaderboard')
+    })
+
+    leaderClearButton.on('click', event => {
+        // TODO !!!!
+        clearLeaderboard()
+    })
+}
+
+function clearLeaderboard()
+{
+    // 1) clear the localStorage
+    // 2) reset the table so nothingness shows immediately
 }
 
 /**Save the prefs to local storage. */
@@ -210,6 +235,7 @@ var questionIndex
  * @param {string} pageID The id of the page to be displayed.
  */
 function displayPage(pageID) {
+    
     //Makes it so that you dont have to add '#' or 'page' but you can if you want to.
     pageID = pageID.replace('#', '').replace('-page', '')
 
@@ -351,7 +377,28 @@ function displayPage(pageID) {
         endGameButton.focus()
     }
     function displayLeaderboard() {
-        //TODO: for Andrew
+
+        // !!!!
+        // TODO load this from localStorage.
+        // for that i'll also need to SAVE scores to localStorage
+        // and for good measure, I really should add a Clear Scores button
+        var data = [ {name: "Andy", score:1000},
+                     {name: "NotAsGood", score:5},
+                     {name: "Meh", score:1},
+                     {name: "WeakSauce", score: -5} ]
+        
+        leaderTable.html('')
+
+        data.sort((x,y) => y.score - x.score)
+
+        for (const d of data) {
+            console.log("d=" + JSON.stringify(d))
+            let tr = $('<tr>')
+            let nameTd = $('<td>').html(d.name)
+            let scoreTd = $('<td>').html(d.score)
+            tr.append(nameTd, scoreTd)
+            leaderTable.append(tr)
+        }
     }
 }
 
