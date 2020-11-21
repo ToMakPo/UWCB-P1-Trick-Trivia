@@ -95,6 +95,11 @@ main input:focus {
   background: transparent;
   border: none;
 }
+
+.prism-button:focus {
+  outline: none;
+}
+
 .prism-button div {
   height: 100%;
   display: flex;
