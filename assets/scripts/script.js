@@ -54,7 +54,7 @@ const difficultyRadioButtons = $('.difficulty-radio-button')
 const startGameButton = $('#start-game-button')
 
 //question & answers
-const scoreElement = $('#score')
+const scoreDisplay = $('#score-display')
 const currentQuestionDisplay = $('#current-question-display')
 const totalQuestionDisplay = $('#total-questions-display')
 
@@ -288,14 +288,12 @@ function displayPage(pageID) {
     function displayQuestion() {
         questionIndex++
 
-        
-        scoreElement.text(score[0])
+        scoreDisplay.text(score[0])
 
-        currentQuestionDisplay.text(questionIndex+1) // foolish humans index from 1, not 0
-        totalQuestionDisplay.text(prefs.gameSettings.questionsCount)
+        currentQuestionDisplay.text(questionIndex + 1)
+        totalQuestionDisplay.text(questions.length)
 
-        if(questionIndex >= questions.length)
-        {
+        if(questionIndex >= questions.length) {
             console.error("questionIndex >= questions.length")
             return
         }
