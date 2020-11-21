@@ -85,7 +85,7 @@
             <!-- Pick a question category -->
             <div>
                 <label for="category-dropdown" class="w3-margin w3-xlarge">Category</label><br>
-                <select id="category-dropdown"  class="w3-border w3-round-xlarge">
+                <select id="category-dropdown"  class="w3-border ">
                     <option value="">Any Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Books</option>
@@ -116,7 +116,7 @@
             <!-- Select the difficulty level -->
             <div id="difficulty" class="w3-margin-bottom">
                 <label for="difficulty-options" class="w3-margin">Select Difficulty</label>
-                <div id="difficulty-options">
+                <div id="difficulty-options" class="">
                     <span>
                         <input id="difficulty-any-radio-button" type="radio" class="difficulty-radio-button" name="difficulty-option" value="">
                         <label for="difficulty-any-radio-button">Any</label>
@@ -141,21 +141,24 @@
         </section>
 
         <section id='question-page' class='page hidden'>
-            <h2>Select the correct answer!</h2>
+            <!-- <h2>Select the correct answer!</h2> -->
             
             <div id='question-count-box'>Question: <span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
-
             <div id="score-box">Score: <span id="score-display"></span></div>
             
+            <!-- Category box -->
             <span id="category-span">
                 <div class="catergory-block w3-padding-small">
                     <img id="category-icon">
                     <span id="category-display"></span>
                 </div>
             </span>
+
             <span id="difficulty-display"></span>
+            <!-- Question box -->
             <div class='gradient-border'>
                 <p>Question:</p>
+                <div id='timer'><span id="timer-display">0:00</span></div>
                 <h3 id='question-display'></h3>
             </div>
 
@@ -174,15 +177,16 @@
         <section id='final-page' class='page hidden'>
             <h2>Congratulations <span id="winner-display"></span>!</h2>
 
-            <h3>Your final score is ...</h3>
-
-            <div id="final-scores-display"></div>
+            <div id="final-scores-display-box">
+                <h3>Your final score is </h3>
+                <div id="final-scores-display"></div>
+            </div>
 
             <div id="final-animation-box">
                 <img id="final-animation" alt="And animated gif impfisizing the result.">
             </div>
 
-            <div>
+            <div id="end-game-button-box">
                 <button id="end-game-button">End Game</button>
             </div>
 
