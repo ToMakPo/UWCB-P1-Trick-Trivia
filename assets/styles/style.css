@@ -238,12 +238,16 @@ main input:focus {
 }
 
 /* Setup page buttons (Start Game, Back) hover */
-#setup-page button:hover {
+#setup-page button:hover, 
+#end-game-button2:hover, 
+#see-leaderboard-button:hover {
   font-size: medium;
 }
 
 /* Setup page buttons (Start Game, Back) focus */
-#setup-page button:focus {
+#setup-page button:focus,
+#end-game-button2:focus,
+#see-leaderboard-button:focus {
   outline: 0;
   border: 2px solid rgb(0, 255, 255);
 }
@@ -520,6 +524,7 @@ main input:focus {
   max-width: 800px;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.500);
+  margin: 1rem;
 }
 
 /* Gif */
@@ -592,16 +597,31 @@ main input:focus {
   padding-right: 1rem;
   text-shadow: 0 0 10px white;
 }
+/* End of final page -------------------------------------------- */
 
+/* Leaderboard page */
+#leaderboard-page {
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* Leader board text */
 #leaderboard-table {
   font-size: 1.5rem;
-  font-family: fantasy;
-  width: 40rem;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bolder;
+  color:white;
+  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
+  text-shadow: 0 0 10px rgba(7, 7, 85, 0.856);
+  width: 80vw;
   margin: 0 auto;
 }
 
+/* Orange bottom border */
 #leaderboard-table td{
-  width: 50%;
+  width: 90vw;
   border-bottom-style: solid;
-  border-color: darkorange;
+  border-color: rgba(255, 140, 0, 0.39);
 }
