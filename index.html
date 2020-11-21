@@ -140,31 +140,28 @@
         </section>
 
         <section id='question-page' class='page hidden'>
-            <h2>Select the correct answer!</h2>
+            <!-- <h2>Select the correct answer!</h2> -->
             
             <!-- TODO rig the script up to allow this to show the current round # -->
             <!-- <div id='rounds'>Round: <span id='current-round-number-display'></span>> of <span id='round-count-display'></span></div> -->
-
-            <div id='timer'>Remaining time: <span id="timer-display">0:00</span></div>
             
+            <!-- Category box -->
             <span id="category-span">
                 <div class="catergory-block w3-padding-small">
                     <img id="category-icon">
                     <span id="category-display"></span>
                 </div>
-
             </span>
+
             <span id="difficulty-display"></span>
+            <!-- Question box -->
             <div class='gradient-border'>
                 <p>Question:</p>
+                <div id='timer'><span id="timer-display">0:00</span></div>
                 <h3 id='question-display'></h3>
             </div>
 
-            <div id="answers-list">
-                <!-- <ul>
-                    <button>Answer List act as a button</button>
-                </ul> -->
-            </div>
+            <div id="answers-list"></div>
 
             <button id="submit-answer-button">Confirm Answer</button>
         </section>
@@ -182,7 +179,7 @@
             <h2>Congratulations <span id="winner-display"></span>!</h2>
 
             <div id="final-scores-display-box">
-                <h3>Your final score is ...</h3>
+                <h3>Your final score is </h3>
                 <div id="final-scores-display"></div>
             </div>
 
