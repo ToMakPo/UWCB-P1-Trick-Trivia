@@ -81,7 +81,6 @@ const leaderboardButton = $('#see-leaderboard-button')
 
 //leaderboard
 const leaderTable = $('#leaderboard-table')
-const leaderClearButton = $('#leaderboard-clear')
 const endGameButton2 = $('#end-game-button2')
 
 function init() {
@@ -207,26 +206,25 @@ function init() {
         displayPage('leaderboard')
     })
 
-    leaderClearButton.on('click', event => {
-        clearLeaderboard()
-        displayLeaderboard()
-    })
 }
 
-function saveScoreToLocalStorage(name, score) {
-    let newscoreobj = {name: name,score: score};
+function saveScoreToLocalStorage(name, score, category) {
+    let newscoreobj = {name: name,score: score, category:category};
     let allscores = JSON.parse(localStorage.getItem("allscores"));
     if(allscores == null || (typeof(allscores) != "object")) {
         allscores = new Array();
     }
     allscores.push(newscoreobj)
+    if(allscores.length > 10)
+    {
+        allscores.sort((x,y) => y.score - x.score ) // sort from highest score to lowest
+        // Now resize the array.
+        // Because of how it is sorted, the lowest scores will be dropped
+        allscores.length = 10 
+    }
     let jsobjstring = JSON.stringify(allscores);
 
     localStorage.setItem("allscores", jsobjstring);
-}
-
-function clearLeaderboard() {
-    localStorage.setItem("allscores", "[]");
 }
 
 /**Save the prefs to local storage. */
@@ -337,7 +335,6 @@ function displayPage(pageID) {
     }
     function displayScore() {
         let correct = info.selected == info.correct_answer
-        console.log(questions);
 
         resultDisplay.text(correct ? 'CORRECT!' : 'WRONG! Answer IS:')
         correctAnswerDisplay.text(correct ? '' : questions[questionIndex].correct_answer)
@@ -364,7 +361,7 @@ function displayPage(pageID) {
         getFinalGif(finalAnimation)
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
-        saveScoreToLocalStorage(prefs.playerName, score[0])
+        saveScoreToLocalStorage(prefs.playerName, score[0], prefs.gameSettings.category)
         endGameButton.focus()
     }
 }
@@ -372,18 +369,114 @@ function displayPage(pageID) {
 function displayLeaderboard() {
     let data = JSON.parse(localStorage.getItem("allscores"))
     
-    leaderTable.html('')
-    
     data.sort((x,y) => y.score - x.score)
+
+    let currentScore = {name: prefs.playerName, score: score[0], category: prefs.gameSettings.category}
     
-    for (const d of data) {
-        console.log("d=" + JSON.stringify(d))
+    const found = data.findIndex( o => 
+        o.name == currentScore.name &&
+        o.score == currentScore.score &&
+        o.category == currentScore.category);
+
+    leaderTable.html("<tr><th>Rank</th><th>Name</th><th>Category</th><th>Score</th></tr>")
+    
+    for (let i = 0; i<data.length; ++i) {
+        let d = data[i]
         let tr = $('<tr>')
+        if(i === found) {
+            tr.addClass('hilightscore');
+        }
+        let rankTd = $('<td>').html(nthUpTo9ToString(i))
         let nameTd = $('<td>').html(d.name)
+        let categoryTd = $('<td>').html(stringifyCategory(d.category))
         let scoreTd = $('<td>').html(d.score)
-        tr.append(nameTd, scoreTd)
+        tr.append(rankTd, nameTd, categoryTd, scoreTd)
         leaderTable.append(tr)
     }
+
+    if(found == -1) 
+    {
+        // the current score was not found in the top ten
+        // to show it, i'll add a tr with just an elipsis
+        let trElipsis = $("<tr>").html("...")
+        let tdElipsis = $("<td>").append(trElipsis)
+        leaderTable.append(trElipsis)
+        
+        // and a tr populated with the current score
+        let tr = $('<tr>')
+        tr.addClass('hilightscore');
+        // I don't really know where this would rank since I never save ranks 
+        // under 10th place so i'm just saying the placement is way low in a
+        // silly dramatic way: 9999th
+        let rankTd = $('<td>').html("9999th")
+        let nameTd = $('<td>').html(currentScore.name)
+        let categoryTd = $('<td>').html(stringifyCategory(currentScore.category))
+        let scoreTd = $('<td>').html(currentScore.score)
+        tr.append(rankTd, nameTd, categoryTd, scoreTd)
+        leaderTable.append(tr)
+    }
+}
+
+function nthUpTo9ToString(n) {
+    switch (n) {
+        case 0: return '1st'
+        case 1: return '2nd'
+        case 2: return '3rd'
+        case 3: return '4th'
+        case 4: return '5th'
+        case 5: return '6th'
+        case 6: return '7th'
+        case 7: return '8th'
+        case 8: return '9th'
+        case 9: return '10th'
+        default: console.error("nthUpTo9ToString only supports numbers in the range of [0,9]"); return '???'
+    }
+}
+
+var categoryIndexToStringTable = null;
+
+/*
+I do some clever programmer stuff here that is done for good reasons which 
+may be subtle to the casual even somewhat skilled reader.  Please allow me to
+explain.  First, I need a function to help me translate category indexes to
+strings to allow me to populate the leaderboard with meaningful category names.
+Categories are represented throughout this script and localStorage by numeric IDs
+that are used to pass into the Q&A API.  To translate an ID to a category string,
+I *could* have used a fat switch statement but that switch statement would be
+redundant with a global variable, categoryIcons, that I already was already
+painstakingly filled out.
+So instead, I use a mapping table which I generate from categoryIcons to use as
+a lookup like so:
+   categoryIndexToStringTable[index]
+
+But I don't use a JavaScript object key/value map for this.  Why?
+I use an array because the category indexes are small integers which would
+allow for indexes into an array which is a fundamental pointer-math easy-peasy lookup
+whereas lookup by strings uses a hash-table, which is fine enough in most cases, 
+but an array was easy enough to do instead.
+
+This array that I build, categoryIndexToStringTable, is cached so that it only needs
+to be constructed the first time it is used.
+
+* As an aside, I know that "indexes" is not a word.  
+  The "correct" word is "indices" but that word is stupid so I prefer the incorrect one.
+*/
+
+function stringifyCategory(category)
+{
+    if(categoryIndexToStringTable === null) {
+        categoryIndexToStringTable = new Array(Object.keys(categoryIcons).length)
+        for(const catName in categoryIcons) {
+            let svgAndIndexPair = categoryIcons[catName]
+            let index = svgAndIndexPair[1]
+            categoryIndexToStringTable[index] = catName
+        }
+    }
+
+    if(!category) {
+        return "Any"
+    }
+    return categoryIndexToStringTable[parseInt(category)]
 }
 
 function getRightWrongGif(correct, element) {
@@ -409,7 +502,7 @@ function getRightWrongGif(correct, element) {
     let apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${config.giphyKey}&q=${q}&limit=1&offset=${offset}&lang=en`
 
     $.get(apiURL, data => {
-        try {
+        try {           
             let gifURL = data.data[0].images.original.url
             element.attr('src', gifURL).removeClass('hidden')
         } catch(e) {
@@ -426,7 +519,7 @@ function getFinalGif(element) {
     else if (perc > 0.8) lookup = ['pretty good', 313]
     else if (perc > 0.7) lookup = ['its okay', 895]
     else if (perc > 0.5) lookup = ['meh', 1278]
-    else if (perc > 0.3) lookup = ['yeaiks', 2900]
+    else if (perc > 0.3) lookup = ['yikes', 2900]
     else lookup = ['you suck', 287]
     
     let q = lookup[0]
@@ -444,7 +537,7 @@ function getFinalGif(element) {
         let gifURL = data.data[0].images.original.url
         element.attr('src', gifURL).removeClass('hidden')
         } catch(e) {
-            console.log("data = " + JSON.stringify(data))
+            console.info("data = " + JSON.stringify(data))
             console.error(e)
         }
     })
