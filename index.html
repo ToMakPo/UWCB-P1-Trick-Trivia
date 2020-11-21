@@ -142,9 +142,9 @@
 
         <section id='question-page' class='page hidden'>
             <!-- <h2>Select the correct answer!</h2> -->
-            
-            <div id='question-count-box'>Question: <span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
-            <div id="score-box">Score: <span id="score-display"></span></div>
+        
+            <!-- Timer -->
+            <!-- <div id='timer'><span id="timer-display">0:00</span></div> -->
             
             <!-- Category box -->
             <span id="category-span">
@@ -157,7 +157,13 @@
             <span id="difficulty-display"></span>
             <!-- Question box -->
             <div class='gradient-border'>
-                <p>Question:</p>
+
+                <div>
+                    <div id='question-count-box'><span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
+                    <p>Question</p>
+                    <div id="score-box" class="score-text">Score: <span id="score"></span>
+                </div>
+
                 <h3 id='question-display'></h3>
             </div>
 
