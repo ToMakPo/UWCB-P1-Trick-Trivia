@@ -599,6 +599,12 @@ main input:focus {
 }
 /* End of final page -------------------------------------------- */
 
+/* Leaderboard page */
+#leaderboard-page {
+  width: 100vw;
+ 
+}
+
 /* Leader board text */
 #leaderboard-table {
   font-size: 1.5rem;
@@ -607,13 +613,14 @@ main input:focus {
   color:white;
   -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
   text-shadow: 0 0 10px rgba(7, 7, 85, 0.856);
-  width: 80vw;
+  width: 40vw;
   margin: 0 auto;
+  text-align: left;
 }
 
 /* Orange bottom border */
 #leaderboard-table td{
-  width: 90vw;
+  /* width: 50%; */
   border-bottom-style: solid;
   border-color: rgba(255, 140, 0, 0.39);
 }
