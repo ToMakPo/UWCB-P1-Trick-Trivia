@@ -599,14 +599,6 @@ main input:focus {
 }
 /* End of final page -------------------------------------------- */
 
-/* Leaderboard page */
-#leaderboard-page {
-  width: 90vw;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
 /* Leader board text */
 #leaderboard-table {
   font-size: 1.5rem;
