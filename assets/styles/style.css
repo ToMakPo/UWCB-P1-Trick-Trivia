@@ -3,7 +3,12 @@
 /* Dark Blue Color rgba(7, 7, 85, 0.856) */
 /* font-family: "Source Sans Pro", sans-serif; */
 
+/* Source+Sans+Pro */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+/* Frijole */
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+/* Press Start 2P */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
   background-image:
@@ -456,28 +461,44 @@ main input:focus {
 }
 /* End of question page --------------------------------------------*/
 
+/* Result display */
+#score-page #correct-answer-display {
+  font-family: 'Press Start 2P', cursive;
+  color: rgba(7, 7, 85, 0.856);
+  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
+  font-size: 35px;
+  font-weight: bolder;
+  margin: 2rem 0;
+}
+
+/* Animation Gif box */
 #score-page #result-animation-box {
   display: flex;
   justify-content: center;
 }
 
+/* Animation Gif */
 #score-page #result-animation {
-  max-width: 100%;
+  width: 90vw;
+  max-width: 800px;
   max-height: 350px;
   border-radius: 1rem;
-  border: 2px solid black;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
 }
 
-#score-page #next-question-timer {
+/* #score-page #next-question-timer {
   position: fixed;
   top: 0.25rem;
   right: 0.25rem;
-}
+} */
 
+/* Next button */
 #score-page #next-question-button {
   margin: 2rem auto;
   font-size: 1.5rem;
   width: 15rem;
+  outline: none;
 }
 /* End of score page --------------------------------------------*/
 
