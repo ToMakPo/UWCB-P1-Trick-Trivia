@@ -44,6 +44,7 @@ main .page {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: bolder;
   color: white;
+  line-height: 2.3rem;
 }
 
 /* A reuseable header for any class using page */
@@ -53,7 +54,7 @@ main .page h2 {
   -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
   font-size: 50px;
   font-weight: bolder;
-  margin-top: 1rem;
+  margin: 2rem 0;
 }
 
 /* Screen Name input */
@@ -164,6 +165,8 @@ main input:focus {
   transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 1000px;
+  height: 90vh;
+  max-height: 1000px;
   padding: 0.5rem;
 }
 
@@ -172,12 +175,13 @@ main input:focus {
   border: 10px solid rgb(0, 255, 255);
   box-shadow: 0 0 10px white;
   color: white;
+  line-height: 1.5rem;
 }
 
 /* Rules modal button */
 #landing-page #game-rules-model #hide-rules-button {
   position: absolute;
-  top: 0.8rem;
+  top: 1.5rem;
   right: 1.5rem;
   background-color: transparent;
   color: white;
@@ -234,11 +238,49 @@ main input:focus {
   border: 2px solid rgb(0, 255, 255);
 }
 
+#setup-page #category-dropdown {
+  max-width: 300px;
+  border-radius: 10px;
+  background-color: white;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+#setup-page #question-count-input {
+  width: 265px;
+  border-radius: 10px;
+  background-color: white;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+/* #setup-page #difficulty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; 
+} */
+
 /* Flexing difficulty options */
 #setup-page #difficulty-options {
   display: flex;
   flex-direction: column;
+  line-height: 1.8rem;
 }
+
+/* #setup-page #difficulty-options span {
+  display: flex;
+  justify-content: space-between;
+  align-content: center; 
+  flex-direction: row;
+  align-self: center;
+} */
 
 /* Top margin for the difficulty container and question count */
 #setup-page #difficulty, #setup-page #question-count {
@@ -247,26 +289,36 @@ main input:focus {
 
 /* End of setup page --------------------------------------------*/
 
-/* TODO this is inactive */
-/* This section for question-page */
+/* Question page box */
 #question-page {
-  /* position: fixed; */
+  height: 100%;
+  /* position: fixed;
   top: 0.25rem;
-  right: 0.25rem;
+  right: 0.25rem; */
 }
 
+/* Timer */
 #question-page #timer {
-  position: fixed;
+  position: absolute;
   top: 0.25rem;
-  right: 0.25rem;
+  right: 1rem;
 }
 
+/* Question page h2 */
+/* #question-page h2 {
+  line-height: 3rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+} */
+
+/* Outter category box */
 #question-page #category-span {
   display: flex;
   align-items: center;
   margin: auto;
 }
 
+/* Inner category box */
 #question-page .catergory-block{
   border-width: 13px;
   border-style: groove;
@@ -275,51 +327,55 @@ main input:focus {
   background-image: linear-gradient(to right, orange,yellow,lightblue);
 }
 
+/* Category icon */
 #question-page #category-icon {
   max-width: 35px;
   max-height: 35px;
 }
 
+/* Category type */
 #question-page #category-display {
   margin-left: 1rem;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: crimson;
 }
 
+/* Category difficulty level */
 #question-page #difficulty-display {
   display: none;
 }
 
-/* display question box */
+/* Display question box */
 #question-page .gradient-border{
-  width: 40rem;
-  height: 11rem;
-  /* display: flex; */
+  width: 90vw;
+  max-width: 800px;
   align-items: center;
   justify-content: center;
   color: white;
-  font-family: 'Raleway';
+  font-family: 'Railway';
   margin: 20px auto;
-}
-
-#question-page .gradient-border p{
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-#question-page #question-display {
-  padding: 0 10px;
-  /* margin: 20px auto; */
-  font-size: 1.5rem;
-  
-}
-.gradient-border {
+  padding-top: 1.5rem;
   --borderWidth: 10px;
   background: #000000d9;
   position: relative;
   border-radius: var(--borderWidth);
 }
+
+/* Question h3 */
+#question-page .gradient-border p{
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Question text */
+#question-page #question-display {
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+
+/* Question box after */
 .gradient-border:after {
   content: '';
   position: absolute;
@@ -347,22 +403,25 @@ main input:focus {
 	}
 }
 
-/* Answer List */
+/* Answer List box*/
 #question-page #answers-list {
+  width: 90vw;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   font-size: 1.25rem;
   margin: auto;
 }
 
+/* Answer list buttons */
 #question-page #answers-list input {
-  margin: 10px 0px;
+  margin: 5px 0px;
   border-radius: 1rem;
   width: 50rem;
-  background-image: linear-gradient(to left, red, yellow);
+  background-image: linear-gradient(to left, rgba(255, 0, 0, 0.500), rgba(255, 255, 0, 0.500));
   font-size: 1.5rem;
-  color: blue;
-  font-family: auto;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Segoe UI",Arial,sans-serif;;
   border-width: thick;
   border-color: rgb(79, 200, 240);
   height: 4rem;
@@ -384,6 +443,7 @@ main input:focus {
   font-size: 1.5rem;
   width: 15rem;
 }
+/* End of question page --------------------------------------------*/
 
 #score-page #result-animation-box {
   display: flex;
@@ -408,24 +468,62 @@ main input:focus {
   font-size: 1.5rem;
   width: 15rem;
 }
+/* End of score page --------------------------------------------*/
 
 #final-page #final-animation-box {
   display: flex;
   justify-content: center;
+  align-self: center;
+  width: 90.3vw;
+  max-width: 800px;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.500);
 }
 
 #final-page #final-animation {
-  max-width: 100%;
+  width: 90vw;
+  max-width: 800px;
   max-height: 350px;
   border-radius: 1rem;
-  border: 2px solid black;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
+}
+
+#end-game-button-box {
+  align-self: center;
+  margin-top: 2rem;
+}
+
+#final-page #end-game-button {
+  background-color: rgba(7, 7, 85, 0.856);
+  color: rgb(0, 255, 255);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  align-self: center;
+  padding: 0rem 1rem;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
+}
+
+#final-scores-display-box {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  position: relative;
 }
 
 #final-page #final-scores-display {
   font-family: fantasy;
   font-size: 3rem;
   text-align: center;
-  color: #2da5f5;
+  color: rgb(0, 255, 255);
+  position: absolute;
+  top: 0.8rem;
+  right: -3rem;
+}
+
+#congrats {
+  margin-top: 4rem;
 }
 
 #end-game-button{
