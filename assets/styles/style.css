@@ -94,6 +94,7 @@ main input:focus {
   -webkit-perspective: 500px;
   background: transparent;
   border: none;
+  outline: none;
 }
 .prism-button div {
   height: 100%;
@@ -317,6 +318,7 @@ main input:focus {
   justify-content: center;
   align-items: center;
   margin: auto;
+
 }
 
 /* Inner category box */
