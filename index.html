@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
 
     <!-- more styling links -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 <body class="w3-display-container w3-center">
     <header class="w3-display-container w3-center">
         <img src="assets/images/logo.svg" alt="Trick Triva logo" width="90%" height="90%">
+        <span id="running-score-dispaly"></span>
     </header>
     
     <main>
@@ -142,8 +143,9 @@
         <section id='question-page' class='page hidden'>
             <!-- <h2>Select the correct answer!</h2> -->
             
-            <!-- TODO rig the script up to allow this to show the current round # -->
-            <!-- <div id='rounds'>Round: <span id='current-round-number-display'></span>> of <span id='round-count-display'></span></div> -->
+
+            <div id='question-count-box'>Question: <span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
+            <div id="score-box">Score: <span id="score"></span><
             
             <!-- Category box -->
             <span id="category-span">
@@ -162,16 +164,14 @@
             </div>
 
             <div id="answers-list"></div>
-
-            <button id="submit-answer-button">Confirm Answer</button>
         </section>
 
         <section id='score-page' class='page hidden'>
-            <h2 id="question-result-display"></h2>
+            <h2 id="result-display"></h2>
+            <h3 id="correct-answer-display"></h3>
             <div id="result-animation-box">
-                <img id="result-animation" width="350" height="350" alt="And animated gif impfisizing the result.">
+                <img id="result-animation" alt="And animated gif emphasizing the result.">
             </div>
-            <div id='next-question-timer'>Next question in: <span id="next-question-timer-display">0:00</span></div>
             <button id="next-question-button">Next</button>
         </section>
 
@@ -191,11 +191,18 @@
                 <button id="end-game-button">End Game</button>
             </div>
 
-            <h2 id="congrats">Congratulations <span id="winner-display"></span>!</h2>
+            <div>
+                <button id="see-leaderboard-button">See Leaderboard</button>
+            </div>
+        </section>
 
-            <h3>The final scores are ...</h3>
-
-            <div id="final-scores-list">Player Name: score </div>
+        <section id="leaderboard-page" class="page hidden">
+            <h2>Leaderboard</h2>
+            <table id="leaderboard-table"></table>
+            <div>
+                <button id="leaderboard-clear">Clear Scores</button>
+                <button id="end-game-button2">End Game</button>
+            </div>
         </section>
     </main>
 

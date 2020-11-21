@@ -1,4 +1,4 @@
-# P1 Trick Trivia Game
+# Trick Trivia Game
 Our first group project for UW Coding Bootcamp. 
 Contributers: Makai Post, Andrew Olson, Truc Nguyen, and Bryson Palmer
 

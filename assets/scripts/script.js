@@ -54,7 +54,10 @@ const difficultyRadioButtons = $('.difficulty-radio-button')
 const startGameButton = $('#start-game-button')
 
 //question & answers
-const timerDisplay = $('#timer-display')
+const scoreElement = $('#score')
+const currentQuestionDisplay = $('#current-question-display')
+const totalQuestionDisplay = $('#total-questions-display')
+
 const categoryDisplay = $('#category-display')
 const categoryIcon = $('#category-icon')
 const difficultyDisplay = $('#difficulty-display')
@@ -63,9 +66,9 @@ const answersList = $('#answers-list')
 const submitAnswerButton = $('#submit-answer-button')
 
 //score
-const questionResultDisplay = $('#question-result-display')
+const resultDisplay = $('#result-display')
+const correctAnswerDisplay = $('#correct-answer-display')
 const resultAnimation = $('#result-animation')
-const nextQuestionTimerDisplay = $('#next-question-timer-display')
 const nextQuestionButton = $('#next-question-button')
 
 //final
@@ -74,6 +77,12 @@ const finalScoresDisplay = $('#final-scores-display')
 const finalAnimationBox = $('#final-animation-box')
 const finalAnimation = $('#final-animation')
 const endGameButton = $('#end-game-button')
+const leaderboardButton = $('#see-leaderboard-button')
+
+//leaderboard
+const leaderTable = $('#leaderboard-table')
+const leaderClearButton = $('#leaderboard-clear')
+const endGameButton2 = $('#end-game-button2')
 
 function init() {
     //Display the landing page.
@@ -163,15 +172,14 @@ function init() {
         let apiURL = `https://opentdb.com/api.php?type=multiple&category=${category}&amount=${amount}&difficulty=${difficulty}`
         
         $.get(apiURL, data => {
-            questions = data
+            questions = data.results
             displayPage('question')
         })
     })
 
     answersList.on('click', event => {
-        if (event.target.matches('input')) {
-            let val = $(event.target).val()
-            info.selected = val
+        if (event.target.matches('button')) {
+            info.selected = $(event.target).text()
             displayPage('score')
         }
     })
@@ -190,6 +198,35 @@ function init() {
     endGameButton.on('click', event => {
         displayPage('landing')
     })
+
+    endGameButton2.on('click', event => {
+        displayPage('landing')
+    })
+
+    leaderboardButton.on('click', event => {
+        displayPage('leaderboard')
+    })
+
+    leaderClearButton.on('click', event => {
+        clearLeaderboard()
+        displayLeaderboard()
+    })
+}
+
+function saveScoreToLocalStorage(name, score) {
+    let newscoreobj = {name: name,score: score};
+    let allscores = JSON.parse(localStorage.getItem("allscores"));
+    if(allscores == null || (typeof(allscores) != "object")) {
+        allscores = new Array();
+    }
+    allscores.push(newscoreobj)
+    let jsobjstring = JSON.stringify(allscores);
+
+    localStorage.setItem("allscores", jsobjstring);
+}
+
+function clearLeaderboard() {
+    localStorage.setItem("allscores", "[]");
 }
 
 /**Save the prefs to local storage. */
@@ -206,6 +243,7 @@ var questionIndex
  * @param {string} pageID The id of the page to be displayed.
  */
 function displayPage(pageID) {
+    
     //Makes it so that you dont have to add '#' or 'page' but you can if you want to.
     pageID = pageID.replace('#', '').replace('-page', '')
 
@@ -225,6 +263,7 @@ function displayPage(pageID) {
             case 'question': displayQuestion(); break
             case 'score': displayScore(); break
             case 'final': displayFinal(); break
+            case 'leaderboard': displayLeaderboard(); break
         }
 
         //Return the selected page.
@@ -249,12 +288,18 @@ function displayPage(pageID) {
     function displayQuestion() {
         questionIndex++
 
-        if(questionIndex >= questions.results.length)
+        
+        scoreElement.text(score[0])
+
+        currentQuestionDisplay.text(questionIndex+1) // foolish humans index from 1, not 0
+        totalQuestionDisplay.text(prefs.gameSettings.questionsCount)
+
+        if(questionIndex >= questions.length)
         {
-            console.error("questionIndex >= questions.results.length")
+            console.error("questionIndex >= questions.length")
             return
         }
-        info = questions.results[questionIndex]
+        info = questions[questionIndex]
 
         let category = null
         try {
@@ -262,7 +307,7 @@ function displayPage(pageID) {
         } catch(e) {
             console.log("info = " + JSON.stringify(info))
             console.log("questionIndex = " + questionIndex)
-            console.log("questions.results = " + JSON.stringify(questions.results))
+            console.log("questions = " + JSON.stringify(questions))
             console.error(e)
         }
         
@@ -279,39 +324,25 @@ function displayPage(pageID) {
         let options = [info.correct_answer, ...info.incorrect_answers]
         let answers = []
         answersList.html('')
-        let firstInput = null
         let x = 0
         while (options.length) {
             let i = Math.floor(Math.random() * options.length)
             let a = options.splice(i, 1)[0]
             x++
             answers.push(a)
-            let input = $('<input>')
-            input.attr('type', 'button')
-            input.attr('name', 'answer')
-            input.attr('id', `answer-${x}`)
-            input.val(a)
-            let label = $('<label>')
-                .attr('for', `answer-${x}`)
-                // .text(a)
-            let span = $('<span>')
-                .append(input, label)
-            if(!firstInput) {
-                firstInput = input
-            }
-            answersList.append(span)
+            answersList.append($('<button>')
+                .attr('id', `answer-${x}`)
+                .addClass('answer-button')
+                .text(a))
         }
-        firstInput.focus()
         info.answers = answers
-
-        //TODO: Set up timer function
     }
     function displayScore() {
         let correct = info.selected == info.correct_answer
-        let correct_answer_text = htmlDecode(questions.results[questionIndex].correct_answer)
+        console.log(questions);
 
-        questionResultDisplay.text(correct ? 'CORRECT!' : 'WRONG! The correct answer is "' + correct_answer_text + '"')
-
+        resultDisplay.text(correct ? 'CORRECT!' : 'WRONG! The correct answer is:')
+        correctAnswerDisplay.text(correct ? '' : questions[questionIndex].correct_answer)
         getRightWrongGif(correct, resultAnimation)
 
         let difficultyReward = 0
@@ -330,14 +361,30 @@ function displayPage(pageID) {
         score[1] += difficultyReward
 
         nextQuestionButton.focus()
-
-        //TODO: Set up timer function
     }
     function displayFinal() {
         getFinalGif(finalAnimation)
         winnerDisplay.text(prefs.playerName)
         finalScoresDisplay.text(score[0])
+        saveScoreToLocalStorage(prefs.playerName, score[0])
         endGameButton.focus()
+    }
+}
+
+function displayLeaderboard() {
+    let data = JSON.parse(localStorage.getItem("allscores"))
+    
+    leaderTable.html('')
+    
+    data.sort((x,y) => y.score - x.score)
+    
+    for (const d of data) {
+        console.log("d=" + JSON.stringify(d))
+        let tr = $('<tr>')
+        let nameTd = $('<td>').html(d.name)
+        let scoreTd = $('<td>').html(d.score)
+        tr.append(nameTd, scoreTd)
+        leaderTable.append(tr)
     }
 }
 
