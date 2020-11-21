@@ -314,6 +314,7 @@ main input:focus {
 /* Outter category box */
 #question-page #category-span {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: auto;
 }
