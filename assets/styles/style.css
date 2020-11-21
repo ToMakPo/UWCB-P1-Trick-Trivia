@@ -216,7 +216,8 @@ main input:focus {
 #setup-page button,
 #question-page button,
 #score-page button,
-#end-game-button {
+#end-game-button,
+#end-game-button2 {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -494,7 +495,7 @@ main input:focus {
   margin-top: 2rem;
 }
 
-#final-page #end-game-button {
+/* #final-page #end-game-button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -503,7 +504,7 @@ main input:focus {
   padding: 0rem 1rem;
   border: 5px solid rgb(0, 255, 255);
   box-shadow: 0 0 10px white;
-}
+} */
 
 #final-scores-display-box {
   display: flex;
@@ -526,7 +527,8 @@ main input:focus {
   margin-top: 4rem;
 }
 
-#end-game-button{
+#end-game-button,
+#end-game-button2{
   margin: 2rem auto;
   font-size: 1.5rem;
   width: 15rem;
@@ -539,4 +541,17 @@ main input:focus {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+#leaderboard-table {
+  font-size: 1.5rem;
+  font-family: fantasy;
+  width: 40rem;
+  margin: 0 auto;
+}
+
+#leaderboard-table td{
+  width: 50%;
+  border-bottom-style: solid;
+  border-color: darkorange;
 }
