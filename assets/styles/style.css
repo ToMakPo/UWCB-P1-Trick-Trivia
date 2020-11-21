@@ -217,7 +217,8 @@ main input:focus {
 #setup-page button,
 #score-page button,
 #end-game-button,
-#end-game-button2 {
+#end-game-button2,
+#see-leaderboard-button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -539,7 +540,8 @@ main input:focus {
 }
 
 #end-game-button,
-#end-game-button2{
+#end-game-button2,
+#see-leaderboard-button{
   margin: 2rem auto;
   font-size: 1.5rem;
   width: 15rem;
