@@ -3,12 +3,7 @@
 /* Dark Blue Color rgba(7, 7, 85, 0.856) */
 /* font-family: "Source Sans Pro", sans-serif; */
 
-/* Source+Sans+Pro */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
-/* Frijole */
-@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
-/* Press Start 2P */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
   background-image:
@@ -99,7 +94,6 @@ main input:focus {
   -webkit-perspective: 500px;
   background: transparent;
   border: none;
-  outline: none;
 }
 .prism-button div {
   height: 100%;
@@ -182,8 +176,6 @@ main input:focus {
   box-shadow: 0 0 10px white;
   color: white;
   line-height: 1.5rem;
-  font-size: 20px;
-  font-style: italic;
 }
 
 /* Rules modal button */
@@ -222,10 +214,9 @@ main input:focus {
 
 /* Setup page buttons (Start Game, Back) */
 #setup-page button,
+#question-page button,
 #score-page button,
-#end-game-button,
-#end-game-button2,
-#see-leaderboard-button {
+#end-game-button {
   background-color: rgba(7, 7, 85, 0.856);
   color: rgb(0, 255, 255);
   font-family: "Source Sans Pro", sans-serif;
@@ -234,20 +225,15 @@ main input:focus {
   padding: 0.11rem 1rem;
   border: 5px solid rgb(0, 255, 255);
   box-shadow: 0 0 10px white;
-  outline: none;
 }
 
 /* Setup page buttons (Start Game, Back) hover */
-#setup-page button:hover, 
-#end-game-button2:hover, 
-#see-leaderboard-button:hover {
+#setup-page button:hover {
   font-size: medium;
 }
 
 /* Setup page buttons (Start Game, Back) focus */
-#setup-page button:focus,
-#end-game-button2:focus,
-#see-leaderboard-button:focus {
+#setup-page button:focus {
   outline: 0;
   border: 2px solid rgb(0, 255, 255);
 }
@@ -274,27 +260,24 @@ main input:focus {
   text-align: center;
 }
 
-/* #setup-page #difficulty {
+#setup-page #difficulty {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center; 
-} */
-
-/* Flexing difficulty options */
-#setup-page #difficulty-options {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.8rem;
+  align-items: center; 
 }
 
-/* #setup-page #difficulty-options span {
+#setup-page #difficulty-options {
   display: flex;
-  justify-content: space-between;
-  align-content: center; 
   flex-direction: row;
-  align-self: center;
-} */
+  line-height: 1.8rem;
+  align-items: flex-start;
+}
+
+#setup-page #difficulty-options span {
+  margin: 0 1rem;
+  white-space: nowrap;
+}
 
 /* Top margin for the difficulty container and question count */
 #setup-page #difficulty, #setup-page #question-count {
@@ -306,6 +289,9 @@ main input:focus {
 /* Question page box */
 #question-page {
   height: 100%;
+  /* position: fixed;
+  top: 0.25rem;
+  right: 0.25rem; */
 }
 
 /* Timer */
@@ -315,19 +301,23 @@ main input:focus {
   right: 1rem;
 }
 
+/* Question page h2 */
+/* #question-page h2 {
+  line-height: 3rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+} */
+
 /* Outter category box */
 #question-page #category-span {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin: auto;
 }
 
 /* Inner category box */
 #question-page .catergory-block{
-  width: 50vw;
-  max-width: 400px;
-  border-width: 6px;
+  border-width: 13px;
   border-style: groove;
   border-radius: 25px;
   border-color: aqua;
@@ -362,41 +352,24 @@ main input:focus {
   justify-content: center;
   color: white;
   font-family: 'Railway';
-  margin: 2rem auto;
-  padding-top: 0rem;
+  margin: 20px auto;
+  padding-top: 1.5rem;
   --borderWidth: 10px;
   background: #000000d9;
   position: relative;
   border-radius: var(--borderWidth);
 }
 
-/* Questions counter */
-#question-page #question-count-box {
-  position: absolute;
-  top: 0.5rem;
-  left: 1rem;
-}
-
 /* Question h3 */
 #question-page .gradient-border p{
   font-size: 2.5rem;
   margin: 0;
-  border-bottom: 1px solid white;
-  padding: 1rem 0;
-}
-
-/* Score counter */
-#question-page .score-text {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
 }
 
 /* Question text */
 #question-page #question-display {
   padding: 0 10px;
   font-size: 1.5rem;
-  margin-top: 3rem;
 }
 
 /* Question box after */
@@ -430,28 +403,27 @@ main input:focus {
 /* Answer List box*/
 #question-page #answers-list {
   width: 90vw;
-  max-width: 800px;
-  display: flex; 
+  max-width: 400px;
+  display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 1.25rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin: auto;
 }
 
 /* Answer list buttons */
-#question-page #answers-list button {
-  width: 400px;
-  max-width: 300px;
-  font-family: "Segoe UI",Arial,sans-serif;
-  padding: 1rem;
-  background-color: rgba(7, 7, 85, 0.856);
-  color: rgb(0, 255, 255);
-  font-weight: bold;
-  margin: 1rem 0;
-  padding: 0.11rem 1rem;
-  border: 5px solid rgb(0, 255, 255);
-  box-shadow: 0 0 10px white;
+#question-page #answers-list input {
+  margin: 5px 0px;
+  border-radius: 1rem;
+  width: 50rem;
+  background-image: linear-gradient(to left, rgba(255, 0, 0, 0.500), rgba(255, 255, 0, 0.500));
+  font-size: 1.5rem;
+  color: rgba(7, 7, 85, 0.856);
+  font-family: "Segoe UI",Arial,sans-serif;;
+  border-width: thick;
+  border-color: rgb(79, 200, 240);
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
 }
 
 #question-page #answers-list span {
@@ -470,52 +442,31 @@ main input:focus {
 }
 /* End of question page --------------------------------------------*/
 
-/* Result display */
-#score-page #correct-answer-display {
-  font-family: 'Press Start 2P', cursive;
-  color: rgba(7, 7, 85, 0.856);
-  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
-  font-size: 35px;
-  font-weight: bolder;
-  margin: 2rem 0;
-}
-
-/* Animation Gif box */
 #score-page #result-animation-box {
   display: flex;
   justify-content: center;
 }
 
-/* Animation Gif */
 #score-page #result-animation {
-  width: 90vw;
-  max-width: 800px;
+  max-width: 100%;
   max-height: 350px;
   border-radius: 1rem;
-  border: 5px solid rgb(0, 255, 255);
-  box-shadow: 0 0 10px white;
+  border: 2px solid black;
 }
 
-/* #score-page #next-question-timer {
+#score-page #next-question-timer {
   position: fixed;
   top: 0.25rem;
   right: 0.25rem;
-} */
+}
 
-/* Next button */
 #score-page #next-question-button {
   margin: 2rem auto;
   font-size: 1.5rem;
   width: 15rem;
-  outline: none;
 }
 /* End of score page --------------------------------------------*/
 
-#final-page {
-  height: 100vh;
-}
-
-/* Gif box */
 #final-page #final-animation-box {
   display: flex;
   justify-content: center;
@@ -524,10 +475,8 @@ main input:focus {
   max-width: 800px;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.500);
-  margin: 1rem;
 }
 
-/* Gif */
 #final-page #final-animation {
   width: 90vw;
   max-width: 800px;
@@ -539,6 +488,18 @@ main input:focus {
 
 #end-game-button-box {
   align-self: center;
+  margin-top: 2rem;
+}
+
+#final-page #end-game-button {
+  background-color: rgba(7, 7, 85, 0.856);
+  color: rgb(0, 255, 255);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  align-self: center;
+  padding: 0rem 1rem;
+  border: 5px solid rgb(0, 255, 255);
+  box-shadow: 0 0 10px white;
 }
 
 #final-scores-display-box {
@@ -548,72 +509,31 @@ main input:focus {
   position: relative;
 }
 
-/* Final score nubmer */
 #final-page #final-scores-display {
-  font-family: 'Press Start 2P', cursive;
-  color: rgba(7, 7, 85, 0.856);
-  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
-  font-weight: bolder;
-  margin: 2rem 0;
+  font-family: fantasy;
   font-size: 3rem;
   text-align: center;
+  color: rgb(0, 255, 255);
   position: absolute;
-  top: 0rem;
-  right: 3rem;
-  padding-left: 1rem;
-  text-shadow: 0 0 20px white;
+  top: 0.8rem;
+  right: -3rem;
 }
 
-/* Congratulations */
 #congrats {
-  margin-top: 1rem;
-  line-height: 3rem;
+  margin-top: 4rem;
 }
 
-/* End game buttons */
-#end-game-button,
-#end-game-button2{
+#end-game-button{
   margin: 2rem auto;
   font-size: 1.5rem;
   width: 15rem;
 }
 
-/* Leaderboard button */
-#see-leaderboard-button{
-  margin: 0 auto;
-  font-size: 1.5rem;
-  width: 15rem;
-}
-
-/* Final score */
 #final-page h3 {
-  font-family: 'Press Start 2P', cursive;
-  color: rgba(7, 7, 85, 0.856);
-  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
-  font-size: 35px;
+  font-size: 2.5rem;
   font-weight: bolder;
-  margin: 1rem 0;
-  margin-right: 8rem;
-  padding-right: 1rem;
-  text-shadow: 0 0 10px white;
-}
-/* End of final page -------------------------------------------- */
-
-/* Leader board text */
-#leaderboard-table {
-  font-size: 1.5rem;
-  font-family: 'Press Start 2P', cursive;
-  font-weight: bolder;
-  color:white;
-  -webkit-text-stroke: 0.5px rgba(0, 255, 255, 0.603);
-  text-shadow: 0 0 10px rgba(7, 7, 85, 0.856);
-  width: 80vw;
-  margin: 0 auto;
-}
-
-/* Orange bottom border */
-#leaderboard-table td{
-  width: 90vw;
-  border-bottom-style: solid;
-  border-color: rgba(255, 140, 0, 0.39);
+  background: -webkit-linear-gradient(red, yellow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
