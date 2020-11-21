@@ -336,7 +336,7 @@ function displayPage(pageID) {
     function displayScore() {
         let correct = info.selected == info.correct_answer
 
-        resultDisplay.text(correct ? 'CORRECT!' : 'WRONG! The correct answer is:')
+        resultDisplay.text(correct ? 'CORRECT!' : 'WRONG! Answer IS:')
         correctAnswerDisplay.text(correct ? '' : questions[questionIndex].correct_answer)
         getRightWrongGif(correct, resultAnimation)
 

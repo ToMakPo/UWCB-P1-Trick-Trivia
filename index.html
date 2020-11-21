@@ -47,26 +47,36 @@
                     <h3>Rules</h3>
                     <!-- TODO: Fix the rules -->
                     <p>
-                        The goal of this game is to trick your friends and get the most points to 
-                        win. There are two stages to this game; setup and guessing.
+                        The goal of this game is to answer as many questions as possible at the hardest level
+                        to get the highest score and rule the Leader Board.
                     </p>
                     <p>
-                        In the setup stage, you will be shown a question and you will be able 
-                        to provide a believable answer that is <strong>NOT</strong> correct. 
-                        You will only have 30 seconds to come up with the answer and submit it.
+                        Game Setup: Player can pick a <strong>Category</strong>, <strong>Number of questions</strong>
+                        (from 4 up to 20), and select the <strong>Difficulty Level</strong>.
                     </p>
                     <p>
-                        In the guessing stage, you will be given a list of answers. One of them
-                        will be the correct answer, but the rest will be a mix of the ones
-                        provided by your friends and ones provided by the game. You will have to
-                        select the correct answer. If you get the correct answer, you will get 
-                        3 points. If you are the first to select the correct answer, you will 
-                        get an additional 2 points. If someone else picked the answer you gave
-                        in the setup stage, then you will get one more point for each person
-                        picking your answer.
+                        Earning Score:
+                        <ul>
+                            <li>Easy level: Correct = +2 points, Wrong = -1 point</li>
+                            <li>Medium level: Correct = +4 points, Wrong = -2 point</li>
+                            <li>Hard level: Correct = +8 points, Wrong = -4 point</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        TIPS to earn as many point as possible:
+                        <ul>
+                            <li>Set the number of questions to 20 to earn earn as many points as you can.</li>
+                            <li>Select as high a difficulty level as you can to earn the most points.</li>
+                            <li>Read carefully and get as many correct answers as possible.</li>
+                            <li>That's it!</li>
+                        </ul>
                     </p>
                     <p>
-                        When the game is over, the one with the most points wins.
+                        When the game is over, enter your initials and see where you place on the Leader Board.
+                    </p>
+                    <p>
+                        Play again to become a <strong>MASTER</strong> of <strong>Trick Tivia</strong> and own the Leader board.
                     </p>
                 </div>
                 
@@ -142,9 +152,9 @@
 
         <section id='question-page' class='page hidden'>
             <!-- <h2>Select the correct answer!</h2> -->
-            
-            <div id='question-count-box'>Question: <span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
-            <div id="score-box">Score: <span id="score-display"></span></div>
+        
+            <!-- Timer -->
+            <!-- <div id='timer'><span id="timer-display">0:00</span></div> -->
             
             <!-- Category box -->
             <span id="category-span">
@@ -157,27 +167,38 @@
             <span id="difficulty-display"></span>
             <!-- Question box -->
             <div class='gradient-border'>
-                <p>Question:</p>
+
+                <div>
+                    <div id='question-count-box'><span id='current-question-display'></span> of <span id='total-questions-display'></span></div>
+                    <p>Question</p>
+                    <div id="score-box" class="score-text">Score: <span id="score-display"></span>
+                </div>
+
                 <h3 id='question-display'></h3>
             </div>
 
             <div id="answers-list"></div>
         </section>
 
+        <!-- Score page -->
         <section id='score-page' class='page hidden'>
             <h2 id="result-display"></h2>
+              
             <h3 id="correct-answer-display"></h3>
+            
             <div id="result-animation-box">
                 <img id="result-animation" alt="And animated gif emphasizing the result.">
             </div>
             <button id="next-question-button">Next</button>
         </section>
 
+        <!-- Final page -->
         <section id='final-page' class='page hidden'>
-            <h2>Congratulations <span id="winner-display"></span>!</h2>
+            <h2 id="congrats">Congratulations <span id="winner-display"></span>!</h2>
 
+            <!-- Final score -->
             <div id="final-scores-display-box">
-                <h3>Your final score is </h3>
+                <h3>Final Score </h3>
                 <div id="final-scores-display"></div>
             </div>
 
@@ -190,10 +211,11 @@
             </div>
 
             <div>
-                <button id="see-leaderboard-button">See Leaderboard</button>
+                <button id="see-leaderboard-button">Leaderboard</button>
             </div>
         </section>
 
+        <!-- Leadership board -->
         <section id="leaderboard-page" class="page hidden">
             <h2>Leaderboard</h2>
             <table id="leaderboard-table"></table>
