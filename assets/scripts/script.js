@@ -86,6 +86,7 @@ const endGameButton2 = $('#end-game-button2')
 function init() {
     //Display the landing page.
     displayPage('landing')
+    Str
 
     //Set the event listener of the back button to go back to the specified page.
     backButton.on('click', event => displayPage('landing'))
@@ -170,12 +171,16 @@ function init() {
         
         let apiURL = `https://opentdb.com/api.php?type=multiple&category=${category}&amount=${amount}&difficulty=${difficulty}`
         
+        //Make the ajax request to the api.
         $.get(apiURL, data => {
+            //Get the relevent data from the returned data
             questions = data.results
+            //Show the questions page
             displayPage('question')
         })
     })
 
+    //
     answersList.on('click', event => {
         if (event.target.matches('button')) {
             info.selected = $(event.target).text()
@@ -208,7 +213,14 @@ function init() {
 
 }
 
+/**This will save the score to local storage after the game ends.
+ * 
+ * @param {string} name The name of the player
+ * @param {number} score The score of the game
+ * @param {string} category the category of the selected game
+ */
 function saveScoreToLocalStorage(name, score, category) {
+    String
     let newscoreobj = {name: name,score: score, category:category};
     let allscores = JSON.parse(localStorage.getItem("allscores"));
     if(allscores == null || (typeof(allscores) != "object")) {
@@ -231,6 +243,7 @@ function saveScoreToLocalStorage(name, score, category) {
 function savePrefs() {
     localStorage.setItem('TrickTriviaData', JSON.stringify(prefs))
 }
+dis
 
 /* PAGE CONTROLE */
 const pages = $('.page')
@@ -435,36 +448,12 @@ function nthUpTo9ToString(n) {
 
 var categoryIndexToStringTable = null;
 
-/*
-I do some clever programmer stuff here that is done for good reasons which 
-may be subtle to the casual even somewhat skilled reader.  Please allow me to
-explain.  First, I need a function to help me translate category indexes to
-strings to allow me to populate the leaderboard with meaningful category names.
-Categories are represented throughout this script and localStorage by numeric IDs
-that are used to pass into the Q&A API.  To translate an ID to a category string,
-I *could* have used a fat switch statement but that switch statement would be
-redundant with a global variable, categoryIcons, that I already was already
-painstakingly filled out.
-So instead, I use a mapping table which I generate from categoryIcons to use as
-a lookup like so:
-   categoryIndexToStringTable[index]
-
-But I don't use a JavaScript object key/value map for this.  Why?
-I use an array because the category indexes are small integers which would
-allow for indexes into an array which is a fundamental pointer-math easy-peasy lookup
-whereas lookup by strings uses a hash-table, which is fine enough in most cases, 
-but an array was easy enough to do instead.
-
-This array that I build, categoryIndexToStringTable, is cached so that it only needs
-to be constructed the first time it is used.
-
-* As an aside, I know that "indexes" is not a word.  
-  The "correct" word is "indices" but that word is stupid so I prefer the incorrect one.
-*/
-
-function stringifyCategory(category)
-{
-    if(categoryIndexToStringTable === null) {
+/**Turn the category into a string
+ * 
+ * @param {string} category 
+ */
+function stringifyCategory(category) {
+    if (categoryIndexToStringTable === null) {
         categoryIndexToStringTable = new Array(Object.keys(categoryIcons).length)
         for(const catName in categoryIcons) {
             let svgAndIndexPair = categoryIcons[catName]
@@ -473,12 +462,17 @@ function stringifyCategory(category)
         }
     }
 
-    if(!category) {
+    if (!category) {
         return "Any"
     }
     return categoryIndexToStringTable[parseInt(category)]
 }
 
+/**Get the gif for the page.
+ * 
+ * @param {boolean} correct The user provided the correct answer
+ * @param {element} element the element to attatch the gif to
+ */
 function getRightWrongGif(correct, element) {
     let options = (correct ? [
         ['correct', 1139],
@@ -511,6 +505,10 @@ function getRightWrongGif(correct, element) {
     })
 }
 
+/**Get the gif for the page.
+ * 
+ * @param {element} element the element to attatch the gif to
+ */
 function getFinalGif(element) {
     let perc = score[0] / score[1]
     let lookup
