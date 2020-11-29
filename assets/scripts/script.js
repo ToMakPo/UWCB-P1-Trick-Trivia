@@ -86,7 +86,6 @@ const endGameButton2 = $('#end-game-button2')
 function init() {
     //Display the landing page.
     displayPage('landing')
-    Str
 
     //Set the event listener of the back button to go back to the specified page.
     backButton.on('click', event => displayPage('landing'))
@@ -243,7 +242,6 @@ function saveScoreToLocalStorage(name, score, category) {
 function savePrefs() {
     localStorage.setItem('TrickTriviaData', JSON.stringify(prefs))
 }
-dis
 
 /* PAGE CONTROLE */
 const pages = $('.page')
